@@ -89,7 +89,7 @@ src/
 
 1. **Clone the repo**
    ```sh
-   git clone https://github.com/mdadeel/portfolio-react.git
+   git clone https://github.com/mdadeel/Md-Adeel.git
    ```
 2. **Install dependencies**
    ```sh
@@ -106,7 +106,7 @@ src/
 
 Shahnawas Adeel - [@mdadeel](https://github.com/mdadeel) - shahnawasadeel@gmail.com
 
-Project Link: [https://github.com/mdadeel/portfolio-react](https://github.com/mdadeel/portfolio-react)
+Project Link: [https://github.com/mdadeel/portfolio-react](https://github.com/mdadeel/Md-Adeel)
 
 <div align="center">
   <br />
