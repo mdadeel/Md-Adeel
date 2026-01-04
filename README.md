@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/mdadeel/portfolio-react/main/public/img/hero.jpg" width="120" height="120" style="border-radius: 50%; border: 2px solid #36e27b; padding: 5px;" alt="Shahnawas Adeel Logo" />
+  <img src="public/logo.png" width="120" height="120" style="border-radius: 20px; border: 2px solid #36e27b; padding: 5px; background: #0a0a0a;" alt="Shahnawas Adeel Logo" />
   
   # 🌌 Shahnawas Adeel | Portfolio
   
