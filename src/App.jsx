@@ -11,7 +11,6 @@ import ScrollToTop from './components/ui/ScrollToTop';
 const About = lazy(() => import('./components/sections/About'));
 const Skills = lazy(() => import('./components/sections/Skills'));
 const Experience = lazy(() => import('./components/sections/Experience'));
-const Education = lazy(() => import('./components/sections/Education'));
 const Projects = lazy(() => import('./components/sections/Projects'));
 const Contact = lazy(() => import('./components/sections/Contact'));
 
@@ -28,7 +27,6 @@ function App() {
             <Skills />
             <Projects />
             <Experience />
-            <Education />
             <Contact />
           </Suspense>
         </main>
