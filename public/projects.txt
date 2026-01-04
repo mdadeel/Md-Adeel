@@ -1,0 +1,96 @@
+[ https://e-tuitionhub.vercel.app/ github: https://github.com/mdadeel/etuitionhub-frontend 
+descriptions : eTuitionBD
+  eTuitionBD is a comprehensive online tuition management platform that connects students with qualified tutors
+  in Bangladesh. The platform streamlines the process of finding, applying for, and managing tuition
+  opportunities with automated workflows, digital tracking, and transparent payment systems.
+
+  TECH_STACK
+   - Frontend: React 19, Vite, Tailwind CSS, DaisyUI
+   - Backend: Node.js, Express, MongoDB with Mongoose
+   - Authentication: Firebase, JWT
+   - Payments: Stripe
+   - Styling: Tailwind CSS + DaisyUI
+   - Other: React Router DOM, Axios, Framer Motion, AOS animations
+
+  CHALLENGES
+   - Implementing role-based access control for students, tutors, and admin users with different dashboard
+     functionalities
+   - Integrating Stripe payment system for tuition transactions with proper security measures
+   - Managing real-time application status updates between tutors and students
+   - Handling serverless database connections efficiently to prevent multiple connections in Vercel environment
+   - Creating a comprehensive dashboard system with different views for each user role
+
+  IMPROVEMENTS
+   - Planning to enhance the matching algorithm between tutors and tuition requirements
+   - Adding video calling integration for online tutoring sessions
+   - Implementing a rating and review system for both tutors and students
+   - Adding more advanced filtering and search capabilities for tuition posts
+   - Expanding to support more subjects and educational levels
+   - Adding notification systems for application updates and payment confirmations
+] 
+
+
+[ https://iehub.vercel.app/ github: /github.com/mdadeel/iehub-client
+description : Import-Export Hub (IEHUB)
+
+  Import-Export Hub is a sophisticated global trade platform that connects exporters and importers worldwide.
+  The platform allows users to list their export products and import goods from other international suppliers,
+  creating a seamless ecosystem for global commerce.
+
+  TECH_STACK
+   - React 19.2.0
+   - Node.js/Express
+   - MongoDB/Mongoose
+   - Firebase Authentication
+   - Framer Motion (Animations)
+   - Tailwind CSS (Styling)
+   - React Router DOM
+   - Recharts (Data Visualization)
+
+  CHALLENGES
+   - Implementing real-time inventory management to prevent overselling when multiple users import the same
+     product
+   - Building a sophisticated search and filtering system that handles multiple parameters (category, price,
+     origin, rating)
+   - Creating an intuitive user experience for both exporters (listing products) and importers (finding and
+     importing goods)
+   - Managing complex state for product listings, user imports, and inventory tracking across the platform
+
+  IMPROVEMENTS
+   - Planning to add advanced analytics dashboard for trade insights and performance tracking
+   - Implementing a rating/review system for products and users to build trust
+   - Adding multi-language support for global accessibility
+   - Integrating payment gateways for secure transactions
+   - Developing a mobile app using React Native for on-the-go trading
+   - Adding logistics and shipping tracking integration
+   - Implementing AI-powered product recommendations based on user behavior
+]
+[ https://toy-topia-ashy.vercel.app/ github: https://github.com/mdadeel/ToyTopia
+description :  ToyTopia
+  ToyTopia is a premium marketplace platform designed for local toy discoveries, connecting families with local
+  toy sellers. The platform offers a comprehensive catalog of quality toys with detailed information, seller
+  details, and user ratings to help parents make informed decisions for their children.
+
+  TECH_STACK
+   - React
+   - Firebase (Authentication & Backend)
+   - Tailwind CSS + DaisyUI
+   - Swiper.js (for carousels)
+   - AOS (Animate On Scroll)
+
+  CHALLENGES
+   - Implementing a robust authentication system with email/password and Google sign-in options
+   - Managing local favorites storage and integrating it with the user profile system
+   - Creating a responsive UI that works well across mobile and desktop devices
+   - Building an effective search and filtering system for toy categories
+
+  IMPROVEMENTS
+   - Planning to integrate with a live backend API instead of using static JSON data
+   - Adding more advanced filtering and sorting options for toys
+   - Implementing a review/rating system for toys
+   - Adding order management and checkout functionality
+   - Enhancing the seller dashboard for inventory management
+]
+
+
+images in img file

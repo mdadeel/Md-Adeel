@@ -1,0 +1,200 @@
+.profile-card-wrapper {
+    perspective: 1500px;
+}
+
+.profile-card {
+    position: relative;
+    width: 360px;
+    height: 480px;
+    background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(10, 10, 10, 0.95));
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    will-change: transform;
+    box-shadow:
+        0 25px 50px -12px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+}
+
+.profile-card-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.profile-card:hover .profile-card-glow {
+    opacity: 1;
+}
+
+.profile-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    z-index: 2;
+}
+
+/* Avatar */
+.profile-card-avatar {
+    position: relative;
+    width: 240px;
+    height: 300px;
+    margin-bottom: 1.5rem;
+}
+
+.profile-card-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    filter: grayscale(100%) brightness(0.8);
+    transition: filter 0.7s ease, transform 0.5s ease;
+}
+
+.profile-card:hover .profile-card-avatar img {
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.02);
+}
+
+.profile-card-avatar-ring {
+    position: absolute;
+    inset: -8px;
+    border: 1px solid rgba(54, 226, 123, 0.2);
+    border-radius: 20px;
+    transition: border-color 0.3s ease;
+}
+
+.profile-card:hover .profile-card-avatar-ring {
+    border-color: rgba(54, 226, 123, 0.4);
+}
+
+/* User Info */
+.profile-card-info {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.profile-card-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin: 0 0 4px 0;
+}
+
+.profile-card-title {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0 8px 0;
+    font-weight: 400;
+}
+
+/* Handle Button */
+.profile-card-handle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    margin-top: 4px;
+    font-size: 0.75rem;
+    font-family: monospace;
+    color: #fff;
+    background: rgba(54, 226, 123, 0.15);
+    border: 1px solid rgba(54, 226, 123, 0.3);
+    border-radius: 20px;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.profile-card-handle-btn:hover {
+    background: rgba(54, 226, 123, 0.25);
+    border-color: rgba(54, 226, 123, 0.6);
+    color: #36e27b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(54, 226, 123, 0.2);
+}
+
+.profile-card-handle-icon {
+    width: 14px;
+    height: 14px;
+}
+
+/* Icon */
+.profile-card-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 32px;
+    height: 32px;
+    color: rgba(255, 255, 255, 0.3);
+    transition: color 0.3s ease;
+}
+
+.profile-card:hover .profile-card-icon {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.profile-card-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Corner Decorations */
+.profile-card-corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    z-index: 3;
+    transition: all 0.3s ease;
+}
+
+.profile-card-corner-tl {
+    top: -1px;
+    left: -1px;
+    border-top: 2px solid rgba(54, 226, 123, 0.3);
+    border-left: 2px solid rgba(54, 226, 123, 0.3);
+}
+
+.profile-card-corner-br {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 2px solid rgba(54, 226, 123, 0.3);
+    border-right: 2px solid rgba(54, 226, 123, 0.3);
+}
+
+.profile-card:hover .profile-card-corner {
+    width: 30px;
+    height: 30px;
+}
+
+.profile-card:hover .profile-card-corner-tl,
+.profile-card:hover .profile-card-corner-br {
+    border-color: rgba(54, 226, 123, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-card {
+        width: 300px;
+        height: 420px;
+    }
+
+    .profile-card-avatar {
+        width: 200px;
+        height: 260px;
+    }
+
+    .profile-card-name {
+        font-size: 1.25rem;
+    }
+}
