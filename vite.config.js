@@ -15,15 +15,13 @@ export default defineConfig({
     })
   ],
   build: {
-    target: 'esnext', // Modern browsers, smaller code
+    target: 'esnext',
     minify: 'esbuild',
     cssCodeSplit: true,
-    chunkSizeWarningLimit: 1600, // Three.js is heavy
     rollupOptions: {
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
-          'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
           'motion-vendor': ['framer-motion'],
         },
       },

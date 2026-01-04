@@ -3,7 +3,7 @@
 @theme {
   --color-primary: #36e27b;
   --color-background-light: #f6f8f7;
-  --color-background-dark: #112117;
+  --color-background-dark: #000000;
   --color-card-dark: #1c2620;
   --color-border-dark: #29382f;
   --color-surface-dark: #1a2c22;
@@ -53,7 +53,7 @@
 
 /* Custom styles */
 .glass-nav {
-  background: rgba(17, 33, 23, 0.7);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -75,7 +75,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #112117;
+  background: #000;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -89,19 +89,18 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #112117;
+  background-color: #000;
 }
 
 body {
   font-family: var(--font-display);
-  background-color: #112117;
+  background-color: #000;
   color: #ffffff;
   min-height: 100vh;
-  transition: background-color 0.3s, color 0.3s;
 }
 
 #root {
-  background-color: #112117;
+  background-color: #000;
   min-height: 100vh;
 }
 
