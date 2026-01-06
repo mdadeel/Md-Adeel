@@ -18,7 +18,7 @@ export default function Hero() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl h-full bg-primary/5 blur-[120px] pointer-events-none opacity-30" />
 
             {/* Snow Effect */}
-            <SnowEffect count={150} opacity={0.3} speed={0.5} />
+            <SnowEffect count={75} opacity={0.15} speed={0.3} />  {/* Reduced from 150, 0.3, 0.5 */}
 
             <div className="layout-container relative z-10">
                 {/* Mobile Hero (V2) - Profile Card Aesthetic */}

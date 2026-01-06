@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 import gsap from 'gsap';
 import './ProfileCard.css';
 
@@ -16,81 +16,102 @@ export default function ProfileCard({
     const cardRef = useRef(null);
     const glowRef = useRef(null);
 
-    useEffect(() => {
+    // Use useCallback to prevent recreation on every render
+    const rotateToMouse = useCallback((e) => {
         const card = cardRef.current;
         const glow = glowRef.current;
         if (!card) return;
 
-        let bounds;
-        let isTouching = false;
+        const bounds = card.getBoundingClientRect();
+        const mouseX = e.clientX ?? e.touches?.[0]?.clientX;
+        const mouseY = e.clientY ?? e.touches?.[0]?.clientY;
 
-        const rotateToMouse = (e) => {
-            const mouseX = e.clientX ?? e.touches?.[0]?.clientX;
-            const mouseY = e.clientY ?? e.touches?.[0]?.clientY;
+        const leftX = mouseX - bounds.x;
+        const topY = mouseY - bounds.y;
+        const center = {
+            x: leftX - bounds.width / 2,
+            y: topY - bounds.height / 2,
+        };
 
-            const leftX = mouseX - bounds.x;
-            const topY = mouseY - bounds.y;
-            const center = {
-                x: leftX - bounds.width / 2,
-                y: topY - bounds.height / 2,
-            };
-            const distance = Math.sqrt(center.x ** 2 + center.y ** 2);
+        // Throttle the GSAP animations to improve performance
+        gsap.to(card, {
+            rotateX: -center.y / 20, // Reduced sensitivity
+            rotateY: center.x / 20,   // Reduced sensitivity
+            duration: 0.4, // Slightly longer duration for smoother animation
+            ease: 'power2.out',
+            overwrite: 'auto' // Prevent animation queuing
+        });
 
-            gsap.to(card, {
-                rotateX: -center.y / 15,
-                rotateY: center.x / 15,
-                duration: 0.5,
-                ease: 'power2.out',
-            });
-
-            if (glow) {
-                gsap.to(glow, {
-                    background: `
+        if (glow) {
+            gsap.to(glow, {
+                background: `
             radial-gradient(
               circle at ${leftX}px ${topY}px,
-              rgba(54, 226, 123, 0.3),
+              rgba(54, 226, 123, 0.2), // Reduced opacity
               transparent 40%
             )
           `,
-                    duration: 0.3,
-                });
-            }
-        };
+                duration: 0.4,
+                overwrite: 'auto'
+            });
+        }
+    }, []);
 
-        const handleEnter = () => {
-            bounds = card.getBoundingClientRect();
-            gsap.to(card, { scale: 1.05, duration: 0.3, ease: 'power2.out' });
-        };
+    const handleEnter = useCallback(() => {
+        const card = cardRef.current;
+        if (!card) return;
 
-        const handleLeave = () => {
+        const bounds = card.getBoundingClientRect();
+        gsap.to(card, {
+            scale: 1.03, // Reduced scale for less intensive transform
+            duration: 0.4,
+            ease: 'power2.out',
+            overwrite: 'auto'
+        });
+    }, []);
+
+    const handleLeave = useCallback(() => {
+        const card = cardRef.current;
+        const glow = glowRef.current;
+
+        if (card) {
             gsap.to(card, {
                 rotateX: 0,
                 rotateY: 0,
                 scale: 1,
-                duration: 0.5,
+                duration: 0.4, // Match enter duration
                 ease: 'power2.out',
+                overwrite: 'auto'
             });
-            if (glow) {
-                gsap.to(glow, { background: 'transparent', duration: 0.3 });
-            }
-        };
+        }
+        if (glow) {
+            gsap.to(glow, {
+                background: 'transparent',
+                duration: 0.4,
+                overwrite: 'auto'
+            });
+        }
+    }, []);
 
-        const handleTouchStart = (e) => {
-            if (!enableMobileTilt) return;
-            isTouching = true;
-            bounds = card.getBoundingClientRect();
-            rotateToMouse(e);
-        };
+    const handleTouchStart = useCallback((e) => {
+        if (!enableMobileTilt) return;
+        rotateToMouse(e);
+    }, [enableMobileTilt, rotateToMouse]);
 
-        const handleTouchMove = (e) => {
-            if (!enableMobileTilt || !isTouching) return;
-            rotateToMouse(e);
-        };
+    const handleTouchMove = useCallback((e) => {
+        if (!enableMobileTilt) return;
+        e.preventDefault(); // Prevent scrolling while interacting
+        rotateToMouse(e);
+    }, [enableMobileTilt, rotateToMouse]);
 
-        const handleTouchEnd = () => {
-            isTouching = false;
-            handleLeave();
-        };
+    const handleTouchEnd = useCallback(() => {
+        handleLeave();
+    }, [handleLeave]);
+
+    useEffect(() => {
+        const card = cardRef.current;
+        const glow = glowRef.current;
+        if (!card) return;
 
         // Desktop events
         card.addEventListener('mouseenter', handleEnter);
@@ -99,8 +120,8 @@ export default function ProfileCard({
 
         // Mobile events
         if (enableMobileTilt) {
-            card.addEventListener('touchstart', handleTouchStart, { passive: true });
-            card.addEventListener('touchmove', handleTouchMove, { passive: true });
+            card.addEventListener('touchstart', handleTouchStart, { passive: false });
+            card.addEventListener('touchmove', handleTouchMove, { passive: false });
             card.addEventListener('touchend', handleTouchEnd);
         }
 
@@ -111,8 +132,12 @@ export default function ProfileCard({
             card.removeEventListener('touchstart', handleTouchStart);
             card.removeEventListener('touchmove', handleTouchMove);
             card.removeEventListener('touchend', handleTouchEnd);
+
+            // Kill any ongoing GSAP animations on cleanup
+            if (card) gsap.killTweensOf(card);
+            if (glow) gsap.killTweensOf(glow);
         };
-    }, [enableMobileTilt]);
+    }, [enableMobileTilt, handleEnter, handleLeave, handleTouchStart, handleTouchMove, handleTouchEnd, rotateToMouse]);
 
     return (
         <div className={`profile-card-wrapper ${className}`}>

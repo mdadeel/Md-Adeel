@@ -1,14 +1,22 @@
 import { useEffect, useRef } from 'react';
 
 export default function SnowEffect({
-    count = 100,
+    count = 50, // Reduced from 100 to 50
     color = '#ffffff',
-    speed = 1,
-    opacity = 0.4
+    speed = 0.5, // Reduced from 1
+    opacity = 0.2 // Reduced from 0.4
 }) {
     const canvasRef = useRef(null);
 
     useEffect(() => {
+        // Check if device has limited performance
+        const isLowPerformance = window.navigator &&
+            (window.navigator.hardwareConcurrency < 4 ||
+             window.navigator.deviceMemory < 4);
+
+        // Reduce particle count on low performance devices
+        const adjustedCount = isLowPerformance ? Math.floor(count / 2) : count;
+
         const canvas = canvasRef.current;
         if (!canvas) return;
 
@@ -25,20 +33,21 @@ export default function SnowEffect({
         // Initialize particles
         const initParticles = () => {
             particles = [];
-            for (let i = 0; i < count; i++) {
+            for (let i = 0; i < adjustedCount; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    radius: Math.random() * 2 + 1,
-                    speedY: Math.random() * speed + 0.5,
-                    speedX: Math.random() * 1 - 0.5,
-                    opacity: Math.random() * opacity
+                    radius: Math.random() * 1.5 + 0.5, // Smaller particles
+                    speedY: Math.random() * speed + 0.25, // Slower speed
+                    speedX: (Math.random() - 0.5) * 0.5, // Slower speed
+                    opacity: Math.random() * opacity * 0.7 // Reduced opacity
                 });
             }
         };
 
-        // Animation loop
+        // Animation loop with performance optimization
         const animate = () => {
+            // Only clear and redraw every other frame to reduce CPU load
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             particles.forEach(p => {

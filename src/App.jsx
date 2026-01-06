@@ -22,12 +22,14 @@ function App() {
         <Navbar />
         <main>
           <Hero />
-          <Suspense fallback={<div className="min-h-[50vh]" />}>
-            <About />
-            <Skills />
-            <Projects />
-            <Experience />
-            <Contact />
+          <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center">Loading...</div>}>
+            <div className="contents">
+              <About />
+              <Skills />
+              <Projects />
+              <Experience />
+              <Contact />
+            </div>
           </Suspense>
         </main>
         <Footer />

@@ -59,7 +59,7 @@ const bottomRow = [
     { id: 'design', name: 'Design', icon: icons.design },
 ];
 
-const MarqueeRow = ({ items, direction = 'left', speed = 20 }) => {
+const MarqueeRow = ({ items, direction = 'left', speed = 40 }) => { // Increased duration to reduce animation frequency
     return (
         <div className="flex overflow-hidden w-full mask-gradient-x">
             <motion.div
@@ -73,7 +73,7 @@ const MarqueeRow = ({ items, direction = 'left', speed = 20 }) => {
                 }}
                 className="flex gap-4 min-w-max px-2"
             >
-                {[...items, ...items, ...items, ...items].map((item, idx) => (
+                {[...items, ...items].map((item, idx) => ( // Reduced from 4 repetitions to 2 to reduce DOM elements
                     <div
                         key={`${item.id}-${idx}`}
                         className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/5 hover:border-primary/20 backdrop-blur-sm transition-colors text-white/50 hover:text-white"

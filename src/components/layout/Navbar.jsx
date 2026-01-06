@@ -42,54 +42,76 @@ export default function Navbar() {
 
     // Scroll & Intersection Observer
     useEffect(() => {
+        const observerOptions = {
+            threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+            rootMargin: "-25% 0px -25% 0px"
+        };
+
+        const observedElements = new Set();
+
         const observer = new IntersectionObserver(
             (entries) => {
+                // We want to find the section that is most prominent in the 
+                // "active" part of the screen (the center 50%)
+                let bestEntry = null;
+                let maxRatio = 0;
+
                 entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        // Prioritize based on center of view
-                        setActiveSection(entry.target.id);
+                    if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+                        maxRatio = entry.intersectionRatio;
+                        bestEntry = entry;
                     }
                 });
+
+                if (bestEntry && maxRatio > 0.15) {
+                    setActiveSection(bestEntry.target.id);
+                }
             },
-            {
-                threshold: [0.1, 0.5],
-                rootMargin: '-20% 0px -20% 0px'
-            }
+            observerOptions
         );
 
-        // Special handling for top of page (Home)
+        const observeSections = () => {
+            navItems.forEach(item => {
+                const section = document.getElementById(item.id);
+                if (section && !observedElements.has(section)) {
+                    observer.observe(section);
+                    observedElements.add(section);
+                }
+            });
+        };
+
+        // MutationObserver to catch lazy-loaded sections when they appear in DOM
+        const mutationObserver = new MutationObserver(() => {
+            observeSections();
+        });
+
+        mutationObserver.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+
+        // Initial check
+        observeSections();
+
+        // Special handling for top/bottom
         const handleScroll = () => {
-            if (window.scrollY < 100) {
+            if (window.scrollY < 50) {
                 setActiveSection('hero');
+                return;
+            }
+
+            // Check if bottomed out
+            if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50) {
+                setActiveSection('contact');
             }
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
 
-        const sectionsToObserve = navItems.map(item => item.id);
-        const observedIds = new Set();
-
-        const scanAndObserve = () => {
-            sectionsToObserve.forEach(id => {
-                if (observedIds.has(id)) return;
-                const section = document.getElementById(id);
-                if (section) {
-                    observer.observe(section);
-                    observedIds.add(id);
-                }
-            });
-            return observedIds.size === sectionsToObserve.length;
-        };
-
-        scanAndObserve();
-        const interval = setInterval(() => {
-            if (scanAndObserve()) clearInterval(interval);
-        }, 500);
-
         return () => {
             observer.disconnect();
+            mutationObserver.disconnect();
             window.removeEventListener('scroll', handleScroll);
-            clearInterval(interval);
         };
     }, []);
 
@@ -126,6 +148,7 @@ export default function Navbar() {
                             <a
                                 key={item.label}
                                 href={item.href}
+                                onClick={() => setActiveSection(item.id)}
                                 className={`relative px-4 py-1.5 text-xs font-mono font-medium transition-all duration-300 rounded-sm overflow-hidden group ${activeSection === item.id
                                     ? 'text-[#0a0f0c]'
                                     : 'text-white/60 hover:text-white'
@@ -135,7 +158,12 @@ export default function Navbar() {
                                     <motion.div
                                         layoutId="activeTab"
                                         className="absolute inset-0 bg-primary"
-                                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 380,
+                                            damping: 30,
+                                            mass: 1
+                                        }}
                                     />
                                 )}
                                 <span className="relative z-10 flex items-center gap-1">
@@ -198,7 +226,11 @@ export default function Navbar() {
                                 <motion.div
                                     layoutId="dockActive"
                                     className="absolute inset-0 bg-white/10 rounded-[18px]"
-                                    transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
+                                    transition={{
+                                        type: "spring",
+                                        stiffness: 400,
+                                        damping: 30
+                                    }}
                                 />
                             )}
                             <span className={`material-symbols-outlined text-2xl transition-all duration-300 ${activeSection === item.id ? 'text-primary' : 'text-white/30'}`}>
@@ -209,7 +241,12 @@ export default function Navbar() {
                             {activeSection === item.id && (
                                 <motion.div
                                     layoutId="activeDot"
-                                    className="absolute -bottom-1 w-1 h-1 bg-primary rounded-full shadow-[0_0_8px_#36e27b]"
+                                    className="absolute -bottom-1 w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_12px_#36e27b]"
+                                    transition={{
+                                        type: "spring",
+                                        stiffness: 500,
+                                        damping: 30
+                                    }}
                                 />
                             )}
                         </motion.a>
