@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { FadeIn, StaggerContainer, StaggerItem } from '../animations';
 import SystemHUD from '../ui/SystemHUD';
-import SplitText from '../animations/SplitText';
 import SnowEffect from '../ui/SnowEffect';
 import Magnetic from '../animations/Magnetic';
 import './Hero.css';
