@@ -71,24 +71,24 @@ const bottomRow = [
     { id: 'ui', name: 'UI Logic', icon: icons.logic },
 ];
 
-const MarqueeRow = ({ items, direction = 'left', speed = 40 }) => { // Increased duration to reduce animation frequency
+const MarqueeRow = ({ items, direction = 'left', speed = 40 }) => {
     return (
-        <div className="flex overflow-hidden w-full mask-gradient-x">
+        <div className="flex overflow-hidden w-full mask-gradient-x select-none pointer-events-none">
             <motion.div
-                initial={{ x: direction === 'left' ? 0 : -1000 }}
-                animate={{ x: direction === 'left' ? -1000 : 0 }}
+                initial={{ x: direction === 'left' ? 0 : "-50%" }}
+                animate={{ x: direction === 'left' ? "-50%" : 0 }}
                 transition={{
                     duration: speed,
                     repeat: Infinity,
                     ease: "linear",
                     repeatType: "loop"
                 }}
-                className="flex gap-4 min-w-max px-2"
+                className="flex gap-4 min-w-max px-2 will-change-transform"
             >
-                {[...items, ...items].map((item, idx) => ( // Reduced from 4 repetitions to 2 to reduce DOM elements
+                {[...items, ...items, ...items, ...items].map((item, idx) => (
                     <div
                         key={`${item.id}-${idx}`}
-                        className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 border border-white/20 hover:border-primary/40 backdrop-blur-sm transition-colors text-white/80 hover:text-white"
+                        className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-white/80"
                     >
                         <div className="w-5 h-5 flex items-center justify-center text-white/90">
                             {item.icon}

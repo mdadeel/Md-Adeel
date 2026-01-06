@@ -115,7 +115,7 @@ export default function Projects() {
                         </FadeIn>
                         <FadeIn delay={0.1}>
                             <h2 className="text-5xl md:text-8xl font-bold text-white tracking-tighter uppercase leading-none">
-                                Featured <br /> <span className="text-white/20 italic">Builds.</span>
+                                Featured <span className="text-white/20 italic">Builds.</span>
                             </h2>
                         </FadeIn>
                     </div>
@@ -138,6 +138,7 @@ export default function Projects() {
                                     <img
                                         src={project.image}
                                         alt={project.name}
+                                        loading="lazy"
                                         className="w-full h-full object-cover transition-all duration-700"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />

@@ -160,8 +160,8 @@ export default function Navbar() {
                                         className="absolute inset-0 bg-primary"
                                         transition={{
                                             type: "spring",
-                                            stiffness: 380,
-                                            damping: 30,
+                                            stiffness: 200,
+                                            damping: 25,
                                             mass: 1
                                         }}
                                     />
@@ -228,8 +228,8 @@ export default function Navbar() {
                                     className="absolute inset-0 bg-white/10 rounded-[18px]"
                                     transition={{
                                         type: "spring",
-                                        stiffness: 400,
-                                        damping: 30
+                                        stiffness: 250,
+                                        damping: 25
                                     }}
                                 />
                             )}

@@ -54,7 +54,7 @@ export default function Hero() {
                             <div className="relative flex justify-between items-center px-4 pt-3 pb-2 z-10">
                                 <span className="text-[8px] font-mono text-primary/60 tracking-widest">ID_AUTH_M</span>
                                 <div className="flex items-center gap-1.5">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_5px_#36e27b]" />
+                                    <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse opacity-70" />
                                     <span className="text-[7px] font-mono text-white/40 uppercase">Live</span>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@ export default function Hero() {
                                 <img
                                     src="/img/hero.jpg"
                                     alt="Shahnawas Adeel"
-                                    className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 transition-all duration-1000"
+                                    className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-1000"
                                 />
 
                                 {/* Mobile Biometric markers */}
@@ -79,8 +79,8 @@ export default function Hero() {
 
                     <div className="relative z-30 pt-16 text-center space-y-6">
                         <FadeIn delay={0.3}>
-                            <h1 className="text-6xl font-black tracking-tighter text-white leading-[0.85] group">
-                                <div className="overflow-hidden">
+                            <h1 className="text-6xl font-black tracking-tighter text-white leading-[1] group">
+                                <div className="overflow-hidden py-1">
                                     <motion.span
                                         initial={{ y: "100%" }}
                                         animate={{ y: 0 }}
@@ -90,7 +90,7 @@ export default function Hero() {
                                         SHAHNAWAS
                                     </motion.span>
                                 </div>
-                                <div className="overflow-hidden">
+                                <div className="overflow-hidden py-1">
                                     <motion.span
                                         initial={{ y: "100%" }}
                                         animate={{ y: 0 }}
