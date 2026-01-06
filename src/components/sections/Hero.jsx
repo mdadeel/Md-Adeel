@@ -16,12 +16,11 @@ const SOCIALS = [
 export default function Hero() {
     return (
         <section id="hero" className="relative z-10 min-h-[95vh] flex flex-col justify-start pt-16 pb-20 bg-black overflow-hidden">
-            {/* Minimal Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl h-full bg-primary/5 blur-[120px] pointer-events-none opacity-30" />
+            {/* Minimal Background Glow - Simplified for performance */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-[60%] bg-primary/3 blur-[80px] pointer-events-none opacity-20" />
 
-            {/* Architectural Grid Overlay */}
-            <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[linear-gradient(rgba(54,226,123,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(54,226,123,0.2)_1px,transparent_1px)] [background-size:40px_40px]" />
-            <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(rgba(54,226,123,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(54,226,123,0.1)_1px,transparent_1px)] [background-size:200px_200px]" />
+            {/* Architectural Grid Overlay - Single Layer for Performance */}
+            <div className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[linear-gradient(rgba(54,226,123,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(54,226,123,0.15)_1px,transparent_1px)] [background-size:60px_60px]" />
 
             {/* Banner Scanline */}
             <motion.div
@@ -41,8 +40,8 @@ export default function Hero() {
                 </svg>
             </div>
 
-            {/* Snow Effect */}
-            <SnowEffect count={75} opacity={0.15} speed={0.3} />
+            {/* Snow Effect - Reduced for performance */}
+            <SnowEffect count={25} opacity={0.08} speed={0.2} />
 
             <div className="layout-container relative z-10">
                 {/* Mobile Hero (V2) - Profile Card Aesthetic */}

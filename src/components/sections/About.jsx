@@ -55,7 +55,7 @@ export default function About() {
                                     <motion.div
                                         whileHover={{ y: -5, scale: 1.01 }}
                                         whileTap={{ scale: 0.98 }}
-                                        className="relative group p-6 md:p-7 rounded-[24px] bg-white/[0.02] border border-white/10 backdrop-blur-md overflow-hidden transition-all duration-500 hover:bg-white/[0.05] hover:border-primary/30"
+                                        className="relative group p-4 md:p-7 rounded-2xl md:rounded-[24px] bg-white/[0.02] border border-white/10 backdrop-blur-md overflow-hidden transition-all duration-500 hover:bg-white/[0.05] hover:border-primary/30"
                                     >
                                         {/* Dynamic Internal Glow */}
                                         <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[60px] rounded-full -mr-16 -mt-16 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -65,11 +65,11 @@ export default function About() {
                                         <div className="absolute top-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:via-primary/30 transition-all duration-500" />
 
                                         <div className="relative z-10">
-                                            <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-primary mb-5 group-hover:shadow-[0_0_20px_rgba(54,226,123,0.2)] transition-all ring-1 ring-white/10 group-hover:ring-primary/30">
-                                                <span className="material-symbols-outlined text-lg">{item.icon}</span>
+                                            <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-white/5 flex items-center justify-center text-primary mb-3 md:mb-5 group-hover:shadow-[0_0_20px_rgba(54,226,123,0.2)] transition-all ring-1 ring-white/10 group-hover:ring-primary/30">
+                                                <span className="material-symbols-outlined text-base md:text-lg">{item.icon}</span>
                                             </div>
-                                            <h4 className="text-lg font-bold text-white mb-2 tracking-tight group-hover:text-primary transition-colors">{item.title}</h4>
-                                            <p className="text-white/60 text-[13px] leading-relaxed font-light">
+                                            <h4 className="text-sm md:text-lg font-bold text-white mb-1 md:mb-2 tracking-tight group-hover:text-primary transition-colors">{item.title}</h4>
+                                            <p className="text-[10px] md:text-[13px] text-white/60 leading-relaxed font-light">
                                                 {item.desc}
                                             </p>
                                         </div>

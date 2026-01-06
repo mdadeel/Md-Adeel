@@ -115,9 +115,12 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer 4s ease-in-out infinite; /* Slower animation */
-  animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1); /* More efficient easing */
-  will-change: background-position; /* Optimize for animation */
+  animation: shimmer 4s ease-in-out infinite;
+  /* Slower animation */
+  animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+  /* More efficient easing */
+  will-change: background-position;
+  /* Optimize for animation */
 }
 
 @keyframes shimmer {
@@ -133,7 +136,8 @@ body {
 /* Glitch Text Effect - optimized */
 .glitch-text {
   position: relative;
-  transform: translateZ(0); /* Force hardware acceleration */
+  transform: translateZ(0);
+  /* Force hardware acceleration */
 }
 
 .glitch-text::before,
@@ -145,65 +149,80 @@ body {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transform: translateZ(0); /* Force hardware acceleration */
+  transform: translateZ(0);
+  /* Force hardware acceleration */
 }
 
 .glitch-text[data-glitching="true"]::before {
-  opacity: 0.6; /* Reduced opacity */
+  opacity: 0.6;
+  /* Reduced opacity */
   color: #ff0080;
-  animation: glitch-1 0.3s ease-out; /* Slower, more efficient animation */
+  animation: glitch-1 0.3s ease-out;
+  /* Slower, more efficient animation */
   clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
 }
 
 .glitch-text[data-glitching="true"]::after {
-  opacity: 0.6; /* Reduced opacity */
+  opacity: 0.6;
+  /* Reduced opacity */
   color: #00ffff;
-  animation: glitch-2 0.3s ease-out; /* Slower, more efficient animation */
+  animation: glitch-2 0.3s ease-out;
+  /* Slower, more efficient animation */
   clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
 }
 
 @keyframes glitch-1 {
+
   0%,
   100% {
     transform: translate(0);
   }
 
   20% {
-    transform: translate(-2px, 1px); /* Reduced movement */
+    transform: translate(-2px, 1px);
+    /* Reduced movement */
   }
 
   40% {
-    transform: translate(2px, -1px); /* Reduced movement */
+    transform: translate(2px, -1px);
+    /* Reduced movement */
   }
 
   60% {
-    transform: translate(-1px, 0.5px); /* Reduced movement */
+    transform: translate(-1px, 0.5px);
+    /* Reduced movement */
   }
 
   80% {
-    transform: translate(1px, -0.5px); /* Reduced movement */
+    transform: translate(1px, -0.5px);
+    /* Reduced movement */
   }
 }
 
 @keyframes glitch-2 {
+
   0%,
   100% {
     transform: translate(0);
   }
 
   20% {
-    transform: translate(2px, -1px); /* Reduced movement */
+    transform: translate(2px, -1px);
+    /* Reduced movement */
   }
 
   40% {
-    transform: translate(-2px, 1px); /* Reduced movement */
+    transform: translate(-2px, 1px);
+    /* Reduced movement */
   }
 
   60% {
-    transform: translate(1px, -0.5px); /* Reduced movement */
+    transform: translate(1px, -0.5px);
+    /* Reduced movement */
   }
 
   80% {
-    transform: translate(-1px, 0.5px); /* Reduced movement */
+    transform: translate(-1px, 0.5px);
+    /* Reduced movement */
   }
 }

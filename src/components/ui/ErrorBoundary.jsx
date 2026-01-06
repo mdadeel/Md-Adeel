@@ -27,7 +27,7 @@ class ErrorBoundary extends React.Component {
               A critical error occurred while rendering the interface. The system has been halted to prevent further instability.
             </p>
             <div className="pt-4">
-              <button 
+              <button
                 onClick={() => window.location.reload()}
                 className="px-6 py-2 bg-white/5 border border-white/10 rounded-full text-white text-sm font-medium hover:bg-white/10 transition-colors"
               >
