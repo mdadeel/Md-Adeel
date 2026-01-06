@@ -49,7 +49,7 @@ export default function About() {
                     {/* Bottom Section: Modular Hardware Highlights */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                         {/* Highlights Grid */}
-                        <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="md:col-span-2 grid grid-cols-2 gap-3 md:gap-4">
                             {highlights.map((item, idx) => (
                                 <FadeIn key={item.title} delay={0.1 * idx}>
                                     <motion.div

@@ -5,7 +5,7 @@ import { LazyMotion, domAnimation } from 'framer-motion';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
-import ScrollToTop from './components/ui/ScrollToTop';
+
 
 // Lazy load sections
 const About = lazy(() => import('./components/sections/About'));
@@ -35,7 +35,7 @@ function App() {
         <Footer />
 
         {/* UI Overlays */}
-        <ScrollToTop />
+
       </div>
     </LazyMotion>
   );

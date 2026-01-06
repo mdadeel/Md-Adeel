@@ -36,9 +36,6 @@ export default function SystemHUD({
                 {/* Optical Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
             </div>
-
-         
-
             {/* Technical Detail Lines (Decorative) */}
             <div className="absolute -left-12 top-1/2 -translate-y-1/2 h-full w-[1px] bg-gradient-to-b from-transparent via-primary/20 to-transparent hidden lg:block" />
             <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-8 h-[1px] bg-primary/30 hidden lg:block" />

@@ -4,6 +4,7 @@ import SystemHUD from '../ui/SystemHUD';
 import SplitText from '../animations/SplitText';
 import SnowEffect from '../ui/SnowEffect';
 import Magnetic from '../animations/Magnetic';
+import './Hero.css';
 
 const SOCIALS = [
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/shahnawasadee1/', icon: 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z' },
@@ -79,46 +80,56 @@ export default function Hero() {
                     </FadeIn>
 
                     <div className="relative z-30 pt-16 text-center space-y-6">
-                        <FadeIn delay={0.2}>
-                            <span className="inline-block py-1.5 px-3.5 rounded-full bg-white/10 border border-white/20 text-primary text-[11px] font-mono tracking-widest uppercase mb-6">
-                        // Technical_Toolkit
-                            </span>
-                        </FadeIn>
-
                         <FadeIn delay={0.3}>
-                            <h1 className="text-6xl font-bold tracking-tighter text-white leading-[0.85] group cursor-default">
-                                SHAHNAWAS <br />
-                                <span className="text-white/60 italic transition-all duration-500 group-hover:text-primary group-hover:text-white group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
-                                    ADEEL.
-                                </span>
+                            <h1 className="text-6xl font-black tracking-tighter text-white leading-[0.85] group">
+                                <div className="overflow-hidden">
+                                    <motion.span
+                                        initial={{ y: "100%" }}
+                                        animate={{ y: 0 }}
+                                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                        className="inline-block"
+                                    >
+                                        SHAHNAWAS
+                                    </motion.span>
+                                </div>
+                                <div className="overflow-hidden">
+                                    <motion.span
+                                        initial={{ y: "100%" }}
+                                        animate={{ y: 0 }}
+                                        transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                                        className="inline-block text-white/40 italic"
+                                    >
+                                        ADEEL
+                                    </motion.span>
+                                </div>
                             </h1>
                         </FadeIn>
 
                         <FadeIn delay={0.4}>
-                            <p className="max-w-[280px] mx-auto text-sm leading-relaxed text-white/60 font-light italic">
-                                "Architecture is the art of organizing complexity into refined systems."
+                            <p className="max-w-[280px] mx-auto text-sm leading-relaxed text-white/60 font-mono italic">
+                                [ LOG ]: Engineering high-performance React architectures.
                             </p>
                         </FadeIn>
 
                         <FadeIn delay={0.5} className="pt-6">
-                            <div className="flex flex-col gap-3 px-4 w-full max-w-[300px] mx-auto">
+                            <div className="flex flex-col gap-4 px-4 w-full max-w-[300px] mx-auto">
                                 <motion.a
                                     href="#projects"
-                                    whileTap={{ scale: 0.95 }}
-                                    className="h-14 rounded-2xl bg-primary text-black font-bold flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(54,226,123,0.3)] text-xs uppercase tracking-widest"
+                                    whileTap={{ scale: 0.98 }}
+                                    className="terminal-btn terminal-btn-primary flex items-center justify-center gap-2"
                                 >
-                                    Access Builds
-                                    <span className="material-symbols-outlined text-sm">terminal</span>
+                                    Initialize Projects
+                                    <span className="material-symbols-outlined text-xs">terminal</span>
                                 </motion.a>
                                 <motion.a
                                     href="/resume.pdf"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    whileTap={{ scale: 0.95 }}
-                                    className="h-14 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-white font-medium flex items-center justify-center gap-2 text-xs uppercase tracking-widest"
+                                    whileTap={{ scale: 0.98 }}
+                                    className="terminal-btn flex items-center justify-center gap-2"
                                 >
-                                    System_Doc
-                                    <span className="material-symbols-outlined text-sm">description</span>
+                                    Get_Manifesto
+                                    <span className="material-symbols-outlined text-xs">description</span>
                                 </motion.a>
                             </div>
                         </FadeIn>
@@ -148,62 +159,62 @@ export default function Hero() {
                 <div className="hidden lg:grid lg:grid-cols-2 gap-24 items-start pt-10">
                     {/* Left: Identity & CTAs */}
                     <div className="flex flex-col items-start text-left mt-10">
-                        <FadeIn>
-                            <span className="text-primary font-mono text-xs tracking-[0.3em] uppercase mb-4 inline-block">
-                                // System_Architect
-                            </span>
-                        </FadeIn>
-
-                        <div className="space-y-4">
+                        <div className="space-y-6">
                             <FadeIn delay={0.1}>
-                                <h1 className="text-7xl font-bold tracking-tighter text-white leading-none group cursor-default">
-                                    <SplitText
-                                        text="SHAHNAWAS"
-                                        delay={50}
-                                        animationFrom={{ opacity: 0, transform: 'translate3d(0,40px,0)' }}
-                                        animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-                                    />
-                                    <br />
-                                    <span className="text-white/60 italic transition-all duration-500 group-hover:text-white group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">
-                                        <SplitText
-                                            text="ADEEL."
-                                            delay={80}
-                                            animationFrom={{ opacity: 0, transform: 'scale(0.8) translate3d(20px,0,0)' }}
-                                            animationTo={{ opacity: 1, transform: 'scale(1) translate3d(0,0,0)' }}
-                                        />
-                                    </span>
+                                <h1 className="text-8xl font-black tracking-[-0.05em] text-white leading-[0.9] group cursor-default">
+                                    <div className="overflow-hidden">
+                                        <motion.span
+                                            initial={{ y: "100%" }}
+                                            animate={{ y: 0 }}
+                                            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                                            className="inline-block"
+                                        >
+                                            SHAHNAWAS
+                                        </motion.span>
+                                    </div>
+                                    <div className="overflow-hidden">
+                                        <motion.span
+                                            initial={{ y: "100%" }}
+                                            animate={{ y: 0 }}
+                                            transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                                            className="inline-block text-white/40 italic transition-colors duration-500 group-hover:text-primary"
+                                        >
+                                            ADEEL
+                                        </motion.span>
+                                    </div>
                                 </h1>
                             </FadeIn>
 
                             <FadeIn delay={0.2}>
-                                <p className="max-w-md text-lg leading-relaxed text-white/80 font-light">
-                                    Engineering high-performance web systems with a focus on React architectures and refined digital experiences.
-                                </p>
+                                <div className="flex gap-4">
+                                    <div className="w-[2px] h-full bg-primary/20" />
+                                    <p className="max-w-md text-xl leading-relaxed text-white/70 font-mono italic">
+                                        &gt; Engineering high-performance web systems with a focus on React architectures and refined digital experiences.
+                                    </p>
+                                </div>
                             </FadeIn>
                         </div>
 
                         {/* CTAs */}
                         <FadeIn delay={0.3} className="w-full">
-                            <div className="flex gap-4 mt-10 lg:w-auto">
+                            <div className="flex gap-6 mt-12 lg:w-auto">
                                 <motion.a
                                     href="#projects"
-                                    whileHover={{ scale: 1.02, x: 5 }}
                                     whileTap={{ scale: 0.98 }}
-                                    className="h-12 px-8 rounded-sm bg-primary text-black font-black flex items-center justify-center gap-3 transition-all text-[11px] uppercase tracking-widest shadow-[inset_0_0_0_1px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(54,226,123,0.4)]"
+                                    className="terminal-btn terminal-btn-primary flex items-center justify-center gap-4 group"
                                 >
-                                    Initialize Projects
-                                    <span className="material-symbols-outlined text-sm">terminal</span>
+                                    Initialize_Projects
+                                    <span className="material-symbols-outlined text-sm group-hover:rotate-90 transition-transform">terminal</span>
                                 </motion.a>
                                 <motion.a
                                     href="/resume.pdf"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
-                                    className="h-12 px-8 rounded-sm border border-white/20 text-white font-bold flex items-center justify-center gap-3 hover:bg-white/5 transition-all text-[11px] uppercase tracking-widest"
+                                    className="terminal-btn flex items-center justify-center gap-4 group"
                                 >
                                     Get_Manifesto
-                                    <span className="material-symbols-outlined text-sm">description</span>
+                                    <span className="material-symbols-outlined text-sm opacity-50 group-hover:opacity-100">description</span>
                                 </motion.a>
                             </div>
                         </FadeIn>
