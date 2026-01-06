@@ -48,22 +48,22 @@ export default function Hero() {
 
                     <div className="relative z-30 pt-16 text-center space-y-6">
                         <FadeIn delay={0.2}>
-                            <span className="text-primary font-mono text-[10px] tracking-[0.4em] uppercase opacity-60">
-                                // System_Architect_880
+                            <span className="inline-block py-1.5 px-3.5 rounded-full bg-white/10 border border-white/20 text-primary text-[11px] font-mono tracking-widest uppercase mb-6">
+                        // Technical_Toolkit
                             </span>
                         </FadeIn>
 
                         <FadeIn delay={0.3}>
                             <h1 className="text-6xl font-bold tracking-tighter text-white leading-[0.85] group cursor-default">
                                 SHAHNAWAS <br />
-                                <span className="text-white/20 italic transition-all duration-500 group-hover:text-primary group-hover:text-white group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
+                                <span className="text-white/60 italic transition-all duration-500 group-hover:text-primary group-hover:text-white group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
                                     ADEEL.
                                 </span>
                             </h1>
                         </FadeIn>
 
                         <FadeIn delay={0.4}>
-                            <p className="max-w-[280px] mx-auto text-sm leading-relaxed text-white/40 font-light italic">
+                            <p className="max-w-[280px] mx-auto text-sm leading-relaxed text-white/60 font-light italic">
                                 "Architecture is the art of organizing complexity into refined systems."
                             </p>
                         </FadeIn>
@@ -113,7 +113,7 @@ export default function Hero() {
                                         animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
                                     />
                                     <br />
-                                    <span className="text-white/40 italic transition-all duration-500 group-hover:text-white group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+                                    <span className="text-white/60 italic transition-all duration-500 group-hover:text-white group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">
                                         <SplitText
                                             text="ADEEL."
                                             delay={80}
@@ -125,7 +125,7 @@ export default function Hero() {
                             </FadeIn>
 
                             <FadeIn delay={0.2}>
-                                <p className="max-w-md text-lg leading-relaxed text-white/60 font-light">
+                                <p className="max-w-md text-lg leading-relaxed text-white/80 font-light">
                                     Engineering high-performance web systems with a focus on React architectures and refined digital experiences.
                                 </p>
                             </FadeIn>
@@ -159,7 +159,7 @@ export default function Hero() {
 
                         {/* Socials Inline */}
                         <FadeIn delay={0.4} className="mt-12 flex items-center gap-8">
-                            <span className="text-[10px] font-mono text-white/20 uppercase tracking-[0.2em]">Connect:</span>
+                            <span className="text-[10px] font-mono text-white/50 uppercase tracking-[0.2em]">Connect:</span>
                             <div className="flex gap-5">
                                 {SOCIALS.map((social) => (
                                     <motion.a
@@ -168,7 +168,7 @@ export default function Hero() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         whileHover={{ y: -2, color: '#36e27b' }}
-                                        className="text-white/30 hover:text-primary transition-all"
+                                        className="text-white/60 hover:text-primary transition-all"
                                     >
                                         <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
                                             <path d={social.icon} />
@@ -191,7 +191,7 @@ export default function Hero() {
             </div>
 
             {/* Ambient Footer Info */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-full max-w-[1280px] px-8 flex justify-between items-center opacity-20 hidden lg:flex">
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-full max-w-[1280px] px-8 flex justify-between items-center opacity-60 hidden lg:flex">
                 <span className="text-[10px] font-mono text-white tracking-[0.3em] uppercase">// Bangladesh_HQ</span>
                 <span className="text-[10px] font-mono text-white tracking-[0.3em] uppercase">[ 23°48'N 90°24'E ]</span>
             </div>

@@ -41,11 +41,11 @@ export default function History() {
           <div className="space-y-12">
             <div className="space-y-4">
               <FadeIn>
-                <span className="text-primary font-mono text-[10px] tracking-[0.3em] uppercase">// Career_History</span>
+                <span className="text-primary font-mono text-[11px] tracking-[0.3em] uppercase">// Career_History</span>
               </FadeIn>
               <FadeIn delay={0.1}>
                 <h2 className="text-4xl font-bold text-white tracking-tighter">
-                  Career <span className="text-white/40 italic">History.</span>
+                  Career <span className="text-white/60 italic">History.</span>
                 </h2>
               </FadeIn>
             </div>
@@ -55,13 +55,13 @@ export default function History() {
                 <FadeIn key={idx} delay={0.1 * idx}>
                   <div className="group relative py-8 border-b border-white/5 last:border-0 hover:bg-white/[0.02] px-4 -mx-4 transition-colors rounded-xl">
                     <div className="flex justify-between items-start mb-2">
-                      <h4 className="text-primary text-[10px] font-mono uppercase tracking-widest">{exp.role}</h4>
-                      <span className="text-[10px] font-mono text-white/20 uppercase tracking-widest">{exp.duration}</span>
+                      <h4 className="text-primary text-[11px] font-mono uppercase tracking-widest">{exp.role}</h4>
+                      <span className="text-[11px] font-mono text-white/50 uppercase tracking-widest">{exp.duration}</span>
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
                       {exp.company}
                     </h3>
-                    <p className="text-white/40 text-sm leading-relaxed font-light">
+                    <p className="text-white/70 text-sm md:text-base leading-relaxed font-normal italic border-l border-white/10 pl-4">
                       {exp.description}
                     </p>
                   </div>
@@ -74,11 +74,11 @@ export default function History() {
           <div className="space-y-12">
             <div className="space-y-4">
               <FadeIn>
-                <span className="text-primary font-mono text-[10px] tracking-[0.3em] uppercase">// Academic_Foundation</span>
+                <span className="text-primary font-mono text-[11px] tracking-[0.3em] uppercase">// Academic_Foundation</span>
               </FadeIn>
               <FadeIn delay={0.1}>
                 <h2 className="text-4xl font-bold text-white tracking-tighter">
-                  Learning <span className="text-white/40 italic">Timeline.</span>
+                  Learning <span className="text-white/60 italic">Timeline.</span>
                 </h2>
               </FadeIn>
             </div>
@@ -88,13 +88,13 @@ export default function History() {
                 <FadeIn key={idx} delay={0.16 + (idx * 0.1)}>
                   <div className="group relative py-8 border-b border-white/5 last:border-0 hover:bg-white/[0.02] px-4 -mx-4 transition-colors rounded-xl">
                     <div className="flex justify-between items-start mb-2">
-                      <h4 className="text-primary text-[10px] font-mono uppercase tracking-widest">{edu.degree}</h4>
-                      <span className="text-[10px] font-mono text-white/20 uppercase tracking-widest">{edu.duration}</span>
+                      <h4 className="text-primary text-[11px] font-mono uppercase tracking-widest">{edu.degree}</h4>
+                      <span className="text-[11px] font-mono text-white/50 uppercase tracking-widest">{edu.duration}</span>
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
                       {edu.school}
                     </h3>
-                    <p className="text-white/40 text-sm leading-relaxed font-light">
+                    <p className="text-white/70 text-sm md:text-base leading-relaxed font-normal italic border-l border-white/10 pl-4">
                       {edu.description}
                     </p>
                   </div>

@@ -137,7 +137,7 @@ export default function Navbar() {
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-sm font-bold text-white tracking-tight uppercase leading-none">Shahnawas Adeel</span>
-                                <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest mt-1">Frontend Architect</span>
+                                <span className="text-[11px] font-mono text-white/60 uppercase tracking-widest mt-1">Frontend Architect</span>
                             </div>
                         </a>
                     </div>
@@ -151,7 +151,7 @@ export default function Navbar() {
                                 onClick={() => setActiveSection(item.id)}
                                 className={`relative px-4 py-1.5 text-xs font-mono font-medium transition-all duration-300 rounded-sm overflow-hidden group ${activeSection === item.id
                                     ? 'text-[#0a0f0c]'
-                                    : 'text-white/60 hover:text-white'
+                                    : 'text-white/70 hover:text-white font-semibold'
                                     }`}
                             >
                                 {activeSection === item.id && (
@@ -176,8 +176,8 @@ export default function Navbar() {
 
                     {/* Right: Status & Time */}
                     <div className="flex items-center gap-4">
-                        <div className="flex items-center gap-4 font-mono text-xs text-white/40 md:border-r md:border-white/10 md:pr-4">
-                            <span className="tracking-widest">{time}</span>
+                        <div className="flex items-center gap-4 font-mono text-xs text-white/60 md:border-r md:border-white/20 md:pr-4">
+                            <span className="tracking-widest font-bold">{time}</span>
                         </div>
 
                         <div className="hidden sm:flex items-center gap-2">
@@ -188,7 +188,7 @@ export default function Navbar() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label={social.label}
-                                    className="flex h-8 w-8 items-center justify-center text-white/60 hover:text-primary hover:bg-white/5 rounded-sm transition-all p-2"
+                                    className="flex h-8 w-8 items-center justify-center text-white/70 hover:text-primary hover:bg-white/10 rounded-sm transition-all p-2"
                                 >
                                     <svg className="h-full w-full fill-current" viewBox="0 0 24 24">
                                         <path d={social.icon} />
@@ -233,7 +233,7 @@ export default function Navbar() {
                                     }}
                                 />
                             )}
-                            <span className={`material-symbols-outlined text-2xl transition-all duration-300 ${activeSection === item.id ? 'text-primary' : 'text-white/30'}`}>
+                            <span className={`material-symbols-outlined text-2xl transition-all duration-300 ${activeSection === item.id ? 'text-primary' : 'text-white/60'}`}>
                                 {item.icon}
                             </span>
 

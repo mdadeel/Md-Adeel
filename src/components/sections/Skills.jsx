@@ -43,6 +43,12 @@ const icons = {
     structure: <span className="material-symbols-outlined text-xl">view_quilt</span>,
     next: <span className="material-symbols-outlined text-xl">next_plan</span>,
     firebase: <span className="material-symbols-outlined text-xl">local_fire_department</span>,
+    node: <span className="material-symbols-outlined text-xl">javascript</span>,
+    express: <span className="material-symbols-outlined text-xl">api</span>,
+    mongodb: <span className="material-symbols-outlined text-xl">database</span>,
+    vercel: <span className="material-symbols-outlined text-xl">change_history</span>,
+    linux: <span className="material-symbols-outlined text-xl">computer</span>,
+    figma: <span className="material-symbols-outlined text-xl">draw</span>,
 };
 
 const topRow = [
@@ -50,13 +56,19 @@ const topRow = [
     { id: 'js', name: 'JavaScript', icon: icons.js },
     { id: 'html', name: 'HTML5', icon: icons.html },
     { id: 'tailwind', name: 'Tailwind', icon: icons.tailwind },
+    { id: 'node', name: 'Node.js', icon: icons.node },
+    { id: 'express', name: 'Express', icon: icons.express },
+    { id: 'mongodb', name: 'MongoDB', icon: icons.mongodb },
 ];
 
 const bottomRow = [
     { id: 'git', name: 'Git', icon: icons.git },
-    { id: 'term', name: 'Terminal', icon: icons.terminal },
-    { id: 'ui', name: 'UI Logic', icon: icons.logic },
+    { id: 'firebase', name: 'Firebase', icon: icons.firebase },
+    { id: 'vercel', name: 'Vercel', icon: icons.vercel },
+    { id: 'linux', name: 'Linux', icon: icons.linux },
+    { id: 'figma', name: 'Figma', icon: icons.figma },
     { id: 'design', name: 'Design', icon: icons.design },
+    { id: 'ui', name: 'UI Logic', icon: icons.logic },
 ];
 
 const MarqueeRow = ({ items, direction = 'left', speed = 40 }) => { // Increased duration to reduce animation frequency
@@ -76,12 +88,12 @@ const MarqueeRow = ({ items, direction = 'left', speed = 40 }) => { // Increased
                 {[...items, ...items].map((item, idx) => ( // Reduced from 4 repetitions to 2 to reduce DOM elements
                     <div
                         key={`${item.id}-${idx}`}
-                        className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/5 hover:border-primary/20 backdrop-blur-sm transition-colors text-white/50 hover:text-white"
+                        className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 border border-white/20 hover:border-primary/40 backdrop-blur-sm transition-colors text-white/80 hover:text-white"
                     >
-                        <div className="w-5 h-5 flex items-center justify-center text-white/70">
+                        <div className="w-5 h-5 flex items-center justify-center text-white/90">
                             {item.icon}
                         </div>
-                        <span className="text-sm font-medium">{item.name}</span>
+                        <span className="text-sm font-semibold">{item.name}</span>
                     </div>
                 ))}
             </motion.div>
@@ -94,7 +106,7 @@ export default function Skills() {
         <section id="skills" className="relative z-10 py-20 bg-black overflow-hidden">
             <div className="layout-container mb-12 text-center">
                 <FadeIn>
-                    <span className="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-primary text-[10px] font-mono tracking-widest uppercase mb-6">
+                    <span className="inline-block py-1.5 px-3.5 rounded-full bg-white/10 border border-white/20 text-primary text-[11px] font-mono tracking-widest uppercase mb-6">
                         // Technical_Toolkit
                     </span>
                 </FadeIn>

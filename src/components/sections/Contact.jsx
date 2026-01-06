@@ -53,8 +53,8 @@ export default function Contact() {
                                 scrollStart='center bottom+=50%'
                                 scrollEnd='bottom bottom-=40%'
                                 stagger={0.03}
-                                containerClassName="!text-6xl sm:!text-8xl lg:!text-[10rem] !font-bold !text-white/20 !tracking-tighter !leading-[0.8] !uppercase !select-none"
-                                textClassName="!text-6xl sm:!text-8xl lg:!text-[10rem] !font-bold !text-white/20 !tracking-tighter !leading-[0.8] !uppercase"
+                                containerClassName="!text-6xl sm:!text-8xl lg:!text-[10rem] !font-bold !text-white/40 !tracking-tighter !leading-[0.8] !uppercase !select-none"
+                                textClassName="!text-6xl sm:!text-8xl lg:!text-[10rem] !font-bold !text-white/40 !tracking-tighter !leading-[0.8] !uppercase"
                             >
                                 something
                             </ScrollFloat>
@@ -77,7 +77,7 @@ export default function Contact() {
                         <div className="flex flex-col gap-8">
                             <FadeIn delay={0.2}>
                                 <div className="space-y-6">
-                                    <p className="text-white/40 text-lg sm:text-xl font-light max-w-xl">
+                                    <p className="text-white/70 text-lg sm:text-xl font-light max-w-xl">
                                         I'm currently seeking new opportunities to collaborate on high-performance web systems and innovative digital products.
                                     </p>
 
@@ -99,10 +99,10 @@ export default function Contact() {
                                     {/* Phone Number */}
                                     <a
                                         href="tel:+8801533970377"
-                                        className="group flex items-center gap-4 text-white/60 hover:text-primary transition-colors duration-500"
+                                        className="group flex items-center gap-4 text-white/80 hover:text-primary transition-colors duration-500"
                                     >
-                                        <span className="material-symbols-outlined text-xl text-primary">call</span>
-                                        <span className="text-xl sm:text-2xl font-bold tracking-tight">
+                                        <span className="material-symbols-outlined text-xl text-primary font-bold">call</span>
+                                        <span className="text-xl sm:text-2xl font-black tracking-tight">
                                             +880 1533-970377
                                         </span>
                                     </a>
@@ -120,7 +120,7 @@ export default function Contact() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             whileHover={{ x: 4 }}
-                                            className="text-white/40 hover:text-white transition-colors text-sm font-medium uppercase tracking-widest"
+                                            className="text-white/60 hover:text-white transition-colors text-sm font-bold uppercase tracking-widest"
                                         >
                                             {social.name}
                                         </motion.a>
@@ -128,7 +128,7 @@ export default function Contact() {
                                 </div>
                             </FadeIn>
                             <FadeIn delay={0.4}>
-                                <div className="text-[10px] font-mono text-white/10 tracking-[0.2em] uppercase mt-4">
+                                <div className="text-[11px] font-mono text-white/40 tracking-[0.2em] uppercase mt-4">
                                     [ Built with React & Vite / 2025 ]
                                 </div>
                             </FadeIn>
