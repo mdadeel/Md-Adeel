@@ -36,7 +36,7 @@ export default function About() {
                                     </p>
                                     <button
                                         onClick={() => setIsReadMoreOpen(true)}
-                                        className="text-primary font-medium text-sm border-b border-primary/20 pb-0.5 hover:border-primary transition-all flex items-center gap-2 group mt-2"
+                                        className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-primary text-sm font-medium hover:bg-primary/5 hover:border-primary/40 transition-all group"
                                     >
                                         Read my full story
                                         <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">east</span>

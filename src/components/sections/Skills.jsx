@@ -103,7 +103,7 @@ const MarqueeRow = ({ items, direction = 'left', speed = 40 }) => {
 
 export default function Skills() {
     return (
-        <section id="skills" className="relative z-10 py-20 overflow-hidden">
+        <section id="skills" className="relative z-10 pt-32 pb-20 overflow-hidden">
             <div className="layout-container mb-12 text-center">
                 <FadeIn>
                     <span className="inline-block py-1.5 px-3.5 rounded-full bg-white/10 border border-white/20 text-primary text-[11px] font-mono tracking-widest uppercase mb-6">

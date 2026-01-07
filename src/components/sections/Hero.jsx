@@ -104,13 +104,13 @@ export default function Hero() {
                         </FadeIn>
 
                         <FadeIn delay={0.4}>
-                            <p className="max-w-[280px] mx-auto text-sm leading-relaxed text-white/60 font-mono italic">
+                            <p className="max-w-[280px] mx-auto text-sm leading-relaxed text-white/60 font-mono italic px-2">
                                 [ LOG ]: Engineering high-performance React architectures.
                             </p>
                         </FadeIn>
 
                         <FadeIn delay={0.5} className="pt-6">
-                            <div className="flex flex-col gap-4 px-4 w-full max-w-[300px] mx-auto">
+                            <div className="flex flex-col gap-5 px-4 w-full max-w-[300px] mx-auto">
                                 <motion.a
                                     href="#projects"
                                     whileTap={{ scale: 0.98 }}
@@ -195,7 +195,7 @@ export default function Hero() {
 
                         {/* CTAs */}
                         <FadeIn delay={0.3} className="w-full">
-                            <div className="flex gap-6 mt-12 lg:w-auto">
+                            <div className="flex gap-8 mt-12 lg:w-auto">
                                 <motion.a
                                     href="#projects"
                                     whileTap={{ scale: 0.98 }}

@@ -18,7 +18,7 @@ export default function Footer() {
     };
 
     return (
-        <footer className="relative z-10 w-full py-16 border-t border-white/5 bg-black">
+        <footer className="relative z-10 w-full py-20 pb-32 md:pb-20 border-t border-white/5 bg-black">
             <div className="layout-container">
                 <div className="flex flex-col items-center gap-10">
                     {/* Quick Nav */}
