@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
+import Logo from '../ui/Logo';
 
 const SOCIALS = [
     {
@@ -128,12 +129,8 @@ export default function Navbar() {
                     {/* Left: System ID */}
                     <div className="flex items-center gap-4">
                         <a href="#hero" className="group flex items-center gap-3" aria-label="Home">
-                            <div className="relative h-9 w-9 overflow-hidden rounded-lg bg-[#0d1510] border border-primary/20 group-hover:border-primary transition-all duration-500 shadow-[0_0_15px_rgba(54,226,123,0.1)] group-hover:shadow-[0_0_20px_rgba(54,226,123,0.2)]">
-                                <img
-                                    src="/logo.png"
-                                    alt="Nexus Logo"
-                                    className="h-full w-full object-contain p-1.5"
-                                />
+                            <div className="relative h-9 w-9 overflow-hidden rounded-lg bg-[#0d1510] border border-primary/20 group-hover:border-primary transition-all duration-500 shadow-[0_0_15px_rgba(54,226,123,0.1)] group-hover:shadow-[0_0_20px_rgba(54,226,123,0.2)] flex items-center justify-center p-1.5">
+                                <Logo className="h-full w-full" />
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-sm font-bold text-white tracking-tight uppercase leading-none">Shahnawas Adeel</span>

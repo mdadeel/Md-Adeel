@@ -5,13 +5,13 @@ const experiences = [
   {
     company: "Zahid's Chemistry Clinic",
     role: "Event Manager",
-    duration: "Jan 2023 - Present",
+    duration: "Jan 2023 - Mar 2023",
     description: "Coordinating high-impact organizational events and managing cross-functional teams."
   },
   {
     company: "Programming Hero",
     role: "Advanced Web Development",
-    duration: "Jan 2022 - Aug 2023",
+    duration: "Jan 2025 - Present",
     description: "Intensive immersion in modern frontend architectures and full-stack patterns."
   }
 ];
