@@ -33,7 +33,7 @@ const education = [
 
 export default function History() {
   return (
-    <section id="experience" className="relative z-10 py-20 bg-black border-t border-white/5">
+    <section id="experience" className="relative z-10 py-20 border-t border-white/5">
       <div className="layout-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
 

@@ -14,7 +14,7 @@ const SOCIALS = [
 
 export default function Hero() {
     return (
-        <section id="hero" className="relative z-10 min-h-[95vh] flex flex-col justify-start pt-16 pb-20 bg-black overflow-hidden">
+        <section id="hero" className="relative z-10 min-h-[95vh] flex flex-col justify-start pt-16 pb-20 overflow-hidden">
             {/* Minimal Background Glow - Simplified for performance */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-[60%] bg-primary/3 blur-[80px] pointer-events-none opacity-20" />
 

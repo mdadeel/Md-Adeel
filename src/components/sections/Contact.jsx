@@ -25,7 +25,7 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="relative z-10 py-12 md:py-24 bg-black overflow-hidden border-t border-white/5">
+        <section id="contact" className="relative z-10 py-12 md:py-24 overflow-hidden border-t border-white/5">
             <div className="layout-container">
                 <div className="flex flex-col items-center text-center gap-12 md:gap-20">
                     {/* Hero Statement */}

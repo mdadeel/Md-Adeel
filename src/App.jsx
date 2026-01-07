@@ -5,6 +5,7 @@ import { LazyMotion, domAnimation } from 'framer-motion';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
+import SystemBackground from './components/ui/SystemBackground';
 
 
 // Lazy load sections
@@ -18,6 +19,7 @@ function App() {
   return (
     <LazyMotion features={domAnimation}>
       <div className="min-h-screen overflow-x-hidden antialiased selection:bg-primary selection:text-[#112117]">
+        <SystemBackground />
         {/* Main Content */}
         <Navbar />
         <main>

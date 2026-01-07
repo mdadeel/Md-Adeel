@@ -103,7 +103,7 @@ export default function Projects() {
     const gridProjects = projects.filter(p => !p.featured);
 
     return (
-        <section id="projects" className="relative z-10 py-20 bg-black overflow-hidden">
+        <section id="projects" className="relative z-10 py-20 overflow-hidden">
             <div className="layout-container">
                 {/* Header */}
                 <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6 overflow-hidden">

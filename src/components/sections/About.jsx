@@ -13,7 +13,7 @@ export default function About() {
     const [isReadMoreOpen, setIsReadMoreOpen] = useState(false);
 
     return (
-        <section id="about" className="relative z-10 py-12 md:py-16 bg-black">
+        <section id="about" className="relative z-10 py-12 md:py-16">
             <div className="layout-container">
                 <div className="flex flex-col gap-10 md:gap-14">
                     {/* Top Section: Narrative */}
