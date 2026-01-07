@@ -114,7 +114,7 @@ export default function Hero() {
                                 <motion.a
                                     href="#projects"
                                     whileTap={{ scale: 0.98 }}
-                                    className="terminal-btn terminal-btn-primary flex items-center justify-center gap-2"
+                                    className="terminal-btn terminal-btn-primary flex items-center justify-center gap-2 text-[10px]"
                                 >
                                     Initialize Projects
                                     <span className="material-symbols-outlined text-xs">terminal</span>
@@ -124,7 +124,7 @@ export default function Hero() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     whileTap={{ scale: 0.98 }}
-                                    className="terminal-btn flex items-center justify-center gap-2"
+                                    className="terminal-btn flex items-center justify-center gap-2 text-[10px]"
                                 >
                                     Get_Manifesto
                                     <span className="material-symbols-outlined text-xs">description</span>

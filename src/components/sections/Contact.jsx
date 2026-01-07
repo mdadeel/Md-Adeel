@@ -158,7 +158,7 @@ export default function Contact() {
                                     {/* Email Block */}
                                     <div className="group relative">
                                         <div className="absolute -left-3 top-0 bottom-0 w-0.5 bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                        <label className="text-[9px] text-gray-500 font-mono uppercase tracking-[0.2em] mb-1.5 block group-hover:text-primary transition-colors">[EMAIL_PROTOCOL]</label>
+                                        <label className="text-[9px] text-gray-500 font-mono uppercase tracking-[0.1em] md:tracking-[0.2em] mb-1.5 block group-hover:text-primary transition-colors">[EMAIL_PROTOCOL]</label>
                                         <button
                                             onClick={handleCopyEmail}
                                             className="block w-full bg-white/5 border border-white/5 hover:border-primary/50 text-left p-4 transition-all duration-300 group-hover:bg-primary/5 active:scale-[0.98]"
@@ -177,7 +177,7 @@ export default function Contact() {
                                     {/* Phone Block */}
                                     <div className="group relative">
                                         <div className="absolute -left-3 top-0 bottom-0 w-0.5 bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                        <label className="text-[9px] text-gray-500 font-mono uppercase tracking-[0.2em] mb-1.5 block group-hover:text-primary transition-colors">[PHONE_UPLINK]</label>
+                                        <label className="text-[9px] text-gray-500 font-mono uppercase tracking-[0.1em] md:tracking-[0.2em] mb-1.5 block group-hover:text-primary transition-colors">[PHONE_UPLINK]</label>
                                         <a
                                             href="tel:+8801533970377"
                                             className="block w-full bg-white/5 border border-white/5 hover:border-primary/50 p-4 transition-all duration-300 group-hover:bg-primary/5"

@@ -1,4 +1,4 @@
-/* Hero.css */
+    /* Hero.css */
 
 .identity-header-bracket {
     position: relative;
@@ -55,6 +55,20 @@
     text-transform: uppercase;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    width: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+    .terminal-btn {
+        padding: 0.6rem 1rem;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        width: 100%;
+    }
 }
 
 .terminal-btn::before {

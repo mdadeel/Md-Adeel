@@ -41,7 +41,7 @@ export default function History() {
           <div className="space-y-12">
             <div className="space-y-4">
               <FadeIn>
-                <span className="text-primary font-mono text-[11px] tracking-[0.3em] uppercase">// Career_History</span>
+                <span className="text-primary font-mono text-[10px] md:text-[11px] tracking-[0.15em] md:tracking-[0.3em] uppercase">// Career_History</span>
               </FadeIn>
               <FadeIn delay={0.1}>
                 <h2 className="text-4xl font-bold text-white tracking-tighter">
@@ -74,7 +74,7 @@ export default function History() {
           <div className="space-y-12">
             <div className="space-y-4">
               <FadeIn>
-                <span className="text-primary font-mono text-[11px] tracking-[0.3em] uppercase">// Academic_Foundation</span>
+                <span className="text-primary font-mono text-[10px] md:text-[11px] tracking-[0.15em] md:tracking-[0.3em] uppercase">// Academic_Foundation</span>
               </FadeIn>
               <FadeIn delay={0.1}>
                 <h2 className="text-4xl font-bold text-white tracking-tighter">

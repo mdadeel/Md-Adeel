@@ -87,38 +87,38 @@ export default function About() {
                             <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/30 z-20"></div>
 
                             {/* Left: Module Selection */}
-                            <div className="relative z-10 w-full md:w-1/3 border-b md:border-b-0 md:border-r border-white/10 bg-black/40 p-0 flex flex-col">
-                                <div className="p-6 pb-4 border-b border-white/10">
-                                    <div className="text-[10px] text-primary/60 font-mono mb-1 flex justify-between items-center">
+                            <div className="relative z-10 w-full md:w-1/3 border-b md:border-b-0 md:border-r border-white/10 bg-black/40 p-0 flex flex-col overflow-hidden">
+                                <div className="p-4 md:p-6 pb-2 md:pb-4 border-b border-white/10">
+                                    <div className="text-[9px] md:text-[10px] text-primary/60 font-mono mb-1 flex justify-between items-center">
                                         <span>SELECT_MODULE</span>
-                                        <span className="flex items-center gap-1"><span className="size-1.5 rounded-full bg-primary animate-pulse"></span> ONLINE</span>
+                                        <span className="flex items-center gap-1"><span className="size-1 bg-primary animate-pulse"></span> ONLINE</span>
                                     </div>
                                 </div>
 
-                                <div className="flex flex-col grow">
+                                <div className="flex flex-row md:flex-col overflow-x-auto md:overflow-x-visible custom-scrollbar grow">
                                     {highlights.map((module) => (
                                         <button
                                             key={module.id}
                                             onClick={() => setActiveModule(module)}
-                                            className={`group relative p-4 border-l-2 transition-all text-left ${activeModule.id === module.id
+                                            className={`group relative p-3 md:p-4 border-b-2 md:border-b-0 md:border-l-2 transition-all text-left flex-shrink-0 md:flex-shrink-1 min-w-[140px] md:min-w-0 ${activeModule.id === module.id
                                                 ? 'border-primary bg-primary/5 text-white'
                                                 : 'border-transparent text-white/40 hover:text-white/70 hover:bg-white/[0.02]'
                                                 }`}
                                         >
                                             <div className="flex items-center justify-between">
-                                                <span className="font-bold tracking-wider text-sm flex items-center gap-3">
-                                                    <span className={`font-mono text-xs ${activeModule.id === module.id ? 'text-primary' : 'opacity-30'}`}>{module.id}</span>
+                                                <span className="font-bold tracking-wider text-xs md:text-sm flex items-center gap-2 md:gap-3">
+                                                    <span className={`font-mono text-[10px] md:text-xs ${activeModule.id === module.id ? 'text-primary' : 'opacity-30'}`}>{module.id}</span>
                                                     {module.title}
                                                 </span>
                                                 {activeModule.id === module.id && (
-                                                    <span className="material-symbols-outlined text-primary text-sm animate-spin-slow">settings</span>
+                                                    <span className="material-symbols-outlined text-primary text-sm animate-spin-slow hidden md:block">settings</span>
                                                 )}
                                             </div>
-                                            <p className={`text-[10px] font-mono mt-1 pl-7 transition-colors ${activeModule.id === module.id ? 'text-primary/60' : 'opacity-0'}`}>
+                                            <p className={`text-[9px] md:text-[10px] font-mono mt-1 pl-6 md:pl-7 transition-colors leading-none md:leading-normal ${activeModule.id === module.id ? 'text-primary/60' : 'opacity-0'}`}>
                                                 &gt; {module.subtitle}
                                             </p>
                                             {activeModule.id === module.id && (
-                                                <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-primary shadow-[0_0_15px_#36e27b]" />
+                                                <div className="absolute left-0 right-0 md:right-auto bottom-0 md:top-0 md:bottom-0 h-[2px] md:h-auto md:w-[2px] bg-primary shadow-[0_0_15px_#36e27b]" />
                                             )}
                                         </button>
                                     ))}

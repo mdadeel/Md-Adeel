@@ -208,9 +208,9 @@ export default function Projects() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             onClick={(e) => e.stopPropagation()}
-                                            className="h-7.5 bg-primary text-black font-bold flex items-center justify-center gap-1.5 text-[8px] uppercase tracking-wider hover:bg-white transition-colors duration-300 rounded-sm"
+                                            className="h-10 md:h-8 bg-primary text-black font-bold flex items-center justify-center gap-1.5 text-[9px] md:text-[8px] uppercase tracking-wider hover:bg-white transition-colors duration-300 rounded-sm"
                                         >
-                                            <span className="material-symbols-outlined text-[13px]">play_arrow</span>
+                                            <span className="material-symbols-outlined text-[14px] md:text-[13px]">play_arrow</span>
                                             Live View
                                         </a>
                                         <a
@@ -218,9 +218,9 @@ export default function Projects() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             onClick={(e) => e.stopPropagation()}
-                                            className="h-7.5 bg-transparent border border-[#1f2b24] text-gray-400 font-bold flex items-center justify-center gap-1.5 text-[8px] uppercase tracking-wider hover:border-primary hover:text-primary transition-all duration-300 rounded-sm"
+                                            className="h-10 md:h-8 bg-transparent border border-[#1f2b24] text-gray-400 font-bold flex items-center justify-center gap-1.5 text-[9px] md:text-[8px] uppercase tracking-wider hover:border-primary hover:text-primary transition-all duration-300 rounded-sm"
                                         >
-                                            <span className="material-symbols-outlined text-[13px]">code</span>
+                                            <span className="material-symbols-outlined text-[14px] md:text-[13px]">code</span>
                                             Source
                                         </a>
                                         <div className="col-span-2 mt-1 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -258,19 +258,22 @@ export default function Projects() {
                             onClick={() => setSelectedProject(null)}
                         />
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: "100%" }}
                             animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 30 }}
-                            className="fixed inset-0 z-[70] overflow-y-auto pt-10 pb-10 px-4 md:px-10 flex items-start justify-center"
+                            exit={{ opacity: 0, y: "100%" }}
+                            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                            className="fixed inset-0 z-[70] flex items-end md:items-center justify-center p-0 md:p-10 pointer-events-none"
                         >
-                            <div className="max-w-3xl w-full bg-[#0a0a0a] border border-white/10 rounded-none p-0 shadow-2xl relative mt-auto md:mt-20">
+                            <div className="max-w-3xl w-full max-h-[92vh] md:max-h-none h-full md:h-auto bg-[#0a0a0a] border-t md:border border-white/10 rounded-t-3xl md:rounded-none p-0 shadow-2xl relative overflow-hidden pointer-events-auto">
+                                {/* Mobile Handle */}
+                                <div className="w-12 h-1 bg-white/10 rounded-full mx-auto my-3 md:hidden" />
                                 {/* Industrial Corner Accents */}
                                 <div className="absolute top-0 right-0 w-12 h-12 pointer-events-none border-t border-r border-primary/40" />
                                 <div className="absolute bottom-0 left-0 w-12 h-12 pointer-events-none border-b border-l border-primary/40" />
 
                                 <button
                                     onClick={() => setSelectedProject(null)}
-                                    className="absolute -top-4 -right-4 md:top-6 md:right-6 z-[80] w-10 h-10 bg-primary text-black border border-primary/20 flex items-center justify-center hover:bg-white transition-all duration-300 shadow-xl"
+                                    className="absolute top-4 right-4 md:top-6 md:right-6 z-[80] w-10 h-10 bg-primary text-black border border-primary/20 flex items-center justify-center hover:bg-white transition-all duration-300 shadow-xl rounded-full md:rounded-none"
                                 >
                                     <span className="material-symbols-outlined text-xl font-bold">close</span>
                                 </button>
@@ -291,28 +294,28 @@ export default function Projects() {
                                     </div>
 
                                     {/* Content Section */}
-                                    <div className="p-6 md:p-10 space-y-10">
+                                    <div className="p-6 md:p-10 space-y-8 md:space-y-10 overflow-y-auto custom-scrollbar flex-1">
                                         <div className="space-y-4">
-                                            <div className="flex flex-wrap items-center gap-4">
-                                                <span className="text-[10px] font-mono text-primary uppercase tracking-[0.4em] border border-primary/30 px-2 py-0.5 bg-primary/5">
+                                            <div className="flex flex-wrap items-center gap-3 md:gap-4">
+                                                <span className="text-[9px] md:text-[10px] font-mono text-primary uppercase tracking-[0.4em] border border-primary/30 px-2 py-0.5 bg-primary/5">
                                                     {selectedProject.status}
                                                 </span>
-                                                <span className="text-[10px] font-mono text-white/50 uppercase tracking-[0.4em]">
+                                                <span className="text-[9px] md:text-[10px] font-mono text-white/50 uppercase tracking-[0.4em]">
                                                     ID//00{selectedProject.id}
                                                 </span>
                                             </div>
-                                            <h3 className="text-3xl md:text-5xl font-black text-white tracking-tighter uppercase leading-none">
+                                            <h3 className="text-2xl md:text-5xl font-black text-white tracking-tighter uppercase leading-tight md:leading-none">
                                                 {selectedProject.name}
                                             </h3>
-                                            <p className="text-white/70 text-sm md:text-base leading-relaxed font-normal italic border-l block border-primary/40 pl-6">
+                                            <p className="text-white/70 text-xs md:text-base leading-relaxed font-normal italic border-l block border-primary/40 pl-4 md:pl-6">
                                                 {selectedProject.fullDesc}
                                             </p>
                                         </div>
 
-                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
                                             {/* Tech Stack */}
                                             <div className="space-y-6">
-                                                <h4 className="text-[11px] font-mono text-white/80 uppercase tracking-[0.3em] flex items-center gap-3">
+                                                <h4 className="text-[10px] md:text-[11px] font-mono text-white/80 uppercase tracking-[0.15em] md:tracking-[0.3em] flex items-center gap-3">
                                                     <span className="w-4 h-[1px] bg-primary" />
                                                     TECHNICAL_STACK
                                                 </h4>
@@ -327,7 +330,7 @@ export default function Projects() {
 
                                             {/* Challenges */}
                                             <div className="space-y-6">
-                                                <h4 className="text-[11px] font-mono text-white/80 uppercase tracking-[0.3em] flex items-center gap-3">
+                                                <h4 className="text-[10px] md:text-[11px] font-mono text-white/80 uppercase tracking-[0.15em] md:tracking-[0.3em] flex items-center gap-3">
                                                     <span className="w-4 h-[1px] bg-primary" />
                                                     CORE_CHALLENGES
                                                 </h4>
@@ -343,7 +346,7 @@ export default function Projects() {
 
                                             {/* Future Improvements */}
                                             <div className="space-y-6">
-                                                <h4 className="text-[11px] font-mono text-white/80 uppercase tracking-[0.3em] flex items-center gap-3">
+                                                <h4 className="text-[10px] md:text-[11px] font-mono text-white/80 uppercase tracking-[0.15em] md:tracking-[0.3em] flex items-center gap-3">
                                                     <span className="w-4 h-[1px] bg-primary" />
                                                     SYSTEM_EVOLUTION
                                                 </h4>
@@ -359,12 +362,12 @@ export default function Projects() {
                                         </div>
 
                                         {/* Links */}
-                                        <div className="flex flex-col sm:flex-row gap-px pt-12 border-t border-white/20">
+                                        <div className="flex flex-col sm:flex-row gap-px border-t border-white/20">
                                             <a
                                                 href={selectedProject.liveUrl}
                                                 target="_blank"
                                                 rel="noreferrer"
-                                                className="flex-1 h-16 bg-primary text-black font-black flex items-center justify-center gap-4 text-[12px] uppercase tracking-[0.4em] hover:bg-white transition-all duration-300"
+                                                className="flex-1 h-16 bg-primary text-black font-black flex items-center justify-center gap-3 md:gap-4 text-[11px] md:text-[12px] uppercase tracking-[0.2em] md:tracking-[0.4em] hover:bg-white transition-all duration-300"
                                             >
                                                 TERMINAL_ACCESS
                                                 <span className="material-symbols-outlined text-sm">north_east</span>
@@ -373,7 +376,7 @@ export default function Projects() {
                                                 href={selectedProject.githubUrl}
                                                 target="_blank"
                                                 rel="noreferrer"
-                                                className="flex-1 h-16 bg-white/10 border-l border-white/20 text-white font-black flex items-center justify-center gap-4 text-[12px] uppercase tracking-[0.4em] hover:bg-white/20 transition-all duration-300"
+                                                className="flex-1 h-16 bg-white/10 md:border-l border-white/20 text-white font-black flex items-center justify-center gap-3 md:gap-4 text-[11px] md:text-[12px] uppercase tracking-[0.2em] md:tracking-[0.4em] hover:bg-white/20 transition-all duration-300"
                                             >
                                                 SOURCE_REPOSITORY
                                                 <span className="material-symbols-outlined text-sm">terminal</span>

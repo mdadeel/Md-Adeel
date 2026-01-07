@@ -133,8 +133,8 @@ export default function Navbar() {
                                 <Logo className="h-full w-full" />
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-sm font-bold text-white tracking-tight uppercase leading-none">Shahnawas Adeel</span>
-                                <span className="text-[11px] font-mono text-white/60 uppercase tracking-widest mt-1">Frontend Architect</span>
+                                <span className="text-xs md:text-sm font-bold text-white tracking-tight uppercase leading-none">Shahnawas Adeel</span>
+                                <span className="hidden md:block text-[11px] font-mono text-white/60 uppercase tracking-widest mt-1">Frontend Architect</span>
                             </div>
                         </a>
                     </div>
@@ -216,7 +216,7 @@ export default function Navbar() {
                             key={item.id}
                             href={`#${item.id}`}
                             whileTap={{ scale: 0.9 }}
-                            className="relative flex items-center justify-center w-12 h-12 transition-all duration-300"
+                            className="relative flex items-center justify-center w-11 h-11 md:w-12 md:h-12 transition-all duration-300"
                             onClick={() => setActiveSection(item.id)}
                         >
                             {activeSection === item.id && (
