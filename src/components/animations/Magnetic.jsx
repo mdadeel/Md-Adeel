@@ -1,44 +1,38 @@
-import React, { useRef, useEffect } from 'react'
-import gsap from 'gsap'
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import React, { useRef } from "react";
 
 export default function Magnetic({ children, strength = 0.5 }) {
-    const magnetic = useRef(null);
+    const ref = useRef(null);
 
-    useEffect(() => {
-        const xTo = gsap.quickTo(magnetic.current, "x", { duration: 1, ease: "elastic.out(1, 0.3)" });
-        const yTo = gsap.quickTo(magnetic.current, "y", { duration: 1, ease: "elastic.out(1, 0.3)" });
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
 
-        let rafId = null;
-        const handleMouseMove = (e) => {
-            if (rafId) return; // Throttle with RAF
-            rafId = requestAnimationFrame(() => {
-                const { clientX, clientY } = e;
-                const { height, width, left, top } = magnetic.current.getBoundingClientRect();
-                const x = clientX - (left + width / 2);
-                const y = clientY - (top + height / 2);
-                xTo(x * strength);
-                yTo(y * strength);
-                rafId = null;
-            });
-        };
+    const mouseX = useSpring(x, { stiffness: 150, damping: 15, mass: 0.1 });
+    const mouseY = useSpring(y, { stiffness: 150, damping: 15, mass: 0.1 });
 
-        const handleMouseLeave = () => {
-            if (rafId) cancelAnimationFrame(rafId);
-            rafId = null;
-            xTo(0);
-            yTo(0);
-        };
+    const handleMouseMove = (e) => {
+        const { clientX, clientY } = e;
+        const { height, width, left, top } = ref.current.getBoundingClientRect();
+        const middleX = clientX - (left + width / 2);
+        const middleY = clientY - (top + height / 2);
+        x.set(middleX * strength);
+        y.set(middleY * strength);
+    };
 
-        magnetic.current.addEventListener("mousemove", handleMouseMove);
-        magnetic.current.addEventListener("mouseleave", handleMouseLeave);
+    const handleMouseLeave = () => {
+        x.set(0);
+        y.set(0);
+    };
 
-        return () => {
-            if (magnetic.current) {
-                magnetic.current.removeEventListener("mousemove", handleMouseMove);
-                magnetic.current.removeEventListener("mouseleave", handleMouseLeave);
-            }
-        };
-    }, [strength]);
+    const { type, props, key } = children;
 
-    return React.cloneElement(children, { ref: magnetic });
+    return React.cloneElement(
+        children,
+        {
+            onMouseMove: handleMouseMove,
+            onMouseLeave: handleMouseLeave,
+            ref,
+            style: { x: mouseX, y: mouseY }
+        }
+    );
 }
