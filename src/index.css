@@ -1,101 +1,132 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #ffffff;
-  --color-background: #050505;
-  --color-surface: #0a0a0a;
-  --color-border: rgba(255, 255, 255, 0.06);
-  --color-text-primary: #ffffff;
-  --color-text-secondary: rgba(255, 255, 255, 0.7);
-  --color-text-muted: rgba(255, 255, 255, 0.4);
+  --color-primary: #111111;
+  --color-secondary: #666666;
+  --color-accent: #111111;
+  /* Sharp Black Accent */
+  --color-accent-hover: #333333;
+  --color-background: #FDFCFC;
+  /* Warm Paper White */
+  --color-surface: #F2F2F2;
+  --color-border: #E5E5E5;
+  --color-text-primary: #111111;
+  --color-text-secondary: #444444;
+  --color-text-muted: #888888;
 
-  --font-display: "Inter", "Spline Sans", sans-serif;
-  --font-body: "Inter", "Noto Sans", sans-serif;
+  --font-display: "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
 
-  /* Strict 8px spacing scale */
-  --spacing-atomic: 4px;
-  --spacing-small: 8px;
-  --spacing-base: 16px;
-  --spacing-medium: 32px;
-  --spacing-large: 64px;
-  --spacing-section: 128px;
+  /* Swiss Spacing Scale */
+  --spacing-1: 8px;
+  --spacing-2: 16px;
+  --spacing-3: 24px;
+  --spacing-4: 32px;
+  --spacing-6: 48px;
+  --spacing-8: 64px;
+  --spacing-12: 96px;
+  --spacing-extra: 128px;
 
-  --radius-sm: 4px;
-  --radius-DEFAULT: 8px;
-  --radius-lg: 12px;
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  /* Sharp corners */
 }
+
 
 /* Base Styles */
 html {
   scroll-behavior: smooth;
-  background-color: #050505;
+  background-color: var(--color-background);
   -webkit-font-smoothing: antialiased;
 }
 
 body {
-  font-family: var(--font-display);
-  background-color: #050505;
-  color: #ffffff;
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
   min-height: 100vh;
-  line-height: 1.6;
-  letter-spacing: -0.01em;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  /* Tight Swiss tracking */
 }
 
 #root {
   min-height: 100vh;
 }
 
-/* OCD Grid System */
 .layout-container {
-  @apply w-full max-w-[1100px] mx-auto px-8;
+  width: 100%;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .section-padding {
-  padding-top: var(--spacing-section);
-  padding-bottom: var(--spacing-section);
+  padding-top: var(--spacing-8);
+  padding-bottom: var(--spacing-8);
 }
 
-/* Typography Refinement */
+/* Typography */
+/* Typography */
 h1,
 h2,
 h3,
 h4 {
-  letter-spacing: -0.025em;
+  font-family: var(--font-display);
+  letter-spacing: -0.04em;
+  /* Critical for Swiss look */
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1;
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: 5rem;
+  /* Massive */
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 1.5rem;
 }
 
 p {
-  line-height: 1.6;
   color: var(--color-text-secondary);
 }
 
-/* Selection */
+/* Functional Selection */
 ::selection {
-  background: rgba(255, 255, 255, 0.15);
+  background: #000000;
   color: #ffffff;
 }
 
-/* Scrollbar Refinement */
+/* Minimalist Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  border: 2px solid #050505;
+  background: #CCCCCC;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: #999999;
 }
 
-/* Atomic Transitions */
-.transition-base {
-  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+/* Zero-noise utility */
+.interactive-subtle {
+  transition: opacity 150ms ease;
+}
+
+.interactive-subtle:hover {
+  opacity: 0.7;
 }

@@ -2,87 +2,58 @@ import { motion } from 'framer-motion';
 
 export default function About() {
     return (
-        <section id="about" className="relative z-10 section-padding border-t border-white/5 bg-surface">
-            <div className="layout-container">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-32">
-                    {/* Left: Background */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 16 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-                        className="space-y-8"
-                    >
-                        <h2 className="text-4xl font-bold text-white">Background</h2>
+        <section id="about" className="py-24 px-4 md:px-8 border-b border-black/10 bg-background">
+            <div className="max-w-[1400px] mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+                    <div className="md:col-span-3">
+                        <h2 className="text-sm font-mono uppercase tracking-tight text-secondary sticky top-32">
+                            (00) Philosophy
+                        </h2>
+                    </div>
 
-                        <div className="space-y-6 text-white/70 text-lg leading-relaxed">
-                            <p>
-                                I am a Senior Software Engineer specializing in the MERN stack (MongoDB, Express, React, Node.js)
-                                and Next.js. My approach to engineering is rooted in understanding business constraints
-                                before writing a single line of code.
-                            </p>
-                            <p>
-                                I focus on building applications that are not just functional, but reliable
-                                and maintainable at scale. I advocate for the simplest architecture that
-                                solves the problem reliably, avoiding "resume-driven development."
-                            </p>
-                            <p>
-                                Based in Bangladesh, I work with global clients who require
-                                production-ready solutions and clear technical leadership.
+                    <div className="md:col-span-9 space-y-24">
+                        {/* Intro Statement */}
+                        <div className="max-w-3xl">
+                            <p className="text-2xl md:text-3xl leading-tight font-medium text-primary tracking-tight">
+                                I specialize in transforming complex requirements into maintainable, production-ready systems.
+                                <span className="text-secondary"> My approach prioritizes system reliability and business constraints over architectural trends.</span>
                             </p>
                         </div>
-                    </motion.div>
 
-                    {/* Right: How I Work */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 16 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
-                        className="space-y-8"
-                    >
-                        <h2 className="text-4xl font-bold text-white">How I Work</h2>
-
-                        <div className="space-y-8">
+                        {/* Principles Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
                             {[
                                 {
-                                    step: 'Clarify scope',
-                                    desc: "I define what 'done' looks like and determine what doesn't need to be built."
+                                    title: 'Scope Definition',
+                                    desc: "Clarifying 'done' criteria and identifying features that should not be built to minimize debt."
                                 },
                                 {
-                                    step: 'Identify constraints',
-                                    desc: 'I map out the technical and business limitations (time, budget, scale).'
+                                    title: 'Constraint Mapping',
+                                    desc: 'Analyzing technical and business limitations (scale, budget, time) before architecting solutions.'
                                 },
                                 {
-                                    step: 'Simplicity as Default',
-                                    desc: "I choose boring, proven tech for production unless a newer tool is essential."
+                                    title: 'Iterative Delivery',
+                                    desc: 'Favoring working, measurable software over complex theoretical architectures.'
                                 },
                                 {
-                                    step: 'Iterative Shipping',
-                                    desc: 'I favor working software and continuous feedback over architectural theory.'
-                                },
-                                {
-                                    step: 'Technical Documentation',
-                                    desc: 'I record decision history so the system remains maintainable by any developer.'
+                                    title: 'Decision Records',
+                                    desc: 'Documentation focusing on the "Why" behind choices for long-term maintenance.'
                                 }
                             ].map((item, idx) => (
-                                <div
-                                    key={idx}
-                                    className="flex gap-6 items-start pb-6 border-b border-white/5 last:border-0 last:pb-0"
-                                >
-                                    <span className="text-white/20 font-mono text-sm mt-1">
-                                        {String(idx + 1).padStart(2, '0')}
-                                    </span>
-                                    <div className="space-y-1">
-                                        <p className="text-white font-semibold text-lg">{item.step}</p>
-                                        <p className="text-white/50 text-base">{item.desc}</p>
-                                    </div>
+                                <div key={idx} className="space-y-4">
+                                    <h3 className="text-lg font-bold tracking-tight text-primary uppercase border-l-2 border-black pl-4">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-sm text-secondary leading-relaxed pl-4 max-w-sm">
+                                        {item.desc}
+                                    </p>
                                 </div>
                             ))}
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </div>
         </section>
     );
 }
+

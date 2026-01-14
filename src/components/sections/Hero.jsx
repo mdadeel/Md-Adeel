@@ -1,136 +1,70 @@
 import { motion } from 'framer-motion';
-import { SOCIALS } from '../../data/constants';
 
 export default function Hero() {
     return (
-        <section id="hero" className="relative z-10 min-h-[85vh] flex flex-col justify-center section-padding py-26 ">
-            <div className="layout-container">
-                {/* Desktop Layout */}
-                <div className="hidden lg:grid lg:grid-cols-2 gap-32 items-center">
-                    {/* Left: Content */}
-                    <div className="flex flex-col items-start gap-12">
-                        <motion.div
-                            initial={{ opacity: 0, y: 16 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-                            className="space-y-4"
-                        >
-                            <h1 className="text-6xl font-bold text-white tracking-tight">
-                                Shahnawas Adeel
-                            </h1>
-                            <p className="text-xl text-white/70 max-w-lg leading-relaxed">
-                                Senior Software Engineer specialized in the MERN stack and Next.js.
-                                Building production-ready applications with an emphasis on system
-                                reliability and clear engineering judgment.
+        <section id="hero" className="h-screen flex flex-col pt-16 bg-background overflow-hidden relative border-b border-black/10">
+            {/* Background Accent (Blueprint Trace) */}
+            <div className="absolute inset-0 pointer-events-none opacity-[0.03] select-none">
+                <div className="absolute top-1/2 left-0 w-full h-px bg-black" />
+                <div className="absolute top-0 left-1/3 w-px h-full bg-black" />
+            </div>
+
+            <div className="max-w-[1400px] w-full mx-auto flex-1 flex flex-col md:flex-row px-4 md:px-8 items-center md:items-stretch gap-8 md:gap-0">
+
+                {/* LEFT: Identity & Role (Fixed Height/Layout to stay above fold) */}
+                <div className="w-full md:w-[60%] flex flex-col justify-center py-20">
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                        className="relative z-10"
+                    >
+                        <span className="font-mono text-[10px] text-secondary uppercase tracking-[0.4em] mb-4 block">
+                            Index // 00. IDENTITY
+                        </span>
+                        <h1 className="text-[12vw] md:text-[9vw] leading-[0.8] font-black tracking-tighter text-black uppercase mb-8">
+                            Shahnawas<br />Adeel
+                        </h1>
+                        <div className="max-w-md">
+                            <h2 className="text-xl md:text-3xl font-bold tracking-tight text-black mb-4">
+                                SENIOR SYSTEMS ENGINEER
+                            </h2>
+                            <p className="text-sm md:text-base text-secondary leading-relaxed border-l-2 border-black pl-4">
+                                Focused on high-performance MERN architecture,
+                                production-grade Next.js systems, and technical leadership.
                             </p>
-                        </motion.div>
+                        </div>
+                    </motion.div>
+                </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 16 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
-                            className="flex gap-4"
-                        >
-                            <a
-                                href="#projects"
-                                className="px-8 py-4 bg-white text-black font-semibold rounded-sm hover:bg-white/90 transition-base"
-                            >
-                                View Projects
-                            </a>
-                            <a
-                                href="/resume.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="px-8 py-4 border border-white/10 text-white font-semibold rounded-sm hover:border-white/30 transition-base"
-                            >
-                                Resume
-                            </a>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            className="flex gap-4"
-                        >
-                            {SOCIALS.map((social) => (
-                                <a
-                                    key={social.name}
-                                    href={social.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="w-10 h-10 border border-white/5 flex items-center justify-center hover:border-white/20 transition-base"
-                                    aria-label={social.name}
-                                >
-                                    <svg className="h-4 w-4 fill-white/40 hover:fill-white transition-base" viewBox="0 0 24 24">
-                                        <path d={social.icon} />
-                                    </svg>
-                                </a>
-                            ))}
-                        </motion.div>
-                    </div>
-
-                    {/* Right: Photo */}
+                {/* RIGHT: Visual Figure (Aspect constrained to fit viewport) */}
+                <div className="w-full md:w-[40%] md:border-l border-black/10 flex flex-col justify-center relative md:pl-12">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.98 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
-                        className="flex justify-end"
+                        transition={{ delay: 0.3, duration: 1 }}
+                        className="relative w-full max-w-[450px] mx-auto group"
                     >
-                        <div className="relative w-[380px] aspect-[4/5] rounded-lg overflow-hidden grayscale hover:grayscale-0 transition-base border border-white/5">
+                        <div className="overflow-hidden bg-black/5 aspect-[3/4]">
                             <img
                                 src="/img/hero.jpg"
                                 alt="Shahnawas Adeel"
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover grayscale contrast-125 saturate-0 group-hover:scale-105 transition-transform duration-700"
                             />
                         </div>
-                    </motion.div>
-                </div>
-
-                {/* Mobile Layout */}
-                <div className="flex lg:hidden flex-col items-center text-center gap-8">
-                    <motion.div
-                        initial={{ opacity: 0, y: 16 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-                    >
-                        <div className="w-40 h-40 rounded-full overflow-hidden mx-auto mb-12 border border-white/10 grayscale">
-                            <img
-                                src="/img/hero.jpg"
-                                alt="Shahnawas Adeel"
-                                className="w-full h-full object-cover"
-                            />
+                        {/* Technical Tag */}
+                        <div className="absolute -bottom-4 right-0 bg-black text-white px-3 py-1 font-mono text-[9px] uppercase tracking-widest">
+                            Fig. 01 / PROFILE_SYSTEM
                         </div>
-                        <h1 className="text-4xl font-bold text-white mb-4">
-                            Shahnawas Adeel
-                        </h1>
-                        <p className="text-lg text-white/70 max-w-sm mx-auto">
-                            Senior Software Engineer specialized in the MERN stack and Next.js.
-                        </p>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 16 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                        className="flex flex-col gap-4 w-full"
-                    >
-                        <a
-                            href="#projects"
-                            className="py-4 bg-white text-black font-semibold rounded-sm transition-base"
-                        >
-                            View Projects
-                        </a>
-                        <a
-                            href="/resume.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="py-4 border border-white/10 text-white font-semibold rounded-sm transition-base"
-                        >
-                            Resume
-                        </a>
+                        <div className="absolute -top-4 -left-4 w-12 h-12 border-t border-l border-black/20" />
                     </motion.div>
                 </div>
+            </div>
+
+            {/* Scroll indicator (Hint for content below) */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
+                <span className="font-mono text-[8px] uppercase tracking-widest">Scroll</span>
+                <div className="w-px h-8 bg-black animate-bounce" />
             </div>
         </section>
     );
