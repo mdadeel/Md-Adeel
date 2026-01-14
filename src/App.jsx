@@ -5,8 +5,6 @@ import { LazyMotion, domAnimation } from 'framer-motion';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
-import SystemBackground from './components/ui/SystemBackground';
-
 
 // Lazy load sections
 const About = lazy(() => import('./components/sections/About'));
@@ -18,13 +16,11 @@ const Contact = lazy(() => import('./components/sections/Contact'));
 function App() {
   return (
     <LazyMotion features={domAnimation}>
-      <div className="min-h-screen overflow-x-hidden antialiased selection:bg-primary selection:text-[#112117]">
-        <SystemBackground />
-        {/* Main Content */}
+      <div className="min-h-screen overflow-x-hidden antialiased selection:bg-white/20 selection:text-white">
         <Navbar />
         <main>
           <Hero />
-          <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center">Loading...</div>}>
+          <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center text-white/40">Loading...</div>}>
             <div className="contents">
               <About />
               <Skills />
@@ -35,14 +31,9 @@ function App() {
           </Suspense>
         </main>
         <Footer />
-
-        {/* UI Overlays */}
-
       </div>
     </LazyMotion>
   );
 }
 
 export default App;
-
-
