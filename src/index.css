@@ -89,18 +89,19 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #000;
+  background-color: #0a0a0a;
 }
 
 body {
   font-family: var(--font-display);
-  background-color: #000;
+  background-color: #0a0a0a;
   color: #ffffff;
   min-height: 100vh;
+  position: relative;
 }
 
 #root {
-  background-color: #000;
+  background-color: #0a0a0a;
   min-height: 100vh;
 }
 

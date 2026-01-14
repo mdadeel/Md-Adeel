@@ -5,19 +5,32 @@ const SystemBackground = () => {
     const bgRef = useRef(null);
 
     useEffect(() => {
+        let animationFrameId;
+
         const handleMouseMove = (e) => {
             if (!bgRef.current) return;
 
-            // Update mouse position for the radial aura
-            const x = e.clientX;
-            const y = e.clientY;
+            // Cancel any pending frame to ensure we only run the latest update
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
 
-            bgRef.current.style.setProperty('--mouse-x', `${x}px`);
-            bgRef.current.style.setProperty('--mouse-y', `${y}px`);
+            // Schedule the update for the next animation frame
+            animationFrameId = requestAnimationFrame(() => {
+                if (!bgRef.current) return;
+                bgRef.current.style.setProperty('--mouse-x', `${e.clientX}px`);
+                bgRef.current.style.setProperty('--mouse-y', `${e.clientY}px`);
+            });
         };
 
         window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
+
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
+        };
     }, []);
 
     return (

@@ -115,8 +115,8 @@ export default function Hero() {
                                     whileTap={{ scale: 0.98 }}
                                     className="terminal-btn terminal-btn-primary flex items-center justify-center gap-2 text-[10px]"
                                 >
-                                    Initialize Projects
-                                    <span className="material-symbols-outlined text-xs">terminal</span>
+                                    View Projects
+                                    <span className="material-symbols-outlined text-xs">arrow_forward</span>
                                 </motion.a>
                                 <motion.a
                                     href="/resume.pdf"
@@ -125,8 +125,8 @@ export default function Hero() {
                                     whileTap={{ scale: 0.98 }}
                                     className="terminal-btn flex items-center justify-center gap-2 text-[10px]"
                                 >
-                                    Get_Manifesto
-                                    <span className="material-symbols-outlined text-xs">description</span>
+                                    Download Resume
+                                    <span className="material-symbols-outlined text-xs">download</span>
                                 </motion.a>
                             </div>
                         </FadeIn>
@@ -200,8 +200,8 @@ export default function Hero() {
                                     whileTap={{ scale: 0.98 }}
                                     className="terminal-btn terminal-btn-primary flex items-center justify-center gap-4 group"
                                 >
-                                    Initialize_Projects
-                                    <span className="material-symbols-outlined text-sm group-hover:rotate-90 transition-transform">terminal</span>
+                                    View Projects
+                                    <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
                                 </motion.a>
                                 <motion.a
                                     href="/resume.pdf"
@@ -210,39 +210,14 @@ export default function Hero() {
                                     whileTap={{ scale: 0.98 }}
                                     className="terminal-btn flex items-center justify-center gap-4 group"
                                 >
-                                    Get_Manifesto
-                                    <span className="material-symbols-outlined text-sm opacity-50 group-hover:opacity-100">description</span>
+                                    Download Resume
+                                    <span className="material-symbols-outlined text-sm opacity-50 group-hover:opacity-100">download</span>
                                 </motion.a>
                             </div>
                         </FadeIn>
 
                         {/* Repositioned Social Dock (Desktop Only) */}
-                        <FadeIn delay={0.4} className="mt-12 lg:fixed lg:left-8 lg:top-1/2 lg:-translate-y-1/2 lg:mt-0 z-50">
-                            <div className="flex lg:flex-col gap-6 items-center">
-                                <div className="hidden lg:block w-[1px] h-12 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
-                                {SOCIALS.map((social) => (
-                                    <Magnetic key={social.name} strength={0.3}>
-                                        <motion.a
-                                            href={social.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            whileHover={{ scale: 1.2 }}
-                                            className="group relative flex items-center justify-center w-10 h-10 rounded-full border border-white/5 hover:border-primary/50 bg-white/[0.02] backdrop-blur-md transition-all duration-500"
-                                        >
-                                            <svg className="h-4 w-4 fill-white/40 group-hover:fill-primary transition-colors duration-500" viewBox="0 0 24 24">
-                                                <path d={social.icon} />
-                                            </svg>
 
-                                            {/* Hover Label */}
-                                            <span className="absolute left-14 px-3 py-1 rounded-sm bg-black border border-white/10 text-[8px] font-mono text-white opacity-0 group-hover:opacity-100 translate-x-[-10px] group-hover:translate-x-0 transition-all duration-500 pointer-events-none whitespace-nowrap">
-                                                {social.name}
-                                            </span>
-                                        </motion.a>
-                                    </Magnetic>
-                                ))}
-                                <div className="hidden lg:block w-[1px] h-12 bg-gradient-to-t from-transparent via-white/20 to-transparent" />
-                            </div>
-                        </FadeIn>
                     </div>
 
                     {/* Right: Modular System HUD (SAO) */}
@@ -251,6 +226,34 @@ export default function Hero() {
                     </FadeIn>
                 </div>
             </div>
+
+            {/* Social Dock (Desktop Only) - Absolute to Banner */}
+            <FadeIn delay={0.4} className="hidden lg:block absolute left-8 top-1/2 -translate-y-1/2 z-50">
+                <div className="flex flex-col gap-6 items-center">
+                    <div className="w-[1px] h-12 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
+                    {SOCIALS.map((social) => (
+                        <Magnetic key={social.name} strength={0.3}>
+                            <motion.a
+                                href={social.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.2 }}
+                                className="group relative flex items-center justify-center w-10 h-10 rounded-full border border-white/5 hover:border-primary/50 bg-white/[0.02] backdrop-blur-md transition-all duration-500"
+                            >
+                                <svg className="h-4 w-4 fill-white/40 group-hover:fill-primary transition-colors duration-500" viewBox="0 0 24 24">
+                                    <path d={social.icon} />
+                                </svg>
+
+                                {/* Hover Label */}
+                                <span className="absolute left-14 px-3 py-1 rounded-sm bg-black border border-white/10 text-[8px] font-mono text-white opacity-0 group-hover:opacity-100 translate-x-[-10px] group-hover:translate-x-0 transition-all duration-500 pointer-events-none whitespace-nowrap">
+                                    {social.name}
+                                </span>
+                            </motion.a>
+                        </Magnetic>
+                    ))}
+                    <div className="w-[1px] h-12 bg-gradient-to-t from-transparent via-white/20 to-transparent" />
+                </div>
+            </FadeIn>
 
             {/* Ambient Footer Info */}
             <div className="absolute bottom-8 left-0 w-full px-8 flex justify-between items-end opacity-40 pointer-events-none hidden lg:flex z-50">
