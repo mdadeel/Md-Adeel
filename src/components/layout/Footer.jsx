@@ -2,17 +2,17 @@ import { SOCIALS } from '../../data/constants';
 
 export default function Footer() {
     return (
-        <footer className="relative z-10 w-full py-12 border-t border-border bg-background">
+        <footer className="relative z-10 w-full py-12 border-t border-border dark:border-white/10 bg-background dark:bg-black">
             <div className="layout-container">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                     {/* Left: Branding */}
                     <div className="flex flex-col items-center md:items-start gap-4">
-                        <div className="h-9 w-auto bg-black flex items-center justify-center p-1.5 shadow-sm">
+                        <div className="h-9 w-auto bg-black dark:bg-white flex items-center justify-center p-1.5 shadow-sm">
                             <img src="/logo.png" alt="SA" className="h-full w-auto object-contain" />
                         </div>
                         <div className="flex flex-col items-center md:items-start gap-1">
-                            <span className="text-black/90 font-bold text-xs tracking-tighter uppercase">Shahnawas Adeel</span>
-                            <span className="text-black/40 text-[9px] font-mono tracking-widest uppercase text-center md:text-left">Systems Engineer & Architect</span>
+                            <span className="text-black dark:text-white font-bold text-xs tracking-tighter uppercase">Shahnawas Adeel</span>
+                            <span className="text-black/60 dark:text-white/60 text-[9px] font-mono tracking-widest uppercase text-center md:text-left font-bold">Systems Engineer & Architect</span>
                         </div>
                     </div>
 
@@ -27,7 +27,7 @@ export default function Footer() {
                                 className="interactive-subtle"
                                 aria-label={social.name}
                             >
-                                <svg className="h-4 w-4 fill-black/20 hover:fill-black/60 transition-colors" viewBox="0 0 24 24">
+                                <svg className="h-4 w-4 fill-black/40 dark:fill-white/40 hover:fill-black dark:hover:fill-white transition-colors" viewBox="0 0 24 24">
                                     <path d={social.icon} />
                                 </svg>
                             </a>
@@ -37,14 +37,14 @@ export default function Footer() {
                     {/* Right: Back to top */}
                     <button
                         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                        className="text-black/40 text-[9px] font-bold uppercase tracking-widest hover:text-black transition-colors flex items-center gap-2"
+                        className="text-black/60 dark:text-white/60 text-[9px] font-bold uppercase tracking-widest hover:text-black dark:hover:text-white transition-colors flex items-center gap-2"
                     >
                         Back to Top
                     </button>
                 </div>
 
-                <div className="mt-12 pt-6 border-t border-black/5 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-[9px] font-mono text-black/30 uppercase tracking-widest">
+                <div className="mt-12 pt-6 border-t border-black/10 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p className="text-[9px] font-mono text-black/50 dark:text-white/50 uppercase tracking-widest font-bold">
                         © {new Date().getFullYear()} Shahnawas Adeel
                     </p>
                 </div>

@@ -10,10 +10,30 @@ const Projects = lazy(() => import('./components/sections/Projects'));
 const Experience = lazy(() => import('./components/sections/Experience'));
 const Contact = lazy(() => import('./components/sections/Contact'));
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Lenis from 'lenis';
 
 function App() {
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('theme');
+      if (saved) return saved === 'dark';
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (isDark) {
+      root.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      root.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDark]);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -39,8 +59,8 @@ function App() {
   }, []);
 
   return (
-    <main className="bg-background min-h-screen text-primary selection:bg-black selection:text-white">
-      <Navbar />
+    <main className="bg-background min-h-screen text-primary selection:bg-black selection:text-white transition-colors duration-300">
+      <Navbar isDark={isDark} toggleDark={() => setIsDark(!isDark)} />
       <Hero />
       <Suspense fallback={<div className="h-screen bg-background" />}>
         <About />

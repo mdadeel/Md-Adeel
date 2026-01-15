@@ -19,26 +19,26 @@ const strengths = [
 
 export default function Strengths() {
     return (
-        <section id="skills" className="py-24 px-4 md:px-8 border-b border-black/10 bg-background">
+        <section id="skills" className="py-24 px-4 md:px-8 border-b border-black/10 dark:border-white/10 bg-background dark:bg-black">
             <div className="max-w-[1400px] mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
                     <div className="md:col-span-3">
-                        <h2 className="text-sm font-mono uppercase tracking-tight text-secondary sticky top-32">
+                        <h2 className="text-sm font-mono uppercase tracking-tight text-secondary dark:text-secondary-dark sticky top-32 font-bold">
                             (02) Technical Capabilities
                         </h2>
                     </div>
 
                     <div className="md:col-span-9">
-                        <div className="grid grid-cols-1 gap-0 divide-y divide-black/10 border-t border-b border-black/10">
+                        <div className="grid grid-cols-1 gap-0 divide-y divide-black/10 dark:divide-white/10 border-t border-b border-black/10 dark:border-white/10">
                             {strengths.map((item, idx) => (
                                 <div
                                     key={idx}
-                                    className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 items-start hover:bg-black/[0.02] transition-colors"
+                                    className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 items-start hover:bg-black/[0.02] dark:hover:bg-white/[0.02] transition-colors"
                                 >
-                                    <h3 className="text-xl font-bold tracking-tight text-primary">
+                                    <h3 className="text-xl font-bold tracking-tight text-primary dark:text-white">
                                         {item.title}
                                     </h3>
-                                    <p className="text-sm text-secondary leading-relaxed max-w-md">
+                                    <p className="text-sm text-secondary dark:text-white/70 leading-relaxed max-w-md font-medium">
                                         {item.context}
                                     </p>
                                 </div>

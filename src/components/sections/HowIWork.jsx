@@ -19,7 +19,7 @@ export default function HowIWork() {
     ];
 
     return (
-        <section id="how-i-work" className="py-24 px-4 md:px-8 border-b border-black/10 bg-background">
+        <section id="how-i-work" className="py-24 px-4 md:px-8 border-b border-black/10 dark:border-white/10 bg-background dark:bg-black">
             <div className="max-w-[1400px] mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
                     <div className="md:col-span-3">
@@ -32,7 +32,7 @@ export default function HowIWork() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
                             {principles.map((principle, idx) => (
                                 <div key={idx} className="space-y-6">
-                                    <h3 className="text-xl font-bold tracking-tight text-primary uppercase border-l border-black pl-6">
+                                    <h3 className="text-xl font-bold tracking-tight text-primary dark:text-white uppercase border-l border-black dark:border-white pl-6">
                                         {principle.title}
                                     </h3>
                                     <p className="text-sm text-secondary leading-relaxed pl-6 max-w-md">

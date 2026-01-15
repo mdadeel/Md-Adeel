@@ -1,18 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #111111;
-  --color-secondary: #666666;
-  --color-accent: #111111;
+  --color-primary: #000000;
+  --color-secondary: #555555;
+  --color-accent: #000000;
   /* Sharp Black Accent */
-  --color-accent-hover: #333333;
+  --color-accent-hover: #222222;
   --color-background: #FDFCFC;
   /* Warm Paper White */
   --color-surface: #F2F2F2;
   --color-border: #E5E5E5;
-  --color-text-primary: #111111;
-  --color-text-secondary: #444444;
-  --color-text-muted: #888888;
+  --color-text-primary: #000000;
+  --color-text-secondary: #333333;
+  --color-text-muted: #666666;
+
+  /* Dark Theme Variables */
+  --color-dark-background: #0A0A0A;
+  --color-dark-surface: #171717;
+  --color-dark-primary: #FFFFFF;
+  --color-dark-secondary: #CCCCCC;
+  --color-dark-border: #262626;
 
   --font-display: "Inter", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
@@ -46,7 +53,20 @@ body {
   min-height: 100vh;
   line-height: 1.4;
   letter-spacing: -0.02em;
-  /* Tight Swiss tracking */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark body {
+  background-color: var(--color-dark-background);
+  color: var(--color-dark-primary);
+}
+
+html.dark {
+  --color-background: var(--color-dark-background);
+  --color-text-primary: var(--color-dark-primary);
+  --color-text-secondary: var(--color-dark-secondary);
+  --color-surface: var(--color-dark-surface);
+  --color-border: var(--color-dark-border);
 }
 
 #root {
@@ -101,9 +121,14 @@ p {
 }
 
 /* Functional Selection */
+html.dark ::selection {
+  background: #FFFFFF;
+  color: #000000;
+}
+
 ::selection {
   background: #000000;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 /* Minimalist Scrollbar */
