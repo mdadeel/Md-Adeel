@@ -6,9 +6,14 @@ export default function Footer() {
             <div className="layout-container">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                     {/* Left: Branding */}
-                    <div className="flex flex-col items-center md:items-start gap-1">
-                        <span className="text-white font-semibold text-base tracking-tight">S. Adeel</span>
-                        <span className="text-white/30 text-[10px] font-mono tracking-widest uppercase">Senior MERN / Next.js Engineer</span>
+                    <div className="flex flex-col items-center md:items-start gap-4">
+                        <div className="h-9 w-auto bg-black flex items-center justify-center p-1.5 shadow-sm">
+                            <img src="/logo.png" alt="SA" className="h-full w-auto object-contain" />
+                        </div>
+                        <div className="flex flex-col items-center md:items-start gap-1">
+                            <span className="text-black/90 font-bold text-xs tracking-tighter uppercase">Shahnawas Adeel</span>
+                            <span className="text-black/40 text-[9px] font-mono tracking-widest uppercase text-center md:text-left">Systems Engineer & Architect</span>
+                        </div>
                     </div>
 
                     {/* Center: Socials */}
@@ -22,7 +27,7 @@ export default function Footer() {
                                 className="interactive-subtle"
                                 aria-label={social.name}
                             >
-                                <svg className="h-4 w-4 fill-white/20 hover:fill-white transition-colors" viewBox="0 0 24 24">
+                                <svg className="h-4 w-4 fill-black/20 hover:fill-black/60 transition-colors" viewBox="0 0 24 24">
                                     <path d={social.icon} />
                                 </svg>
                             </a>
@@ -32,21 +37,18 @@ export default function Footer() {
                     {/* Right: Back to top */}
                     <button
                         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                        className="text-white/20 text-[10px] font-bold uppercase tracking-widest hover:text-white transition-colors flex items-center gap-2"
+                        className="text-black/40 text-[9px] font-bold uppercase tracking-widest hover:text-black transition-colors flex items-center gap-2"
                     >
-                        Top
-                        <span className="material-symbols-outlined text-xs">north</span>
+                        Back to Top
                     </button>
                 </div>
 
-                <div className="mt-12 pt-6 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-[9px] font-mono text-white/20 uppercase tracking-widest">
-                        © 2025 Architecture by Adeel — Fact-based Engineering.
-                    </p>
-                    <p className="text-[9px] font-mono text-white/20 uppercase tracking-widest">
-                        STABLE_BUILD_V2.1.0
+                <div className="mt-12 pt-6 border-t border-black/5 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p className="text-[9px] font-mono text-black/30 uppercase tracking-widest">
+                        © {new Date().getFullYear()} Shahnawas Adeel
                     </p>
                 </div>
+
             </div>
             <div className="h-16 lg:hidden" />
         </footer>

@@ -17,7 +17,7 @@ export default function Projects() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
                     <div className="lg:col-span-3">
                         <h2 className="text-sm font-mono uppercase tracking-tight text-secondary lg:sticky lg:top-32">
-                            (01) Selected Work
+                            (03) Selected Systems
                         </h2>
                     </div>
 
@@ -33,7 +33,7 @@ export default function Projects() {
                                 >
                                     <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-baseline">
                                         <div className="md:col-span-5">
-                                            <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-black mb-4 group-hover:translate-x-2 transition-transform duration-300">
+                                            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tighter text-black mb-4 group-hover:translate-x-2 transition-transform duration-300">
                                                 {project.name}
                                             </h3>
                                             <span className="font-mono text-[10px] text-secondary uppercase tracking-[0.25em]">
@@ -56,7 +56,7 @@ export default function Projects() {
                                                     </p>
                                                 </div>
                                                 <div className="inline-block text-[10px] font-bold uppercase tracking-widest border-b border-black pb-1 hover:text-secondary hover:border-secondary transition-colors">
-                                                    Analyze Manifest ↘
+                                                    View Details ↘
                                                 </div>
                                             </div>
                                         </div>
@@ -114,7 +114,7 @@ export default function Projects() {
                                     onClick={() => setSelectedProject(null)}
                                     className="font-mono text-[10px] uppercase tracking-widest hover:text-white/60 transition-colors py-1"
                                 >
-                                    Close_Window [×]
+                                    Close [×]
                                 </button>
                             </div>
 
@@ -126,26 +126,26 @@ export default function Projects() {
                                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
                                             {/* LEFT: Project Image (Colorful, Uncropped) */}
                                             <div className="w-full aspect-video overflow-hidden bg-white flex-shrink-0 border border-black order-1 shadow-sm">
-                                                <img 
-                                                    src={selectedProject.image} 
+                                                <img
+                                                    src={selectedProject.image}
                                                     alt={selectedProject.name}
                                                     className="w-full h-full object-contain transition-all duration-700"
                                                 />
                                             </div>
 
                                             {/* RIGHT: Project Title & Architecture */}
-                                            <div className="space-y-8 order-2">
-                                                <h2 className="text-4xl md:text-5xl lg:text-[4.5vw] leading-[1.1] font-black tracking-tighter text-black uppercase">
+                                            <div className="space-y-4 order-2">
+                                                <h2 className="text-2xl md:text-3xl lg:text-4xl leading-[1.1] font-bold tracking-tighter text-black uppercase">
                                                     {selectedProject.name}
                                                 </h2>
-                                                
+
                                                 <div className="space-y-4">
-                                                    <div className="font-mono text-[10px] text-secondary uppercase flex items-center gap-2 tracking-[0.3em] font-bold">
-                                                        <span className="w-2 h-2 bg-black" /> System_Architecture
+                                                    <div className="font-mono text-[10px] text-secondary uppercase flex items-center gap-2 tracking-[0.3em] font-semibold">
+                                                        <span className="w-2 h-2 bg-black/80" /> Technical Stack
                                                     </div>
                                                     <div className="flex flex-wrap gap-2 md:gap-3">
                                                         {selectedProject.tech.map((t, i) => (
-                                                            <span key={i} className="text-[10px] font-mono border border-black px-3 py-1.5 bg-black/5 uppercase font-bold tracking-tight">
+                                                            <span key={i} className="text-[10px] font-mono border border-black/10 px-3 py-1.5 bg-black/[0.03] text-black/70 uppercase font-semibold tracking-tight">
                                                                 {t}
                                                             </span>
                                                         ))}
@@ -159,7 +159,7 @@ export default function Projects() {
                                     <div className="md:col-span-8 space-y-6">
                                         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
                                             <div className="md:col-span-4 font-mono text-[10px] text-secondary uppercase tracking-widest border-t border-black pt-2">
-                                                (01) Mission
+                                                (01) The Problem
                                             </div>
                                             <div className="md:col-span-8 pt-2">
                                                 <p className="text-2xl md:text-3xl font-bold tracking-tight text-black leading-tight">
@@ -181,7 +181,7 @@ export default function Projects() {
 
                                         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
                                             <div className="md:col-span-4 font-mono text-[10px] text-secondary uppercase tracking-widest border-t border-black pt-2">
-                                                (03) Performance
+                                                (03) Outcome
                                             </div>
                                             <div className="md:col-span-8 pt-2">
                                                 <p className="text-xl font-bold text-black border-l-4 border-black pl-6 py-2 bg-black/[0.02]">
@@ -228,7 +228,7 @@ export default function Projects() {
                                     rel="noopener noreferrer"
                                     className="group flex items-center justify-center gap-4 py-4 text-white font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-white hover:text-black transition-all border-r border-white/10"
                                 >
-                                    Execute Live Site
+                                    Visit Site
                                     <span className="group-hover:translate-x-1 transition-transform">→</span>
                                 </a>
                                 <a
@@ -237,7 +237,7 @@ export default function Projects() {
                                     rel="noopener noreferrer"
                                     className="group flex items-center justify-center gap-4 py-4 text-white font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-white hover:text-black transition-all"
                                 >
-                                    View Documentation
+                                    View Source
                                     <span className="group-hover:translate-x-1 transition-transform">→</span>
                                 </a>
                             </div>

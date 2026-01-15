@@ -35,7 +35,6 @@
 
 /* Base Styles */
 html {
-  scroll-behavior: smooth;
   background-color: var(--color-background);
   -webkit-font-smoothing: antialiased;
 }
@@ -82,14 +81,15 @@ h4 {
 }
 
 h1 {
-  /* Fluid scaling from ~3rem to 8rem */
-  font-size: clamp(3rem, 15vw, 8rem);
+  /* Fluid scaling from ~2.5rem to 6rem */
+  font-size: clamp(2.5rem, 12vw, 6rem);
 }
 
 h2 {
   /* Fluid scaling for section headers */
-  font-size: clamp(2rem, 8vw, 4rem);
+  font-size: clamp(1.5rem, 6vw, 3rem);
 }
+
 
 h3 {
   font-size: clamp(1.25rem, 4vw, 2rem);

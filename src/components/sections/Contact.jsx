@@ -14,7 +14,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
                     <div className="lg:col-span-3">
                         <h2 className="text-sm font-mono uppercase tracking-tight text-secondary lg:sticky lg:top-32">
-                            (04) Contact
+                            (05) Strategic Contact
                         </h2>
                     </div>
 
