@@ -12,16 +12,16 @@ export default function Projects() {
     };
 
     return (
-        <section id="work" className="py-32 px-4 md:px-8 border-b border-black/10 bg-background" onMouseMove={handleMouseMove}>
-            <div className="max-w-[1400px] mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-                    <div className="md:col-span-3">
-                        <h2 className="text-sm font-mono uppercase tracking-tight text-secondary sticky top-32">
+        <section id="work" className="py-20 md:py-32 border-b border-black/10 bg-background" onMouseMove={handleMouseMove}>
+            <div className="layout-container">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+                    <div className="lg:col-span-3">
+                        <h2 className="text-sm font-mono uppercase tracking-tight text-secondary lg:sticky lg:top-32">
                             (01) Selected Work
                         </h2>
                     </div>
 
-                    <div className="md:col-span-9">
+                    <div className="lg:col-span-9">
                         <div className="divide-y divide-black/10 border-t border-b border-black/10">
                             {projects.map((project) => (
                                 <div
@@ -29,33 +29,33 @@ export default function Projects() {
                                     onMouseEnter={() => setHoveredProject(project)}
                                     onMouseLeave={() => setHoveredProject(null)}
                                     onClick={() => setSelectedProject(project)}
-                                    className="group relative py-12 transition-colors hover:bg-black/[0.02] cursor-pointer"
+                                    className="group relative py-12 md:py-20 transition-colors hover:bg-black/[0.02] cursor-pointer"
                                 >
                                     <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-baseline">
                                         <div className="md:col-span-5">
-                                            <h3 className="text-4xl md:text-5xl font-bold tracking-tighter text-black mb-2 group-hover:translate-x-2 transition-transform duration-300">
+                                            <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-black mb-4 group-hover:translate-x-2 transition-transform duration-300">
                                                 {project.name}
                                             </h3>
-                                            <span className="font-mono text-xs text-secondary uppercase tracking-wider">
+                                            <span className="font-mono text-[10px] text-secondary uppercase tracking-[0.25em]">
                                                 {project.category}
                                             </span>
                                         </div>
 
-                                        <div className="md:col-span-7 grid grid-cols-2 gap-8">
+                                        <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12">
                                             <div>
-                                                <p className="font-mono text-[10px] text-secondary uppercase mb-2">Outcome</p>
+                                                <p className="font-mono text-[10px] text-secondary uppercase mb-3 tracking-widest">Outcome</p>
                                                 <p className="text-sm leading-relaxed text-black/80">
                                                     {project.outcome}
                                                 </p>
                                             </div>
-                                            <div className="flex flex-col justify-between items-start">
+                                            <div className="flex flex-col justify-between items-start gap-6">
                                                 <div>
-                                                    <p className="font-mono text-[10px] text-secondary uppercase mb-2">Stack</p>
+                                                    <p className="font-mono text-[10px] text-secondary uppercase mb-3 tracking-widest">Stack</p>
                                                     <p className="text-xs font-mono text-black/60">
                                                         {project.tech.slice(0, 3).join(' / ')}
                                                     </p>
                                                 </div>
-                                                <div className="mt-4 md:mt-0 text-[10px] font-bold uppercase tracking-widest border-b border-black pb-px hover:text-secondary hover:border-secondary transition-colors">
+                                                <div className="inline-block text-[10px] font-bold uppercase tracking-widest border-b border-black pb-1 hover:text-secondary hover:border-secondary transition-colors">
                                                     Analyze Manifest ↘
                                                 </div>
                                             </div>
@@ -121,27 +121,27 @@ export default function Projects() {
                                 </button>
                             </div>
 
-                            <div className="flex-1 overflow-y-auto p-8 md:p-16">
-                                <div className="grid grid-cols-1 md:grid-cols-12 gap-16">
+                            <div className="flex-1 overflow-y-auto p-6 md:p-12 lg:p-20">
+                                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
 
                                     {/* Section 01: The Identity */}
-                                    <div className="md:col-span-12 border-b border-black pb-12 mb-12">
-                                        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+                                    <div className="lg:col-span-12 border-b border-black pb-12 mb-4 md:mb-12">
+                                        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-12">
                                             <div className="flex-1">
-                                                <span className="font-mono text-[10px] text-secondary uppercase tracking-widest mb-4 block">
+                                                <span className="font-mono text-[10px] text-secondary uppercase tracking-widest mb-4 md:mb-6 block">
                                                     Case_Index // {selectedProject.category}
                                                 </span>
-                                                <h2 className="text-6xl md:text-[10vw] leading-[0.8] font-black tracking-tighter text-black uppercase">
+                                                <h2 className="text-5xl md:text-7xl lg:text-[9vw] leading-[0.85] font-black tracking-tighter text-black uppercase">
                                                     {selectedProject.name}
                                                 </h2>
                                             </div>
-                                            <div className="md:w-64">
-                                                <div className="font-mono text-[9px] text-secondary uppercase mb-4 flex items-center gap-2">
+                                            <div className="w-full md:w-72">
+                                                <div className="font-mono text-[10px] text-secondary uppercase mb-5 flex items-center gap-2 tracking-widest">
                                                     <span className="w-2 h-2 bg-black" /> System_Architecture
                                                 </div>
-                                                <div className="flex flex-wrap gap-2">
+                                                <div className="flex flex-wrap gap-2 md:gap-3">
                                                     {selectedProject.tech.map((t, i) => (
-                                                        <span key={i} className="text-[10px] font-mono border border-black/10 px-2 py-1 bg-black/5">
+                                                        <span key={i} className="text-[10px] font-mono border border-black/20 px-3 py-1.5 bg-black/5">
                                                             {t}
                                                         </span>
                                                     ))}

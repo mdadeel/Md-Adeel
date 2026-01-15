@@ -9,19 +9,19 @@ const footerLinks = [
 
 export default function Contact() {
     return (
-        <section id="contact" className="py-24 px-4 md:px-8 bg-background">
-            <div className="max-w-[1400px] mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-                    <div className="md:col-span-3">
-                        <h2 className="text-sm font-mono uppercase tracking-tight text-secondary sticky top-32">
+        <section id="contact" className="py-20 md:py-32 bg-background">
+            <div className="layout-container">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+                    <div className="lg:col-span-3">
+                        <h2 className="text-sm font-mono uppercase tracking-tight text-secondary lg:sticky lg:top-32">
                             (04) Contact
                         </h2>
                     </div>
 
-                    <div className="md:col-span-9">
-                        <div className="space-y-16">
+                    <div className="lg:col-span-9">
+                        <div className="space-y-12 md:space-y-24">
                             <div className="space-y-6">
-                                <p className="text-xl md:text-2xl text-primary font-medium max-w-2xl leading-tight">
+                                <p className="text-2xl md:text-3xl lg:text-4xl text-primary font-medium max-w-3xl leading-tight tracking-tight">
                                     Available for full-stack engineering projects and system design consultation.
                                     <span className="text-secondary"> Typical response time: 24 hours.</span>
                                 </p>
@@ -29,17 +29,17 @@ export default function Contact() {
 
                             <a
                                 href="mailto:shahnawasadeel@gmail.com"
-                                className="block text-4xl md:text-6xl font-bold tracking-tighter text-primary hover:text-secondary transition-colors break-all"
+                                className="block text-[10vw] lg:text-7xl font-black tracking-tighter text-black hover:text-secondary transition-colors break-all leading-none py-4"
                             >
                                 shahnawasadeel@gmail.com
                             </a>
 
-                            <div className="border-t border-black/10 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-                                <span className="font-mono text-xs text-secondary uppercase">
-                                    © {new Date().getFullYear()} Shahnawas Adeel
+                            <div className="border-t border-black/10 pt-12 md:pt-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
+                                <span className="font-mono text-[10px] text-secondary uppercase tracking-widest">
+                                    © {new Date().getFullYear()} Shahnawas Adeel // EST. 2024
                                 </span>
 
-                                <div className="flex gap-8">
+                                <div className="flex flex-wrap gap-x-10 gap-y-4">
                                     {footerLinks.map((link) => (
                                         <a
                                             key={link.label}

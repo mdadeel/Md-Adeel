@@ -56,19 +56,19 @@ body {
 
 .layout-container {
   width: 100%;
-  max-width: 960px;
+  max-width: 1400px;
+  /* Increased to match section max-widths */
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: clamp(1rem, 5vw, 4rem);
+  padding-right: clamp(1rem, 5vw, 4rem);
 }
 
 .section-padding {
-  padding-top: var(--spacing-8);
-  padding-bottom: var(--spacing-8);
+  padding-top: clamp(4rem, 10vw, var(--spacing-12));
+  padding-bottom: clamp(4rem, 10vw, var(--spacing-12));
 }
 
-/* Typography */
 /* Typography */
 h1,
 h2,
@@ -76,27 +76,28 @@ h3,
 h4 {
   font-family: var(--font-display);
   letter-spacing: -0.04em;
-  /* Critical for Swiss look */
   font-weight: 700;
   line-height: 1;
   color: var(--color-text-primary);
 }
 
 h1 {
-  font-size: 5rem;
-  /* Massive */
+  /* Fluid scaling from ~3rem to 8rem */
+  font-size: clamp(3rem, 15vw, 8rem);
 }
 
 h2 {
-  font-size: 3rem;
+  /* Fluid scaling for section headers */
+  font-size: clamp(2rem, 8vw, 4rem);
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 4vw, 2rem);
 }
 
 p {
   color: var(--color-text-secondary);
+  font-size: clamp(0.875rem, 2vw, 1rem);
 }
 
 /* Functional Selection */
