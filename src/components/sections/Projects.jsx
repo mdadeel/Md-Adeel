@@ -109,76 +109,81 @@ export default function Projects() {
                             className="relative w-full max-w-[1200px] bg-white border border-black shadow-2xl flex flex-col max-h-[90vh] overflow-hidden"
                         >
                             {/* Technical Header */}
-                            <div className="flex justify-between items-center px-8 py-4 border-b border-black bg-black text-white">
-                                <span className="font-mono text-[10px] uppercase tracking-[0.3em]">
-                                    Project_Manifest // Ref: 00{selectedProject.id}
-                                </span>
+                            <div className="flex justify-end items-center px-6 py-2 border-b border-black bg-black text-white">
                                 <button
                                     onClick={() => setSelectedProject(null)}
-                                    className="font-mono text-[10px] uppercase tracking-widest hover:text-white/60 transition-colors"
+                                    className="font-mono text-[10px] uppercase tracking-widest hover:text-white/60 transition-colors py-1"
                                 >
                                     Close_Window [×]
                                 </button>
                             </div>
 
-                            <div className="flex-1 overflow-y-auto p-6 md:p-12 lg:p-20">
-                                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+                            <div className="flex-1 overflow-y-auto p-6 md:px-12 md:py-6 lg:px-20 lg:py-8">
+                                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
 
-                                    {/* Section 01: The Identity */}
-                                    <div className="lg:col-span-12 border-b border-black pb-12 mb-4 md:mb-12">
-                                        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-12">
-                                            <div className="flex-1">
-                                                <span className="font-mono text-[10px] text-secondary uppercase tracking-widest mb-4 md:mb-6 block">
-                                                    Case_Index // {selectedProject.category}
-                                                </span>
-                                                <h2 className="text-5xl md:text-7xl lg:text-[9vw] leading-[0.85] font-black tracking-tighter text-black uppercase">
+                                    {/* Section 01: The Identity (50/50 Split) */}
+                                    <div className="lg:col-span-12 border-b border-black pb-10 mb-4">
+                                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                                            {/* LEFT: Project Image (Colorful, Uncropped) */}
+                                            <div className="w-full aspect-video overflow-hidden bg-white flex-shrink-0 border border-black order-1 shadow-sm">
+                                                <img 
+                                                    src={selectedProject.image} 
+                                                    alt={selectedProject.name}
+                                                    className="w-full h-full object-contain transition-all duration-700"
+                                                />
+                                            </div>
+
+                                            {/* RIGHT: Project Title & Architecture */}
+                                            <div className="space-y-8 order-2">
+                                                <h2 className="text-4xl md:text-5xl lg:text-[4.5vw] leading-[1.1] font-black tracking-tighter text-black uppercase">
                                                     {selectedProject.name}
                                                 </h2>
-                                            </div>
-                                            <div className="w-full md:w-72">
-                                                <div className="font-mono text-[10px] text-secondary uppercase mb-5 flex items-center gap-2 tracking-widest">
-                                                    <span className="w-2 h-2 bg-black" /> System_Architecture
-                                                </div>
-                                                <div className="flex flex-wrap gap-2 md:gap-3">
-                                                    {selectedProject.tech.map((t, i) => (
-                                                        <span key={i} className="text-[10px] font-mono border border-black/20 px-3 py-1.5 bg-black/5">
-                                                            {t}
-                                                        </span>
-                                                    ))}
+                                                
+                                                <div className="space-y-4">
+                                                    <div className="font-mono text-[10px] text-secondary uppercase flex items-center gap-2 tracking-[0.3em] font-bold">
+                                                        <span className="w-2 h-2 bg-black" /> System_Architecture
+                                                    </div>
+                                                    <div className="flex flex-wrap gap-2 md:gap-3">
+                                                        {selectedProject.tech.map((t, i) => (
+                                                            <span key={i} className="text-[10px] font-mono border border-black px-3 py-1.5 bg-black/5 uppercase font-bold tracking-tight">
+                                                                {t}
+                                                            </span>
+                                                        ))}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     {/* Section 02: Execution Details */}
-                                    <div className="md:col-span-8 space-y-16">
-                                        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-                                            <div className="md:col-span-4 font-mono text-[10px] text-secondary uppercase tracking-widest border-t border-black pt-4">
+                                    <div className="md:col-span-8 space-y-6">
+                                        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
+                                            <div className="md:col-span-4 font-mono text-[10px] text-secondary uppercase tracking-widest border-t border-black pt-2">
                                                 (01) Mission
                                             </div>
-                                            <div className="md:col-span-8 pt-4">
+                                            <div className="md:col-span-8 pt-2">
                                                 <p className="text-2xl md:text-3xl font-bold tracking-tight text-black leading-tight">
                                                     {selectedProject.problem}
                                                 </p>
                                             </div>
                                         </div>
 
-                                        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-                                            <div className="md:col-span-4 font-mono text-[10px] text-secondary uppercase tracking-widest border-t border-black pt-4">
+                                        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
+                                            <div className="md:col-span-4 font-mono text-[10px] text-secondary uppercase tracking-widest border-t border-black pt-2">
                                                 (02) Strategy
                                             </div>
-                                            <div className="md:col-span-8 pt-4">
+                                            <div className="md:col-span-8 pt-2">
                                                 <p className="text-sm leading-relaxed text-black/70 max-w-xl">
                                                     {selectedProject.decision}
                                                 </p>
                                             </div>
                                         </div>
 
-                                        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-                                            <div className="md:col-span-4 font-mono text-[10px] text-secondary uppercase tracking-widest border-t border-black pt-4">
+                                        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
+                                            <div className="md:col-span-4 font-mono text-[10px] text-secondary uppercase tracking-widest border-t border-black pt-2">
                                                 (03) Performance
                                             </div>
-                                            <div className="md:col-span-8 pt-4">
+                                            <div className="md:col-span-8 pt-2">
                                                 <p className="text-xl font-bold text-black border-l-4 border-black pl-6 py-2 bg-black/[0.02]">
                                                     {selectedProject.outcome}
                                                 </p>
@@ -187,7 +192,7 @@ export default function Projects() {
                                     </div>
 
                                     {/* Section 03: Constraints & Actions */}
-                                    <div className="md:col-span-4 md:border-l border-black/10 md:pl-12 flex flex-col justify-between">
+                                    <div className="md:col-span-4 md:border-l border-black/10 md:pl-12">
                                         <div className="space-y-12">
                                             <div>
                                                 <p className="font-mono text-[10px] text-secondary uppercase tracking-widest mb-6 border-b border-black pb-2">Technical Constraints</p>
@@ -211,46 +216,30 @@ export default function Projects() {
                                                 </ul>
                                             </div>
                                         </div>
-
-                                        <div className="pt-12 md:pt-0 space-y-4">
-                                            <a
-                                                href={selectedProject.liveUrl}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="group flex items-center justify-between bg-black text-white px-8 py-6 font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-black/80 transition-all shadow-xl"
-                                            >
-                                                Execute Live Site
-                                                <span className="group-hover:translate-x-2 transition-transform duration-500">→</span>
-                                            </a>
-                                            <a
-                                                href={selectedProject.githubUrl}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="group flex items-center justify-between border border-black/20 text-black px-8 py-6 font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-black/[0.02] transition-all"
-                                            >
-                                                View Documentation
-                                                <span className="group-hover:translate-x-2 transition-transform duration-500">→</span>
-                                            </a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
 
                             {/* Technical Footer */}
-                            <div className="flex justify-between items-center px-8 py-4 border-t border-black bg-white">
-                                <div className="flex gap-4 items-center">
-                                    <div className="flex gap-1">
-                                        <div className="w-1.5 h-1.5 bg-black" />
-                                        <div className="w-1.5 h-1.5 bg-black/20" />
-                                        <div className="w-1.5 h-1.5 bg-black/10" />
-                                    </div>
-                                    <span className="font-mono text-[8px] uppercase tracking-widest opacity-40">
-                                        Data_Integrity: VERIFIED_0x82A
-                                    </span>
-                                </div>
-                                <span className="font-mono text-[8px] uppercase tracking-[0.5em] opacity-30">
-                                    Secure Build // 2024
-                                </span>
+                            <div className="grid grid-cols-2 divide-x divide-black border-t border-black bg-black">
+                                <a
+                                    href={selectedProject.liveUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group flex items-center justify-center gap-4 py-4 text-white font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-white hover:text-black transition-all border-r border-white/10"
+                                >
+                                    Execute Live Site
+                                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                                </a>
+                                <a
+                                    href={selectedProject.githubUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group flex items-center justify-center gap-4 py-4 text-white font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-white hover:text-black transition-all"
+                                >
+                                    View Documentation
+                                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                                </a>
                             </div>
                         </motion.div>
                     </div>
