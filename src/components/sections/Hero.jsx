@@ -58,24 +58,25 @@ export default function Hero() {
                 </div>
 
                 {/* Bottom Half: LAST NAME + CTA */}
-                <div className="flex-1 flex flex-col justify-end items-end text-right">
+                <div className="flex-1 flex flex-col justify-end items-center md:items-end text-center md:text-right">
                     <motion.div
                         initial={{ x: 100, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
-                        className="flex flex-col items-end"
+                        className="flex flex-col items-center md:items-end"
                     >
-                        <div className="mb-6 md:mb-10 mr-4 md:mr-0 z-30">
+                        <h1 className="text-[14vw] md:text-[11vw] font-black leading-none tracking-[-0.05em] !text-white dark:!text-[#f0f0ed] uppercase select-none drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] transition-colors duration-300">
+                            Adeel
+                        </h1>
+
+                        <div className="mt-2 md:mt-8 md:mb-8 z-30 order-last md:order-first relative -top-[-30px] md:-top-[40px]">
                             <a
                                 href="#work"
-                                className="bg-[#1a1a1a] dark:bg-white text-white dark:text-black px-8 md:px-12 py-3 md:py-4 text-sm md:text-base font-black tracking-widest hover:bg-white dark:hover:bg-[#1a1a1a] hover:text-black dark:hover:text-white transition-all duration-300 transform hover:-translate-y-1 block shadow-xl border border-white/10"
+                                className="bg-[#1a1a1a] dark:bg-white text-white dark:text-black px-6 md:px-12 py-2 md:py-4 text-[10px] md:text-base font-black tracking-widest hover:bg-white dark:hover:bg-[#1a1a1a] hover:text-black dark:hover:text-white transition-all duration-300 transform hover:-translate-y-1 block shadow-xl border border-white/10"
                             >
                                 VIEW WORK
                             </a>
                         </div>
-                        <h1 className="text-[14vw] md:text-[11vw] font-black leading-none tracking-[-0.05em] !text-white dark:!text-[#f0f0ed] uppercase select-none drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] transition-colors duration-300">
-                            Adeel
-                        </h1>
                     </motion.div>
                 </div>
             </div>
