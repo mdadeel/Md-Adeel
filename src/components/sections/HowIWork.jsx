@@ -32,7 +32,7 @@ export default function HowIWork() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
                             {principles.map((principle, idx) => (
                                 <div key={idx} className="space-y-6">
-                                    <h3 className="text-xl font-bold tracking-tight text-primary dark:text-white uppercase border-l border-black dark:border-white pl-6">
+                                    <h3 className="text-xl font-bold tracking-tight text-primary uppercase border-l border-primary pl-6">
                                         {principle.title}
                                     </h3>
                                     <p className="text-sm text-secondary leading-relaxed pl-6 max-w-md">

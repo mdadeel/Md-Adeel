@@ -29,7 +29,7 @@ export default function Contact() {
 
                             <a
                                 href="mailto:shahnawasadeel@gmail.com"
-                                className="block text-[10vw] lg:text-7xl font-black tracking-tighter text-black dark:text-white hover:text-secondary transition-colors break-all leading-none py-4"
+                                className="block text-[10vw] lg:text-7xl font-black tracking-tighter text-primary hover:text-secondary transition-colors break-all leading-none py-4"
                             >
                                 shahnawasadeel@gmail.com
                             </a>

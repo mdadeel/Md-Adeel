@@ -11,8 +11,8 @@ export default function Footer() {
                             <img src="/logo.png" alt="SA" className="h-full w-auto object-contain" />
                         </div>
                         <div className="flex flex-col items-center md:items-start gap-1">
-                            <span className="text-black dark:text-white font-bold text-xs tracking-tighter uppercase">Shahnawas Adeel</span>
-                            <span className="text-black/60 dark:text-white/60 text-[9px] font-mono tracking-widest uppercase text-center md:text-left font-bold">Systems Engineer & Architect</span>
+                            <span className="text-primary font-bold text-xs tracking-tighter uppercase">Shahnawas Adeel</span>
+                            <span className="text-secondary text-[9px] font-mono tracking-widest uppercase text-center md:text-left font-bold">Systems Engineer & Architect</span>
                         </div>
                     </div>
 
@@ -27,7 +27,7 @@ export default function Footer() {
                                 className="interactive-subtle"
                                 aria-label={social.name}
                             >
-                                <svg className="h-4 w-4 fill-black/40 dark:fill-white/40 hover:fill-black dark:hover:fill-white transition-colors" viewBox="0 0 24 24">
+                                <svg className="h-4 w-4 fill-secondary hover:fill-primary transition-colors" viewBox="0 0 24 24">
                                     <path d={social.icon} />
                                 </svg>
                             </a>
@@ -37,7 +37,7 @@ export default function Footer() {
                     {/* Right: Back to top */}
                     <button
                         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                        className="text-black/60 dark:text-white/60 text-[9px] font-bold uppercase tracking-widest hover:text-black dark:hover:text-white transition-colors flex items-center gap-2"
+                        className="text-secondary text-[9px] font-bold uppercase tracking-widest hover:text-primary transition-colors flex items-center gap-2"
                     >
                         Back to Top
                     </button>

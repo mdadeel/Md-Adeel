@@ -21,7 +21,7 @@ export default function Hero() {
                             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-black dark:text-white mb-4 md:mb-6">
                                 SYSTEMS ENGINEER & ARCHITECT
                             </h2>
-                            <p className="text-sm md:text-base lg:text-lg text-secondary leading-relaxed border-l border-black/20 dark:border-white/20 pl-6 md:pl-8">
+                            <p className="text-sm md:text-base lg:text-lg text-secondary leading-relaxed border-l border-primary/20 pl-6 md:pl-8">
                                 Engineering high-performance MERN architectures and production-grade systems with a focus on maintainability, performance, and technical judgment.
                             </p>
                         </div>

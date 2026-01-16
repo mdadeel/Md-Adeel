@@ -23,7 +23,7 @@ export default function Strengths() {
             <div className="max-w-[1400px] mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
                     <div className="md:col-span-3">
-                        <h2 className="text-sm font-mono uppercase tracking-tight text-secondary dark:text-secondary-dark sticky top-32 font-bold">
+                        <h2 className="text-sm font-mono uppercase tracking-tight text-secondary sticky top-32 font-bold">
                             (02) Technical Capabilities
                         </h2>
                     </div>
@@ -35,10 +35,10 @@ export default function Strengths() {
                                     key={idx}
                                     className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 items-start hover:bg-black/[0.02] dark:hover:bg-white/[0.02] transition-colors"
                                 >
-                                    <h3 className="text-xl font-bold tracking-tight text-primary dark:text-white">
+                                    <h3 className="text-xl font-bold tracking-tight text-primary">
                                         {item.title}
                                     </h3>
-                                    <p className="text-sm text-secondary dark:text-white/70 leading-relaxed max-w-md font-medium">
+                                    <p className="text-sm text-secondary leading-relaxed max-w-md font-medium">
                                         {item.context}
                                     </p>
                                 </div>

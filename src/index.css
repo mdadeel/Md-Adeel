@@ -3,6 +3,8 @@
 @theme {
   --color-primary: #000000;
   --color-secondary: #555555;
+  --color-secondary-dark: #A1A1AA;
+  /* For dark mode fallback */
   --color-accent: #000000;
   /* Sharp Black Accent */
   --color-accent-hover: #222222;
@@ -10,15 +12,15 @@
   /* Warm Paper White */
   --color-surface: #F2F2F2;
   --color-border: #E5E5E5;
-  --color-text-primary: #000000;
-  --color-text-secondary: #333333;
+  --color-text-primary: var(--color-primary);
+  --color-text-secondary: var(--color-secondary);
   --color-text-muted: #666666;
 
   /* Dark Theme Variables */
   --color-dark-background: #0A0A0A;
   --color-dark-surface: #171717;
   --color-dark-primary: #FFFFFF;
-  --color-dark-secondary: #CCCCCC;
+  --color-dark-secondary: #A1A1AA;
   --color-dark-border: #262626;
 
   --font-display: "Inter", system-ui, sans-serif;
@@ -63,6 +65,9 @@ html.dark body {
 
 html.dark {
   --color-background: var(--color-dark-background);
+  --color-primary: var(--color-dark-primary);
+  --color-secondary: var(--color-dark-secondary);
+  --color-secondary-dark: var(--color-dark-secondary);
   --color-text-primary: var(--color-dark-primary);
   --color-text-secondary: var(--color-dark-secondary);
   --color-surface: var(--color-dark-surface);

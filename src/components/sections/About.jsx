@@ -16,7 +16,7 @@ export default function About() {
                         <div className="max-w-4xl">
                             <p className="text-2xl md:text-3xl lg:text-4xl leading-[1.15] font-medium text-primary tracking-tight">
                                 I specialize in transforming complex requirements into maintainable, production-ready systems.
-                                <span className="text-secondary dark:text-secondary-dark"> My approach prioritizes system reliability and business constraints over architectural trends.</span>
+                                <span className="text-secondary"> My approach prioritizes system reliability and business constraints over architectural trends.</span>
                             </p>
                         </div>
 
@@ -41,10 +41,10 @@ export default function About() {
                                 }
                             ].map((item, idx) => (
                                 <div key={idx} className="space-y-4 md:space-y-6">
-                                    <h3 className="text-lg md:text-xl font-bold tracking-tight text-primary dark:text-white uppercase border-l-2 border-black dark:border-white pl-5">
+                                    <h3 className="text-lg md:text-xl font-bold tracking-tight text-primary uppercase border-l-2 border-primary pl-5">
                                         {item.title}
                                     </h3>
-                                    <p className="text-sm md:text-base text-secondary dark:text-white/70 leading-relaxed pl-5 max-w-sm md:max-w-md">
+                                    <p className="text-sm md:text-base text-secondary leading-relaxed pl-5 max-w-sm md:max-w-md">
                                         {item.desc}
                                     </p>
                                 </div>

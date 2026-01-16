@@ -25,7 +25,7 @@ export default function Background() {
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-3">
-            <h2 className="text-sm font-mono uppercase tracking-tight text-secondary dark:text-secondary-dark sticky top-32 font-bold">
+            <h2 className="text-sm font-mono uppercase tracking-tight text-secondary sticky top-32 font-bold">
               (04) Professional Background
             </h2>
           </div>
@@ -35,12 +35,12 @@ export default function Background() {
               {education.map((item, idx) => (
                 <div key={idx} className="grid grid-cols-1 md:grid-cols-12 gap-4 py-6 border-t border-black/10 dark:border-white/10 first:border-0">
                   <div className="md:col-span-4">
-                    <span className="font-mono text-xs text-black/60 dark:text-white/60 font-bold">{item.period}</span>
+                    <span className="font-mono text-xs text-primary/60 font-bold">{item.period}</span>
                   </div>
                   <div className="md:col-span-8 space-y-2">
-                    <h3 className="text-lg font-bold text-primary dark:text-white">{item.institution}</h3>
-                    <p className="font-mono text-xs text-black/60 dark:text-white/60 uppercase tracking-wide mb-2 font-bold">{item.focus}</p>
-                    <p className="text-sm text-black/70 dark:text-white/70 leading-relaxed max-w-xl font-medium">{item.description}</p>
+                    <h3 className="text-lg font-bold text-primary">{item.institution}</h3>
+                    <p className="font-mono text-xs text-primary/60 uppercase tracking-wide mb-2 font-bold">{item.focus}</p>
+                    <p className="text-sm text-primary/70 leading-relaxed max-w-xl font-medium">{item.description}</p>
                   </div>
                 </div>
               ))}
