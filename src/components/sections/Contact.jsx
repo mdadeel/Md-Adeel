@@ -29,10 +29,11 @@ export default function Contact() {
 
                             <a
                                 href="mailto:shahnawasadeel@gmail.com"
-                                className="block text-[10vw] lg:text-7xl font-black tracking-tighter text-primary hover:text-secondary transition-colors break-all leading-none py-4"
+                                className="block text-[8vw] sm:text-[10vw] lg:text-7xl font-black tracking-tighter text-primary hover:text-secondary active:text-secondary transition-colors break-all leading-none py-4"
                             >
                                 shahnawasadeel@gmail.com
                             </a>
+
 
                             <div className="border-t border-black/10 dark:border-white/10 pt-12 md:pt-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
                                 <span className="font-mono text-[10px] text-secondary uppercase tracking-widest">

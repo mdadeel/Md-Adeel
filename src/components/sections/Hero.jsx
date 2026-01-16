@@ -1,58 +1,111 @@
 import { motion } from 'framer-motion';
 
 export default function Hero() {
+    const tickerItems = [
+        "SYSTEMS ENGINEER",
+        "INFRASTRUCTURE ARCHITECT",
+        "AUTOMATION SPECIALIST",
+        "CLOUD INTEGRATOR",
+        "SECURITY ANALYST",
+        "FULL-STACK DEVELOPER"
+    ];
+
     return (
-        <section id="hero" className="min-h-screen flex flex-col pt-16 md:pt-16 bg-background dark:bg-black overflow-hidden relative border-b border-black/5 dark:border-white/5">
-            <div className="layout-container flex-1 flex flex-col lg:flex-row items-center lg:items-stretch gap-12 lg:gap-0 pt-4 md:pt-8 pb-12 md:pb-20">
+        <section id="hero" className="relative h-screen min-h-[700px] w-full overflow-hidden font-sans border-b border-black">
 
-                {/* LEFT: Identity & Role */}
-                <div className="w-full lg:w-[60%] flex flex-col justify-center">
+            {/* Split Background */}
+            <div className="absolute inset-0 flex flex-col">
+                <div className="h-1/2 w-full bg-[#f0f0ed] dark:bg-[#1a1a1a] transition-colors duration-300" /> {/* Off-white top */}
+                <div className="h-1/2 w-full bg-[#262626] dark:bg-[#0a0a0a] transition-colors duration-300" /> {/* Dark-gray bottom */}
+            </div>
+
+            {/* Central Diagonal Photo Cutout */}
+            <div className="absolute inset-0 flex justify-center items-center z-10 pointer-events-none">
+                <motion.div
+                    initial={{ scale: 1.1, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                    className="h-[80vh] aspect-[4/5] md:aspect-[5/6] bg-gray-400 overflow-hidden shadow-2xl"
+                    style={{
+                        clipPath: 'polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%)'
+                    }}
+                >
+                    <img
+                        src="/img/cover.jpg"
+                        alt="Shahnawas Adeel"
+                        className="w-full h-full object-cover grayscale brightness-90 opacity-80"
+                    />
+                </motion.div>
+            </div>
+
+            {/* Content Layers */}
+            <div className="relative z-20 h-full w-full layout-container flex flex-col justify-between pt-12 md:pt-20 lg:pt-24 pb-28 md:pb-32">
+
+                {/* Top Half: FIRST NAME */}
+                <div className="flex-1 flex flex-col justify-start">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        className="relative z-10"
+                        initial={{ x: -100, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        <h1 className="text-[11vw] lg:text-[7vw] leading-[0.85] font-black tracking-tighter text-black dark:text-white uppercase mb-8 md:mb-12">
-                            Shahnawas<br />Adeel
+                        <h1 className="text-[14vw] md:text-[11vw] font-black leading-none tracking-[-0.05em] !text-[#1a1a1a] dark:!text-white uppercase select-none drop-shadow-sm transition-colors duration-300">
+                            Shahnawas
                         </h1>
-
-                        <div className="max-w-xl">
-                            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-black dark:text-white mb-4 md:mb-6">
-                                SYSTEMS ENGINEER & ARCHITECT
-                            </h2>
-                            <p className="text-sm md:text-base lg:text-lg text-secondary leading-relaxed border-l border-primary/20 pl-6 md:pl-8">
-                                Engineering high-performance MERN architectures and production-grade systems with a focus on maintainability, performance, and technical judgment.
-                            </p>
+                        <div className="mt-4 md:mt-6 text-[#1a1a1a] dark:text-white font-bold text-xs md:text-sm tracking-widest max-w-xs md:max-w-sm transition-colors duration-300">
+                            <p>SYSTEMS ENGINEER. INFRASTRUCTURE ARCHITECT. AUTOMATION SPECIALIST.</p>
                         </div>
                     </motion.div>
                 </div>
 
-                {/* RIGHT: Visual Figure */}
-                <div className="w-full lg:w-[40%] lg:border-l border-black/5 dark:border-white/5 flex flex-col justify-center relative lg:pl-16">
+                {/* Bottom Half: LAST NAME + CTA */}
+                <div className="flex-1 flex flex-col justify-end items-end text-right">
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.2, duration: 1.2 }}
-                        className="relative w-full max-w-[320px] md:max-w-[450px] mx-auto group"
+                        initial={{ x: 100, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="flex flex-col items-end"
                     >
-                        <div className="overflow-hidden bg-black/[0.02] dark:bg-white/[0.02] aspect-[3/4] border border-black/5 dark:border-white/5">
-                            <img
-                                src="/img/hero.jpg"
-                                alt="Shahnawas Adeel"
-                                className="w-full h-full object-cover grayscale contrast-125 saturate-0"
-                            />
+                        <div className="mb-6 md:mb-10 mr-4 md:mr-0 z-30">
+                            <a
+                                href="#work"
+                                className="bg-[#1a1a1a] dark:bg-white text-white dark:text-black px-8 md:px-12 py-3 md:py-4 text-sm md:text-base font-black tracking-widest hover:bg-white dark:hover:bg-[#1a1a1a] hover:text-black dark:hover:text-white transition-all duration-300 transform hover:-translate-y-1 block shadow-xl border border-white/10"
+                            >
+                                VIEW WORK
+                            </a>
                         </div>
+                        <h1 className="text-[14vw] md:text-[11vw] font-black leading-none tracking-[-0.05em] !text-white dark:!text-[#f0f0ed] uppercase select-none drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] transition-colors duration-300">
+                            Adeel
+                        </h1>
                     </motion.div>
                 </div>
             </div>
 
-            {/* Scroll indicator */}
-            <div className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-30 dark:opacity-50 hidden md:flex">
-                <span className="font-mono text-[8px] uppercase tracking-widest text-black dark:text-white font-bold">Scroll</span>
-                <div className="w-px h-8 bg-black dark:bg-white" />
+            {/* Ticker Banner */}
+            <div className="absolute bottom-0 left-0 w-full bg-white dark:bg-[#1a1a1a] border-t-2 border-black dark:border-white/20 h-10 md:h-12 z-30 flex items-center overflow-hidden transition-colors duration-300">
+                <div className="flex whitespace-nowrap animate-marquee">
+                    {[...Array(4)].map((_, groupIdx) => (
+                        <div key={groupIdx} className="flex">
+                            {tickerItems.map((item, idx) => (
+                                <span key={idx} className="text-[#1a1a1a] dark:text-white font-black text-[10px] md:text-xs tracking-tighter mx-4 md:mx-8 flex items-center uppercase transition-colors duration-300">
+                                    {item} <span className="ml-4 md:ml-8 opacity-30 text-base md:text-lg">//</span>
+                                </span>
+                            ))}
+                        </div>
+                    ))}
+                </div>
             </div>
-        </section>
 
+            <style jsx>{`
+                @keyframes marquee {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+                .animate-marquee {
+                    animation: marquee 30s linear infinite;
+                    display: flex;
+                    width: max-content;
+                }
+            `}</style>
+        </section>
     );
 }

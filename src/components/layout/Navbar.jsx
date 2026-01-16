@@ -57,14 +57,14 @@ export default function Navbar({ isDark, toggleDark }) {
             transition={{ duration: 0.35, ease: 'easeInOut' }}
             className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${scrolled
                 ? 'bg-background/80 backdrop-blur-md border-b border-border'
-                : 'bg-background'
+                : 'bg-transparent'
                 } ${typeof document !== 'undefined' && document.documentElement.classList.contains('modal-open') ? 'translate-y-[-100%] pointer-events-none' : ''}`}
         >
             <div className="layout-container h-14 md:h-16 grid grid-cols-2 md:grid-cols-3 items-center">
                 {/* BRANDING */}
                 <div className="flex justify-start">
                     <a href="#hero" className="z-[110] flex items-baseline gap-1" onClick={() => setIsOpen(false)}>
-                        <span className="font-bold text-base tracking-tighter uppercase text-primary">Adeel</span>
+                        <span className={`font-bold text-base tracking-tighter uppercase ${scrolled ? 'text-primary' : 'text-[#1a1a1a]'}`}>Adeel</span>
                     </a>
                 </div>
 
@@ -74,7 +74,7 @@ export default function Navbar({ isDark, toggleDark }) {
                         <a
                             key={link.name}
                             href={link.href}
-                            className="text-secondary hover:text-primary transition-colors font-bold"
+                            className={`transition-colors font-bold ${scrolled ? 'text-secondary hover:text-primary' : 'text-[#1a1a1a]/80 hover:text-[#1a1a1a]'}`}
                         >
                             {link.name}
                         </a>
@@ -85,7 +85,7 @@ export default function Navbar({ isDark, toggleDark }) {
                 <div className="hidden md:flex justify-end items-center gap-8">
                     <button
                         onClick={toggleDark}
-                        className="font-mono text-xs uppercase tracking-widest font-bold text-primary hover:opacity-50 transition-opacity"
+                        className={`font-mono text-xs uppercase tracking-widest font-bold hover:opacity-50 transition-opacity ${scrolled ? 'text-primary' : 'text-[#1a1a1a]'}`}
                     >
                         {isDark ? 'Light' : 'Dark'}
                     </button>
@@ -93,36 +93,36 @@ export default function Navbar({ isDark, toggleDark }) {
                         href="/resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-mono text-xs uppercase tracking-widest font-bold text-primary border-l border-border pl-8"
+                        className={`font-mono text-xs uppercase tracking-widest font-bold border-l pl-8 ${scrolled ? 'text-primary border-border' : 'text-[#1a1a1a] border-black/10'}`}
                     >
                         Resume
                     </a>
                 </div>
 
                 {/* Mobile Toggle */}
-                <div className="flex md:hidden justify-end items-center gap-4">
+                <div className="flex md:hidden justify-end items-center gap-2">
                     <button
                         onClick={toggleDark}
-                        className="font-mono text-xs uppercase tracking-widest font-bold text-primary"
+                        className={`font-mono text-xs uppercase tracking-widest font-bold p-3 min-w-[44px] min-h-[44px] flex items-center justify-center active:opacity-70 transition-opacity ${scrolled ? 'text-primary' : 'text-[#1a1a1a]'}`}
                     >
                         {isDark ? 'L' : 'D'}
                     </button>
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="z-[110] p-4 -mr-4 flex flex-col gap-1.5 focus:outline-none"
+                        className="z-[110] p-3 min-w-[44px] min-h-[44px] flex flex-col gap-1.5 items-center justify-center focus:outline-none active:opacity-70 transition-opacity"
                         aria-label="Toggle Menu"
                     >
                         <motion.span
                             animate={isOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }}
-                            className="w-6 h-px bg-primary block"
+                            className={`w-6 h-px block ${scrolled || isOpen ? 'bg-primary' : 'bg-[#1a1a1a]'}`}
                         />
                         <motion.span
                             animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
-                            className="w-6 h-px bg-primary block"
+                            className={`w-6 h-px block ${scrolled || isOpen ? 'bg-primary' : 'bg-[#1a1a1a]'}`}
                         />
                         <motion.span
                             animate={isOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
-                            className="w-6 h-px bg-primary block"
+                            className={`w-6 h-px block ${scrolled || isOpen ? 'bg-primary' : 'bg-[#1a1a1a]'}`}
                         />
                     </button>
                 </div>
@@ -147,7 +147,7 @@ export default function Navbar({ isDark, toggleDark }) {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.1 + idx * 0.05, duration: 0.4 }}
                                     onClick={() => setIsOpen(false)}
-                                    className="text-4xl font-bold tracking-tighter uppercase text-primary"
+                                    className="text-4xl font-bold tracking-tighter uppercase text-primary active:text-secondary transition-colors py-2"
                                 >
                                     {link.name}
                                 </motion.a>

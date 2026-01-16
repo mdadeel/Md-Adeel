@@ -35,15 +35,23 @@ function App() {
   }, [isDark]);
 
   useEffect(() => {
+    // Respect reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // On touch devices or reduced motion, use minimal smooth scroll
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: prefersReducedMotion ? 0.3 : (isTouchDevice ? 0.8 : 1.2),
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
       wheelMultiplier: 1,
-      touchMultiplier: 2,
+      touchMultiplier: isTouchDevice ? 1.5 : 2, // More responsive on touch
       infinite: false,
+      syncTouch: false, // Let native touch scroll work naturally
+      syncTouchLerp: 0.1, // Faster lerp for touch
     });
 
     function raf(time) {
@@ -57,6 +65,7 @@ function App() {
       lenis.destroy();
     };
   }, []);
+
 
   return (
     <main className="bg-background min-h-screen text-primary selection:bg-black selection:text-white transition-colors duration-300">

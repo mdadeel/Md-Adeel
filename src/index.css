@@ -46,6 +46,8 @@
 html {
   background-color: var(--color-background);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
 }
 
 body {
@@ -56,6 +58,8 @@ body {
   line-height: 1.4;
   letter-spacing: -0.02em;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
 }
 
 html.dark body {
@@ -76,7 +80,10 @@ html.dark {
 
 #root {
   min-height: 100vh;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
 }
+
 
 .layout-container {
   width: 100%;
@@ -160,4 +167,66 @@ html.dark ::selection {
 
 .interactive-subtle:hover {
   opacity: 0.7;
+}
+
+/* Mobile-First Utilities */
+
+/* Safe area padding for notched devices */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0);
+}
+
+/* Touch-friendly tap highlight */
+.tap-highlight {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+html.dark .tap-highlight {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Disable text selection on interactive elements */
+.no-select {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Touch-friendly active states */
+@media (hover: none) {
+  .touch-active:active {
+    opacity: 0.7;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Improved touch targets */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Hide scrollbar on mobile for horizontal scroll areas */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }

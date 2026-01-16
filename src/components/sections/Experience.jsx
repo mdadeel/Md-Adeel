@@ -25,7 +25,7 @@ export default function Background() {
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-3">
-            <h2 className="text-sm font-mono uppercase tracking-tight text-secondary sticky top-32 font-bold">
+            <h2 className="text-sm font-mono uppercase tracking-tight text-secondary md:sticky md:top-32 font-bold">
               (04) Professional Background
             </h2>
           </div>

@@ -75,8 +75,8 @@ export default function Projects() {
                                                         {project.tech.slice(0, 3).join(' / ')}
                                                     </p>
                                                 </div>
-                                                <div className="group/details inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest border-b border-primary pb-1 hover:text-secondary hover:border-secondary transition-colors text-primary">
-                                                    <span>View Details</span>
+                                                <div className="group/details inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest border-b border-primary pb-1 hover:text-secondary hover:border-secondary active:text-secondary active:border-secondary transition-colors text-primary">
+                                                    <span className="hidden sm:inline">View Details</span>
                                                     <span className="group-hover/details:translate-x-1 group-hover/details:-translate-y-1 transition-transform">↘</span>
                                                 </div>
                                             </div>
@@ -103,6 +103,7 @@ export default function Projects() {
                             <img
                                 src={hoveredProject.image}
                                 alt={hoveredProject.name}
+                                loading="lazy"
                                 className="w-full h-full object-cover filter grayscale"
                             />
                         </div>
@@ -127,11 +128,12 @@ export default function Projects() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95 }}
                             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                            className="relative w-full max-w-[1200px] bg-white dark:bg-black border border-black dark:border-white shadow-2xl flex flex-col max-h-[90vh] overflow-hidden"
+                            className="relative w-full max-w-[1200px] bg-background dark:bg-[#0A0A0A] border border-black dark:border-white shadow-2xl flex flex-col max-h-[90vh] overflow-hidden"
                         >
                             <div
-                                className="flex-1 overflow-y-auto p-6 md:px-12 md:py-6 lg:px-20 lg:py-10"
+                                className="flex-1 overflow-y-auto p-6 md:px-12 md:py-6 lg:px-20 lg:py-10 bg-background dark:bg-[#0A0A0A]"
                                 data-lenis-prevent
+
                                 onWheel={(e) => e.stopPropagation()}
                             >
                                 {/* Header / Close Action */}
@@ -157,6 +159,7 @@ export default function Projects() {
                                                 <img
                                                     src={selectedProject.image}
                                                     alt={selectedProject.name}
+                                                    loading="lazy"
                                                     className="w-full h-full object-contain transition-all duration-700"
                                                 />
                                             </div>
@@ -168,7 +171,7 @@ export default function Projects() {
                                                         {selectedProject.name}
                                                     </h2>
                                                     <p className="text-secondary dark:text-secondary-dark font-mono text-[11px] uppercase tracking-widest leading-relaxed">
-                                                        {selectedProject.category} // RE-ENGINEERING STATUS: COMPLETE
+                                                        {selectedProject.category}
                                                     </p>
                                                 </div>
 
@@ -226,8 +229,8 @@ export default function Projects() {
                                         </div>
                                     </div>
 
-                                    {/* Section 03: Constraints & Actions */}
-                                    <div className="md:col-span-4 md:border-l border-black/10 dark:border-white/10 md:pl-12">
+                                    {/* Section 03: Constraints & Actions - Hidden on mobile */}
+                                    <div className="hidden md:block md:col-span-4 md:border-l border-black/10 dark:border-white/10 md:pl-12">
                                         <div className="space-y-12">
                                             <div>
                                                 <p className="font-mono text-[10px] text-secondary dark:text-secondary-dark uppercase tracking-widest mb-6 border-b border-black/10 dark:border-white/10 pb-2">Technical Constraints</p>
@@ -272,7 +275,8 @@ export default function Projects() {
                             </div>
 
                             {/* Technical Footer */}
-                            <div className="grid grid-cols-2 border-t border-black/10 dark:border-white/10 bg-background dark:bg-black overflow-hidden h-14 md:h-16">
+                            <div className="grid grid-cols-2 border-t border-black/10 dark:border-white/10 bg-background dark:bg-[#0A0A0A] overflow-hidden h-14 md:h-16">
+
                                 <a
                                     href={selectedProject.liveUrl}
                                     target="_blank"
