@@ -48,11 +48,11 @@ export default function Hero() {
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        <h1 className="text-[14vw] md:text-[11vw] font-black leading-none tracking-[-0.05em] !text-[#1a1a1a] dark:!text-white uppercase select-none drop-shadow-sm transition-colors duration-300">
+                        <h1 className="text-[clamp(3rem,9vw,6.5rem)] font-black leading-[0.85] tracking-[-0.05em] !text-[#1a1a1a] dark:!text-white uppercase select-none drop-shadow-sm transition-colors duration-300">
                             Shahnawas
                         </h1>
-                        <div className="mt-4 md:mt-6 text-[#1a1a1a] dark:text-white font-bold text-xs md:text-sm tracking-widest max-w-xs md:max-w-sm transition-colors duration-300">
-                            <p>SYSTEMS ENGINEER. INFRASTRUCTURE ARCHITECT. AUTOMATION SPECIALIST.</p>
+                        <div className="mt-4 md:mt-6 text-[#1a1a1a] dark:text-white font-bold text-[clamp(0.65rem,1.2vw,0.875rem)] tracking-[0.2em] max-w-xs md:max-w-sm transition-colors duration-300">
+                            <p>SYSTEMS ENGINEER // INFRASTRUCTURE ARCHITECT // AUTOMATION SPECIALIST.</p>
                         </div>
                     </motion.div>
                 </div>
@@ -65,14 +65,14 @@ export default function Hero() {
                         transition={{ duration: 0.8, delay: 0.4 }}
                         className="flex flex-col items-center md:items-end"
                     >
-                        <h1 className="text-[14vw] md:text-[11vw] font-black leading-none tracking-[-0.05em] !text-white dark:!text-[#f0f0ed] uppercase select-none drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] transition-colors duration-300">
+                        <h1 className="text-[clamp(3rem,9vw,6.5rem)] font-black leading-[0.85] tracking-[-0.05em] !text-white dark:!text-[#f0f0ed] uppercase select-none drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] transition-colors duration-300">
                             Adeel
                         </h1>
 
-                        <div className="mt-2 md:mt-8 md:mb-8 z-30 order-last md:order-first relative -top-[-30px] md:-top-[40px]">
+                        <div className="mt-4 md:mt-10 md:mb-10 z-30 order-last md:order-first relative top-[30px] md:top-[-40px]">
                             <a
                                 href="#work"
-                                className="bg-[#1a1a1a] dark:bg-white text-white dark:text-black px-6 md:px-12 py-2 md:py-4 text-[10px] md:text-base font-black tracking-widest hover:bg-white dark:hover:bg-[#1a1a1a] hover:text-black dark:hover:text-white transition-all duration-300 transform hover:-translate-y-1 block shadow-xl border border-white/10"
+                                className="bg-[#1a1a1a] dark:bg-white text-white dark:text-black px-[clamp(1.5rem,4vw,3rem)] py-[clamp(0.625rem,2vw,1rem)] text-[clamp(0.65rem,1vw,1rem)] font-black tracking-widest hover:bg-white dark:hover:bg-[#1a1a1a] hover:text-black dark:hover:text-white transition-all duration-300 transform hover:-translate-y-1 block shadow-xl border border-white/10"
                             >
                                 VIEW WORK
                             </a>

@@ -14,7 +14,7 @@ export default function About() {
                     <div className="lg:col-span-9 space-y-20 md:space-y-32">
                         {/* Intro Statement */}
                         <div className="max-w-4xl">
-                            <p className="text-2xl md:text-3xl lg:text-4xl leading-[1.15] font-medium text-primary tracking-tight">
+                            <p className="text-[clamp(1.5rem,3.5vw,2.5rem)] leading-[1.15] font-medium text-primary tracking-tight">
                                 I specialize in transforming complex requirements into maintainable, production-ready systems.
                                 <span className="text-secondary"> My approach prioritizes system reliability and business constraints over architectural trends.</span>
                             </p>
@@ -41,10 +41,10 @@ export default function About() {
                                 }
                             ].map((item, idx) => (
                                 <div key={idx} className="space-y-4 md:space-y-6">
-                                    <h3 className="text-lg md:text-xl font-bold tracking-tight text-primary uppercase border-l-2 border-primary pl-5">
+                                    <h3 className="text-[clamp(1.125rem,2vw,1.5rem)] font-bold tracking-tight text-primary uppercase border-l-2 border-primary pl-5">
                                         {item.title}
                                     </h3>
-                                    <p className="text-sm md:text-base text-secondary leading-relaxed pl-5 max-w-sm md:max-w-md">
+                                    <p className="text-[clamp(0.875rem,1.2vw,1rem)] text-secondary leading-relaxed pl-5 max-w-sm md:max-w-md">
                                         {item.desc}
                                     </p>
                                 </div>

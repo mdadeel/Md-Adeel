@@ -60,21 +60,21 @@ export default function Navbar({ isDark, toggleDark }) {
                 : 'bg-transparent'
                 } ${typeof document !== 'undefined' && document.documentElement.classList.contains('modal-open') ? 'translate-y-[-100%] pointer-events-none' : ''}`}
         >
-            <div className="layout-container h-14 md:h-16 grid grid-cols-2 md:grid-cols-3 items-center">
+            <div className="layout-container h-[clamp(3.5rem,5vw,4.5rem)] grid grid-cols-2 md:grid-cols-3 items-center">
                 {/* BRANDING */}
                 <div className="flex justify-start">
                     <a href="#hero" className="z-[110] flex items-baseline gap-1" onClick={() => setIsOpen(false)}>
-                        <span className={`font-bold text-base tracking-tighter uppercase ${scrolled ? 'text-primary' : 'text-[#1a1a1a]'}`}>Adeel</span>
+                        <span className={`font-bold text-[clamp(1rem,1.2vw,1.125rem)] tracking-tighter uppercase ${scrolled ? 'text-primary' : 'text-[#1a1a1a]'}`}>Adeel</span>
                     </a>
                 </div>
 
                 {/* DESKTOP NAV (CENTERED) */}
-                <nav className="hidden md:flex justify-center items-center gap-12 font-mono text-xs uppercase tracking-widest">
+                <nav className="hidden md:flex justify-center items-center gap-[clamp(1rem,3vw,3rem)] font-mono text-[clamp(0.65rem,0.8vw,0.75rem)] uppercase tracking-widest">
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
                             href={link.href}
-                            className={`transition-colors font-bold ${scrolled ? 'text-secondary hover:text-primary' : 'text-[#1a1a1a]/80 hover:text-[#1a1a1a]'}`}
+                            className={`transition-colors font-bold py-2 ${scrolled ? 'text-secondary hover:text-primary' : 'text-[#1a1a1a]/80 hover:text-[#1a1a1a]'}`}
                         >
                             {link.name}
                         </a>
@@ -82,10 +82,10 @@ export default function Navbar({ isDark, toggleDark }) {
                 </nav>
 
                 {/* CTA / RESUME / THEME (RIGHT) */}
-                <div className="hidden md:flex justify-end items-center gap-8">
+                <div className="hidden md:flex justify-end items-center gap-[clamp(1rem,2vw,2rem)]">
                     <button
                         onClick={toggleDark}
-                        className={`font-mono text-xs uppercase tracking-widest font-bold hover:opacity-50 transition-opacity ${scrolled ? 'text-primary' : 'text-[#1a1a1a]'}`}
+                        className={`font-mono text-[clamp(0.65rem,0.8vw,0.75rem)] uppercase tracking-widest font-bold hover:opacity-50 transition-opacity py-2 px-2 ${scrolled ? 'text-primary' : 'text-[#1a1a1a]'}`}
                     >
                         {isDark ? 'Light' : 'Dark'}
                     </button>
@@ -93,7 +93,7 @@ export default function Navbar({ isDark, toggleDark }) {
                         href="/resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`font-mono text-xs uppercase tracking-widest font-bold border-l pl-8 ${scrolled ? 'text-primary border-border' : 'text-[#1a1a1a] border-black/10'}`}
+                        className={`font-mono text-[clamp(0.65rem,0.8vw,0.75rem)] uppercase tracking-widest font-bold border-l pl-[clamp(1rem,2vw,2rem)] py-2 ${scrolled ? 'text-primary border-border' : 'text-[#1a1a1a] border-black/10'}`}
                     >
                         Resume
                     </a>

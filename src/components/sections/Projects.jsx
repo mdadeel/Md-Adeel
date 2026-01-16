@@ -52,7 +52,7 @@ export default function Projects() {
                                                 0{projects.indexOf(project) + 1}
                                             </span>
                                             <div>
-                                                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tighter text-primary mb-2 group-hover:translate-x-2 transition-transform duration-300">
+                                                <h3 className="text-[clamp(1.5rem,3vw,2rem)] font-bold tracking-tighter text-primary mb-2 group-hover:translate-x-2 transition-transform duration-300">
                                                     {project.name}
                                                 </h3>
                                                 <span className="font-mono text-[10px] text-secondary uppercase tracking-[0.25em]">
@@ -64,7 +64,7 @@ export default function Projects() {
                                         <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12">
                                             <div>
                                                 <p className="font-mono text-[10px] text-secondary uppercase mb-3 tracking-widest">Outcome</p>
-                                                <p className="text-sm leading-relaxed text-primary">
+                                                <p className="text-[clamp(0.875rem,1vw,1.125rem)] leading-relaxed text-primary">
                                                     {project.outcome}
                                                 </p>
                                             </div>
@@ -131,7 +131,7 @@ export default function Projects() {
                             className="relative w-full max-w-[1200px] bg-background dark:bg-[#0A0A0A] border border-black dark:border-white shadow-2xl flex flex-col max-h-[90vh] overflow-hidden"
                         >
                             <div
-                                className="flex-1 overflow-y-auto p-6 md:px-12 md:py-6 lg:px-20 lg:py-10 bg-background dark:bg-[#0A0A0A]"
+                                className="flex-1 overflow-y-auto p-[clamp(1.5rem,5vw,5rem)] bg-background dark:bg-[#0A0A0A]"
                                 data-lenis-prevent
 
                                 onWheel={(e) => e.stopPropagation()}
@@ -167,10 +167,10 @@ export default function Projects() {
                                             {/* RIGHT: Project Title & Stack */}
                                             <div className="space-y-6">
                                                 <div className="space-y-3">
-                                                    <h2 className="text-3xl md:text-4xl lg:text-5xl leading-[0.9] font-bold tracking-tighter text-primary uppercase">
+                                                    <h2 className="text-[clamp(1.75rem,5vw,3rem)] leading-[0.9] font-bold tracking-tighter text-primary uppercase">
                                                         {selectedProject.name}
                                                     </h2>
-                                                    <p className="text-secondary dark:text-secondary-dark font-mono text-[11px] uppercase tracking-widest leading-relaxed">
+                                                    <p className="text-secondary dark:text-secondary-dark font-mono text-[clamp(0.6rem,0.8vw,0.75rem)] uppercase tracking-widest leading-relaxed">
                                                         {selectedProject.category}
                                                     </p>
                                                 </div>
@@ -198,7 +198,7 @@ export default function Projects() {
                                                 (01) The Challenge
                                             </div>
                                             <div className="md:col-span-8 pt-4">
-                                                <p className="text-2xl md:text-3xl font-bold tracking-tight text-primary leading-[1.1]">
+                                                <p className="text-[clamp(1.25rem,3vw,2.25rem)] font-bold tracking-tight text-primary leading-[1.1]">
                                                     {selectedProject.problem}
                                                 </p>
                                             </div>

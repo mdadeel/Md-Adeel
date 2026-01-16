@@ -113,23 +113,24 @@ h4 {
 }
 
 h1 {
-  /* Fluid scaling from ~2.5rem to 6rem */
-  font-size: clamp(2.5rem, 12vw, 6rem);
+  /* Fluid scaling: 40px at 320px screen -> 80px at 1440px screen */
+  font-size: clamp(2.5rem, 5.5vw + 1rem, 5rem);
 }
 
 h2 {
-  /* Fluid scaling for section headers */
-  font-size: clamp(1.5rem, 6vw, 3rem);
+  /* Fluid scaling: 32px at 320px screen -> 48px at 1440px screen */
+  font-size: clamp(2rem, 2vw + 1.25rem, 3rem);
 }
 
-
 h3 {
-  font-size: clamp(1.25rem, 4vw, 2rem);
+  /* Fluid scaling: 24px at 320px screen -> 32px at 1440px screen */
+  font-size: clamp(1.5rem, 1vw + 1.25rem, 2rem);
 }
 
 p {
   color: var(--color-text-secondary);
-  font-size: clamp(0.875rem, 2vw, 1rem);
+  /* Fluid scaling: 14px at 320px screen -> 16px at 1440px screen */
+  font-size: clamp(0.875rem, 0.25vw + 0.825rem, 1rem);
 }
 
 /* Functional Selection */

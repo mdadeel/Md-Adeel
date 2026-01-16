@@ -21,7 +21,7 @@ export default function Contact() {
                     <div className="lg:col-span-9">
                         <div className="space-y-12 md:space-y-24">
                             <div className="space-y-6">
-                                <p className="text-2xl md:text-3xl lg:text-4xl text-primary dark:text-white font-medium max-w-3xl leading-tight tracking-tight">
+                                <p className="text-[clamp(1.5rem,3.5vw,2.5rem)] text-primary dark:text-white font-medium max-w-3xl leading-tight tracking-tight">
                                     Available for full-stack engineering projects and system design consultation.
                                     <span className="text-black/60 dark:text-white/60"> Typical response time: 24 hours.</span>
                                 </p>
@@ -29,7 +29,7 @@ export default function Contact() {
 
                             <a
                                 href="mailto:shahnawasadeel@gmail.com"
-                                className="block text-[8vw] sm:text-[10vw] lg:text-7xl font-black tracking-tighter text-primary hover:text-secondary active:text-secondary transition-colors break-all leading-none py-4"
+                                className="block text-[clamp(2rem,8vw,5.5rem)] font-black tracking-tighter text-primary hover:text-secondary active:text-secondary transition-colors break-all leading-none py-4"
                             >
                                 shahnawasadeel@gmail.com
                             </a>
