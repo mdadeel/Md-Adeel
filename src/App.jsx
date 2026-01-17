@@ -31,7 +31,12 @@ function App() {
 
   useEffect(() => {
     const root = window.document.documentElement;
-    if (isDark) {
+    const isMobile = window.innerWidth < 768;
+
+    // Force dark mode on mobile
+    if (isMobile) {
+      root.classList.add('dark');
+    } else if (isDark) {
       root.classList.add('dark');
       localStorage.setItem('theme', 'dark');
     } else {

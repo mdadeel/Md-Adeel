@@ -107,12 +107,6 @@ export default function Navbar({ isDark, toggleDark, showToast }) {
                 {/* Mobile Toggle */}
                 <div className="flex md:hidden justify-end items-center gap-2">
                     <button
-                        onClick={toggleDark}
-                        className={`font-mono text-xs uppercase tracking-widest font-bold p-3 min-w-[44px] min-h-[44px] flex items-center justify-center active:opacity-70 transition-opacity ${scrolled ? 'text-primary' : 'text-primary'}`}
-                    >
-                        {isDark ? 'L' : 'D'}
-                    </button>
-                    <button
                         onClick={() => setIsOpen(!isOpen)}
                         className="z-[110] p-3 min-w-[44px] min-h-[44px] flex flex-col gap-1.5 items-center justify-center focus:outline-none active:opacity-70 transition-opacity"
                         aria-label="Toggle Menu"
