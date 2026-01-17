@@ -7,7 +7,18 @@ const footerLinks = [
     { label: 'Twitter/X', url: 'https://twitter.com/shahnawas_adeel' }
 ];
 
-export default function Contact() {
+export default function Contact({ showToast }) {
+    const handleCopyEmail = () => {
+        navigator.clipboard.writeText('shahnawasadeel@gmail.com');
+        showToast('Email copied to clipboard');
+    };
+
+    const CopyIcon = () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block ml-2 opacity-50 hover:opacity-100 transition-opacity">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+    );
     return (
         <section id="contact" className="section-padding bg-background border-b border-border">
             <div className="layout-container">
@@ -27,12 +38,24 @@ export default function Contact() {
                                 Currently available for full-stack engineering roles and infrastructure consultation.
                             </p>
 
-                            <a
-                                href="mailto:shahnawasadeel@gmail.com"
-                                className="text-display-md !text-[clamp(1.125rem,4vw,2.5rem)] text-primary hover:text-secondary transition-colors break-all"
-                            >
-                                shahnawasadeel@gmail.com ↗
-                            </a>
+                            <div className="flex items-center gap-4 group">
+                                <button
+                                    onClick={handleCopyEmail}
+                                    className="text-display-md !text-[clamp(1.125rem,4vw,2.5rem)] text-primary hover:text-secondary transition-colors break-all text-left"
+                                    aria-label="Copy Email"
+                                    title="Copy Email"
+                                >
+                                    shahnawasadeel@gmail.com
+                                </button>
+                                <button
+                                    onClick={handleCopyEmail}
+                                    className="p-3 bg-secondary/5 hover:bg-secondary/10 rounded-full transition-colors active:scale-95 opacity-50 hover:opacity-100"
+                                    aria-label="Copy Email Icon"
+                                    title="Copy Email"
+                                >
+                                    <CopyIcon />
+                                </button>
+                            </div>
                         </div>
 
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 pt-10 md:pt-16 border-t border-border">

@@ -57,9 +57,17 @@ body {
   min-height: 100vh;
   line-height: 1.4;
   letter-spacing: -0.02em;
-  transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
   /* Prevent horizontal scroll */
+}
+
+/* Global Theme Transition */
+*,
+*::before,
+*::after {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity;
+  transition-duration: 400ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html.dark body {

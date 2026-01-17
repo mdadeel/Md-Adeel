@@ -1,7 +1,12 @@
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-export default function Navbar({ isDark, toggleDark }) {
+export default function Navbar({ isDark, toggleDark, showToast }) {
+    const handleCopyEmail = (e) => {
+        e.preventDefault();
+        navigator.clipboard.writeText('shahnawasadeel@gmail.com');
+        showToast('Email copied to clipboard');
+    };
     const [isOpen, setIsOpen] = useState(false);
     const [hidden, setHidden] = useState(false);
     const [scrolled, setScrolled] = useState(false);
@@ -170,12 +175,12 @@ export default function Navbar({ isDark, toggleDark }) {
                                 <p className="text-xl font-medium text-primary leading-tight">
                                     Available for full-stack engineering projects and systems design consultation.
                                 </p>
-                                <a
-                                    href="mailto:shahnawasadeel@gmail.com"
-                                    className="text-lg font-bold text-primary border-b border-border pb-1"
+                                <button
+                                    onClick={handleCopyEmail}
+                                    className="text-lg font-bold text-primary border-b border-border pb-1 hover:text-secondary transition-colors text-left"
                                 >
                                     shahnawasadeel@gmail.com
-                                </a>
+                                </button>
                             </div>
                             <p className="font-mono text-[10px] text-secondary uppercase tracking-widest font-bold">
                                 © {new Date().getFullYear()} Shahnawas Adeel

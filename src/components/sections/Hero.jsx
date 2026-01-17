@@ -14,7 +14,7 @@ export default function Hero() {
         <section id="hero" className="relative h-screen min-h-[700px] w-full overflow-hidden border-b border-border">
 
             {/* Background */}
-            <div className="absolute inset-0 bg-surface dark:bg-dark-background transition-colors duration-300">
+            <div className="absolute inset-0 bg-surface dark:bg-dark-background">
                 <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, var(--color-primary) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
             </div>
 
@@ -58,17 +58,13 @@ export default function Hero() {
                 </div>
 
                 {/* Bottom: LAST NAME + CTA */}
-                <div className="flex flex-col items-end">
+                {/* Bottom: LAST NAME + CTA */}
+                <div className="flex flex-row items-end justify-between">
                     <motion.div
-                        initial={{ x: 20, opacity: 0 }}
+                        initial={{ x: -20, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.4 }}
-                        className="flex flex-col items-end text-right"
+                        transition={{ duration: 1, delay: 0.6 }}
                     >
-                        <h1 className="text-display-2xl text-primary mb-8 md:mb-12">
-                            Adeel
-                        </h1>
-
                         <a
                             href="#work"
                             className="text-mono-xs bg-primary text-background px-8 py-4 md:px-10 md:py-5 transition-transform hover:-translate-y-1 active:scale-95 touch-target flex items-center justify-center"
@@ -76,11 +72,22 @@ export default function Hero() {
                             SELECTED WORKS ↘
                         </a>
                     </motion.div>
+
+                    <motion.div
+                        initial={{ x: 20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 1, delay: 0.4 }}
+                        className="flex flex-col items-end text-right"
+                    >
+                        <h1 className="text-display-2xl text-primary -mb-2 md:-mb-4">
+                            Adeel
+                        </h1>
+                    </motion.div>
                 </div>
             </div>
 
             {/* Ticker Banner */}
-            <div className="absolute bottom-0 left-0 w-full bg-surface dark:bg-dark-surface border-t border-border h-12 z-30 flex items-center overflow-hidden transition-colors duration-300">
+            <div className="absolute bottom-0 left-0 w-full bg-surface dark:bg-dark-surface border-t border-border h-12 z-30 flex items-center overflow-hidden">
                 <div className="flex whitespace-nowrap animate-marquee">
                     {[...Array(4)].map((_, groupIdx) => (
                         <div key={groupIdx} className="flex">

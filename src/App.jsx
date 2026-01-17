@@ -1,7 +1,9 @@
 import './index.css';
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/sections/Hero';
+import { motion, AnimatePresence } from 'framer-motion';
+import Lenis from 'lenis';
 
 const About = lazy(() => import('./components/sections/About'));
 const HowIWork = lazy(() => import('./components/sections/HowIWork'));
@@ -9,9 +11,6 @@ const Skills = lazy(() => import('./components/sections/Skills'));
 const Projects = lazy(() => import('./components/sections/Projects'));
 const Experience = lazy(() => import('./components/sections/Experience'));
 const Contact = lazy(() => import('./components/sections/Contact'));
-
-import { useEffect, useState } from 'react';
-import Lenis from 'lenis';
 
 function App() {
   const [isDark, setIsDark] = useState(() => {
@@ -22,6 +21,13 @@ function App() {
     }
     return false;
   });
+
+  const [toast, setToast] = useState(null);
+
+  const showToast = (message) => {
+    setToast(message);
+    setTimeout(() => setToast(null), 3000);
+  };
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -68,8 +74,8 @@ function App() {
 
 
   return (
-    <main className="bg-background min-h-screen text-primary selection:bg-black selection:text-white transition-colors duration-300">
-      <Navbar isDark={isDark} toggleDark={() => setIsDark(!isDark)} />
+    <main className="bg-background min-h-screen text-primary selection:bg-black selection:text-white">
+      <Navbar isDark={isDark} toggleDark={() => setIsDark(!isDark)} showToast={showToast} />
       <Hero />
       <Suspense fallback={<div className="h-screen bg-background" />}>
         <About />
@@ -77,12 +83,23 @@ function App() {
         <Skills />
         <Projects />
         <Experience />
-        <Contact />
+        <Contact showToast={showToast} />
       </Suspense>
+
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, x: '-50%' }}
+            animate={{ opacity: 1, y: 0, x: '-50%' }}
+            exit={{ opacity: 0, y: 20, x: '-50%' }}
+            className="fixed bottom-12 left-1/2 z-[200] px-6 py-3 bg-primary text-background text-mono-xs font-bold shadow-2xl pointer-events-none"
+          >
+            {toast}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
-
-
 
 export default App;
