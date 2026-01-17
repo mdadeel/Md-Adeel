@@ -11,84 +11,82 @@ export default function Hero() {
     ];
 
     return (
-        <section id="hero" className="relative h-screen min-h-[700px] w-full overflow-hidden font-sans border-b border-black">
+        <section id="hero" className="relative h-screen min-h-[700px] w-full overflow-hidden border-b border-border">
 
-            {/* Split Background */}
-            <div className="absolute inset-0 flex flex-col">
-                <div className="h-1/2 w-full bg-[#f0f0ed] dark:bg-[#1a1a1a] transition-colors duration-300" /> {/* Off-white top */}
-                <div className="h-1/2 w-full bg-[#262626] dark:bg-[#0a0a0a] transition-colors duration-300" /> {/* Dark-gray bottom */}
+            {/* Background */}
+            <div className="absolute inset-0 bg-surface dark:bg-dark-background transition-colors duration-300">
+                <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, var(--color-primary) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
             </div>
 
-            {/* Central Diagonal Photo Cutout */}
+            {/* Central Photo */}
             <div className="absolute inset-0 flex justify-center items-center z-10 pointer-events-none">
                 <motion.div
-                    initial={{ scale: 1.1, opacity: 0 }}
+                    initial={{ scale: 1.05, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="h-[80vh] aspect-[4/5] md:aspect-[5/6] bg-gray-400 overflow-hidden shadow-2xl"
+                    transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+                    className="h-[75vh] aspect-[4/5] md:aspect-[5/6] overflow-hidden"
                     style={{
-                        clipPath: 'polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%)'
+                        clipPath: 'polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%)'
                     }}
                 >
                     <img
                         src="/img/cover.jpg"
                         alt="Shahnawas Adeel"
-                        className="w-full h-full object-cover grayscale brightness-90 opacity-80"
+                        className="w-full h-full object-cover grayscale brightness-90 opacity-40 dark:opacity-30"
                     />
                 </motion.div>
             </div>
 
-            {/* Content Layers */}
-            <div className="relative z-20 h-full w-full layout-container flex flex-col justify-between pt-12 md:pt-20 lg:pt-24 pb-28 md:pb-32">
+            {/* Content */}
+            <div className="relative z-20 h-full w-full layout-container flex flex-col justify-between py-16 md:py-32">
 
-                {/* Top Half: FIRST NAME */}
-                <div className="flex-1 flex flex-col justify-start">
+                {/* Top: FIRST NAME */}
+                <div className="flex justify-start">
                     <motion.div
-                        initial={{ x: -100, opacity: 0 }}
+                        initial={{ x: -20, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
+                        transition={{ duration: 1, delay: 0.2 }}
+                        className="max-w-2xl"
                     >
-                        <h1 className="text-[clamp(3rem,9vw,6.5rem)] font-black leading-[0.85] tracking-[-0.05em] !text-[#1a1a1a] dark:!text-white uppercase select-none drop-shadow-sm transition-colors duration-300">
+                        <h1 className="text-display-2xl text-primary mb-3 md:mb-6">
                             Shahnawas
                         </h1>
-                        <div className="mt-4 md:mt-6 text-[#1a1a1a] dark:text-white font-bold text-[clamp(0.65rem,1.2vw,0.875rem)] tracking-[0.2em] max-w-xs md:max-w-sm transition-colors duration-300">
-                            <p>SYSTEMS ENGINEER // INFRASTRUCTURE ARCHITECT // AUTOMATION SPECIALIST.</p>
-                        </div>
+                        <p className="text-mono-xs text-secondary max-w-sm opacity-60">
+                            SYSTEMS ENGINEER // INFRASTRUCTURE ARCHITECT // AUTOMATION SPECIALIST.
+                        </p>
                     </motion.div>
                 </div>
 
-                {/* Bottom Half: LAST NAME + CTA */}
-                <div className="flex-1 flex flex-col justify-end items-center md:items-end text-center md:text-right">
+                {/* Bottom: LAST NAME + CTA */}
+                <div className="flex flex-col items-end">
                     <motion.div
-                        initial={{ x: 100, opacity: 0 }}
+                        initial={{ x: 20, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                        className="flex flex-col items-center md:items-end"
+                        transition={{ duration: 1, delay: 0.4 }}
+                        className="flex flex-col items-end text-right"
                     >
-                        <h1 className="text-[clamp(3rem,9vw,6.5rem)] font-black leading-[0.85] tracking-[-0.05em] !text-white dark:!text-[#f0f0ed] uppercase select-none drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] transition-colors duration-300">
+                        <h1 className="text-display-2xl text-primary mb-8 md:mb-12">
                             Adeel
                         </h1>
 
-                        <div className="mt-4 md:mt-10 md:mb-10 z-30 order-last md:order-first relative top-[30px] md:top-[-40px]">
-                            <a
-                                href="#work"
-                                className="bg-[#1a1a1a] dark:bg-white text-white dark:text-black px-[clamp(1.5rem,4vw,3rem)] py-[clamp(0.625rem,2vw,1rem)] text-[clamp(0.65rem,1vw,1rem)] font-black tracking-widest hover:bg-white dark:hover:bg-[#1a1a1a] hover:text-black dark:hover:text-white transition-all duration-300 transform hover:-translate-y-1 block shadow-xl border border-white/10"
-                            >
-                                VIEW WORK
-                            </a>
-                        </div>
+                        <a
+                            href="#work"
+                            className="text-mono-xs bg-primary text-background px-8 py-4 md:px-10 md:py-5 transition-transform hover:-translate-y-1 active:scale-95 touch-target flex items-center justify-center"
+                        >
+                            SELECTED WORKS ↘
+                        </a>
                     </motion.div>
                 </div>
             </div>
 
             {/* Ticker Banner */}
-            <div className="absolute bottom-0 left-0 w-full bg-white dark:bg-[#1a1a1a] border-t-2 border-black dark:border-white/20 h-10 md:h-12 z-30 flex items-center overflow-hidden transition-colors duration-300">
+            <div className="absolute bottom-0 left-0 w-full bg-surface dark:bg-dark-surface border-t border-border h-12 z-30 flex items-center overflow-hidden transition-colors duration-300">
                 <div className="flex whitespace-nowrap animate-marquee">
                     {[...Array(4)].map((_, groupIdx) => (
                         <div key={groupIdx} className="flex">
                             {tickerItems.map((item, idx) => (
-                                <span key={idx} className="text-[#1a1a1a] dark:text-white font-black text-[10px] md:text-xs tracking-tighter mx-4 md:mx-8 flex items-center uppercase transition-colors duration-300">
-                                    {item} <span className="ml-4 md:ml-8 opacity-30 text-base md:text-lg">//</span>
+                                <span key={idx} className="text-mono-2xs text-secondary mx-8 flex items-center">
+                                    {item} <span className="ml-8 opacity-20">//</span>
                                 </span>
                             ))}
                         </div>
@@ -102,7 +100,7 @@ export default function Hero() {
                     100% { transform: translateX(-50%); }
                 }
                 .animate-marquee {
-                    animation: marquee 30s linear infinite;
+                    animation: marquee 40s linear infinite;
                     display: flex;
                     width: max-content;
                 }

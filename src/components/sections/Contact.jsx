@@ -9,50 +9,47 @@ const footerLinks = [
 
 export default function Contact() {
     return (
-        <section id="contact" className="py-20 md:py-32 bg-background dark:bg-black">
+        <section id="contact" className="section-padding bg-background border-b border-border">
             <div className="layout-container">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-                    <div className="lg:col-span-3">
-                        <h2 className="text-sm font-mono uppercase tracking-tight text-secondary lg:sticky lg:top-32 scroll-mt-32">
-                            (05) Strategic Contact
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 lg:gap-24">
+                    <div className="lg:col-span-4">
+                        <h2 className="text-mono-xs text-secondary lg:sticky lg:top-32 font-bold mb-4 lg:mb-0">
+                            (05) Contact
                         </h2>
                     </div>
 
-                    <div className="lg:col-span-9">
-                        <div className="space-y-12 md:space-y-24">
-                            <div className="space-y-6">
-                                <p className="text-[clamp(1.5rem,3.5vw,2.5rem)] text-primary dark:text-white font-medium max-w-3xl leading-tight tracking-tight">
-                                    Available for full-stack engineering projects and system design consultation.
-                                    <span className="text-black/60 dark:text-white/60"> Typical response time: 24 hours.</span>
-                                </p>
-                            </div>
+                    <div className="lg:col-span-8 space-y-10 md:space-y-16">
+                        <div className="max-w-3xl">
+                            <h3 className="text-display-lg text-primary mb-6 md:mb-8">
+                                Let's build <span className="text-secondary">predictable, scaleable systems together.</span>
+                            </h3>
+                            <p className="text-body-lg text-secondary mb-8 md:mb-12">
+                                Currently available for full-stack engineering roles and infrastructure consultation.
+                            </p>
 
                             <a
                                 href="mailto:shahnawasadeel@gmail.com"
-                                className="block text-[clamp(2rem,8vw,5.5rem)] font-black tracking-tighter text-primary hover:text-secondary active:text-secondary transition-colors break-all leading-none py-4"
+                                className="text-display-md !text-[clamp(1.125rem,4vw,2.5rem)] text-primary hover:text-secondary transition-colors break-all"
                             >
-                                shahnawasadeel@gmail.com
+                                shahnawasadeel@gmail.com ↗
                             </a>
+                        </div>
 
-
-                            <div className="border-t border-black/10 dark:border-white/10 pt-12 md:pt-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
-                                <span className="font-mono text-[10px] text-secondary uppercase tracking-widest">
-                                    © {new Date().getFullYear()} Shahnawas Adeel // EST. 2024
-                                </span>
-
-                                <div className="flex flex-wrap gap-x-10 gap-y-4">
-                                    {footerLinks.map((link) => (
-                                        <a
-                                            key={link.label}
-                                            href={link.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="font-mono text-xs font-bold uppercase tracking-widest text-primary dark:text-white hover:text-secondary transition-colors"
-                                        >
-                                            {link.label}
-                                        </a>
-                                    ))}
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 pt-10 md:pt-16 border-t border-border">
+                            <div>
+                                <p className="text-mono-2xs text-secondary mb-4 opacity-50">Social</p>
+                                <div className="space-y-2 flex flex-col items-start">
+                                    <a href="https://github.com" className="text-mono-xs hover:text-secondary transition-colors">GitHub ↗</a>
+                                    <a href="https://linkedin.com" className="text-mono-xs hover:text-secondary transition-colors">LinkedIn ↗</a>
                                 </div>
+                            </div>
+                            <div>
+                                <p className="text-mono-2xs text-secondary mb-4 opacity-50">Location</p>
+                                <p className="text-mono-xs text-primary">Chittagong, Bangladesh</p>
+                            </div>
+                            <div>
+                                <p className="text-mono-2xs text-secondary mb-4 opacity-50">Availability</p>
+                                <p className="text-mono-xs text-primary">Open for Work</p>
                             </div>
                         </div>
                     </div>

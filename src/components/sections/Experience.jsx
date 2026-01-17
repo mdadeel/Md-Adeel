@@ -21,26 +21,26 @@ const education = [
 
 export default function Background() {
   return (
-    <section id="experience" className="py-24 px-4 md:px-8 border-b border-black/10 dark:border-white/10 bg-background dark:bg-black">
-      <div className="max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-          <div className="md:col-span-3">
-            <h2 className="text-sm font-mono uppercase tracking-tight text-secondary md:sticky md:top-32 font-bold">
+    <section id="experience" className="section-padding border-b border-border bg-background">
+      <div className="layout-container">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 lg:gap-24">
+          <div className="lg:col-span-4">
+            <h2 className="text-mono-xs text-secondary lg:sticky lg:top-32 font-bold mb-4 lg:mb-0">
               (04) Professional Background
             </h2>
           </div>
 
-          <div className="md:col-span-9">
-            <div className="space-y-0">
+          <div className="lg:col-span-8">
+            <div className="space-y-0 divide-y divide-border border-t border-b border-border">
               {education.map((item, idx) => (
-                <div key={idx} className="grid grid-cols-1 md:grid-cols-12 gap-4 py-6 border-t border-black/10 dark:border-white/10 first:border-0">
+                <div key={idx} className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 py-8 md:py-10 items-start">
                   <div className="md:col-span-4">
-                    <span className="font-mono text-xs text-primary/60 font-bold">{item.period}</span>
+                    <span className="text-mono-xs text-secondary">{item.period}</span>
                   </div>
-                  <div className="md:col-span-8 space-y-2">
-                    <h3 className="text-lg font-bold text-primary">{item.institution}</h3>
-                    <p className="font-mono text-xs text-primary/60 uppercase tracking-wide mb-2 font-bold">{item.focus}</p>
-                    <p className="text-sm text-primary/70 leading-relaxed max-w-xl font-medium">{item.description}</p>
+                  <div className="md:col-span-8 space-y-4">
+                    <h3 className="text-display-md !text-[1.5rem] text-primary">{item.institution}</h3>
+                    <p className="text-mono-xs text-primary/60 font-bold">{item.focus}</p>
+                    <p className="text-body-md text-secondary max-w-xl">{item.description}</p>
                   </div>
                 </div>
               ))}

@@ -60,32 +60,32 @@ export default function Navbar({ isDark, toggleDark }) {
                 : 'bg-transparent'
                 } ${typeof document !== 'undefined' && document.documentElement.classList.contains('modal-open') ? 'translate-y-[-100%] pointer-events-none' : ''}`}
         >
-            <div className="layout-container h-[clamp(3.5rem,5vw,4.5rem)] grid grid-cols-2 md:grid-cols-3 items-center">
+            <div className="layout-container h-[clamp(3.5rem,5vw,4.5rem)] flex items-center justify-between">
                 {/* BRANDING */}
-                <div className="flex justify-start">
-                    <a href="#hero" className="z-[110] flex items-baseline gap-1" onClick={() => setIsOpen(false)}>
-                        <span className={`font-bold text-[clamp(1rem,1.2vw,1.125rem)] tracking-tighter uppercase ${scrolled ? 'text-primary' : 'text-[#1a1a1a]'}`}>Adeel</span>
+                <div className="flex items-center">
+                    <a href="#hero" className="z-[110]" onClick={() => setIsOpen(false)}>
+                        <span className={`text-display-md !text-[1.25rem] tracking-tighter ${scrolled ? 'text-primary' : 'text-primary'}`}>Adeel</span>
                     </a>
                 </div>
 
-                {/* DESKTOP NAV (CENTERED) */}
-                <nav className="hidden md:flex justify-center items-center gap-[clamp(1rem,3vw,3rem)] font-mono text-[clamp(0.65rem,0.8vw,0.75rem)] uppercase tracking-widest">
+                {/* DESKTOP NAV */}
+                <nav className="hidden md:flex items-center gap-8">
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
                             href={link.href}
-                            className={`transition-colors font-bold py-2 ${scrolled ? 'text-secondary hover:text-primary' : 'text-[#1a1a1a]/80 hover:text-[#1a1a1a]'}`}
+                            className={`text-mono-xs transition-colors py-2 ${scrolled ? 'text-secondary hover:text-primary' : 'text-primary/70 hover:text-primary'}`}
                         >
                             {link.name}
                         </a>
                     ))}
                 </nav>
 
-                {/* CTA / RESUME / THEME (RIGHT) */}
-                <div className="hidden md:flex justify-end items-center gap-[clamp(1rem,2vw,2rem)]">
+                {/* CTA / THEME */}
+                <div className="hidden md:flex items-center gap-6">
                     <button
                         onClick={toggleDark}
-                        className={`font-mono text-[clamp(0.65rem,0.8vw,0.75rem)] uppercase tracking-widest font-bold hover:opacity-50 transition-opacity py-2 px-2 ${scrolled ? 'text-primary' : 'text-[#1a1a1a]'}`}
+                        className={`text-mono-xs hover:opacity-50 transition-opacity py-2 ${scrolled ? 'text-primary' : 'text-primary'}`}
                     >
                         {isDark ? 'Light' : 'Dark'}
                     </button>
@@ -93,7 +93,7 @@ export default function Navbar({ isDark, toggleDark }) {
                         href="/resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`font-mono text-[clamp(0.65rem,0.8vw,0.75rem)] uppercase tracking-widest font-bold border-l pl-[clamp(1rem,2vw,2rem)] py-2 ${scrolled ? 'text-primary border-border' : 'text-[#1a1a1a] border-black/10'}`}
+                        className={`text-mono-xs border-l pl-6 py-2 ${scrolled ? 'text-primary border-border' : 'text-primary border-primary/10'}`}
                     >
                         Resume
                     </a>
@@ -103,7 +103,7 @@ export default function Navbar({ isDark, toggleDark }) {
                 <div className="flex md:hidden justify-end items-center gap-2">
                     <button
                         onClick={toggleDark}
-                        className={`font-mono text-xs uppercase tracking-widest font-bold p-3 min-w-[44px] min-h-[44px] flex items-center justify-center active:opacity-70 transition-opacity ${scrolled ? 'text-primary' : 'text-[#1a1a1a]'}`}
+                        className={`font-mono text-xs uppercase tracking-widest font-bold p-3 min-w-[44px] min-h-[44px] flex items-center justify-center active:opacity-70 transition-opacity ${scrolled ? 'text-primary' : 'text-primary'}`}
                     >
                         {isDark ? 'L' : 'D'}
                     </button>
@@ -114,15 +114,15 @@ export default function Navbar({ isDark, toggleDark }) {
                     >
                         <motion.span
                             animate={isOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }}
-                            className={`w-6 h-px block ${scrolled || isOpen ? 'bg-primary' : 'bg-[#1a1a1a]'}`}
+                            className={`w-6 h-px block bg-primary`}
                         />
                         <motion.span
                             animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
-                            className={`w-6 h-px block ${scrolled || isOpen ? 'bg-primary' : 'bg-[#1a1a1a]'}`}
+                            className={`w-6 h-px block bg-primary`}
                         />
                         <motion.span
                             animate={isOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
-                            className={`w-6 h-px block ${scrolled || isOpen ? 'bg-primary' : 'bg-[#1a1a1a]'}`}
+                            className={`w-6 h-px block bg-primary`}
                         />
                     </button>
                 </div>

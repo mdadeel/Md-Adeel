@@ -2,26 +2,28 @@ import { motion } from 'framer-motion';
 
 export default function About() {
     return (
-        <section id="about" className="py-20 md:py-32 border-b border-black/10 dark:border-white/10 bg-background dark:bg-black">
+        <section id="about" className="section-padding border-b border-border bg-background">
             <div className="layout-container">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-                    <div className="lg:col-span-3">
-                        <h2 className="text-sm font-mono uppercase tracking-tight text-secondary lg:sticky lg:top-32">
-                            (00) Philosophy
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 lg:gap-24">
+                    <div className="lg:col-span-4">
+                        <h2 className="text-mono-xs text-secondary lg:sticky lg:top-32 font-bold mb-4 lg:mb-0">
+                            (01) Philosophy
                         </h2>
                     </div>
 
-                    <div className="lg:col-span-9 space-y-20 md:space-y-32">
+                    <div className="lg:col-span-8 space-y-16 md:space-y-24 lg:space-y-32">
                         {/* Intro Statement */}
-                        <div className="max-w-4xl">
-                            <p className="text-[clamp(1.5rem,3.5vw,2.5rem)] leading-[1.15] font-medium text-primary tracking-tight">
-                                I specialize in transforming complex requirements into maintainable, production-ready systems.
-                                <span className="text-secondary"> My approach prioritizes system reliability and business constraints over architectural trends.</span>
+                        <div className="max-w-3xl">
+                            <p className="text-display-lg text-primary mb-6 md:mb-8">
+                                I specialize in transforming complex requirements into <span className="text-secondary">maintainable, production-ready systems.</span>
+                            </p>
+                            <p className="text-body-lg text-secondary">
+                                My approach prioritizes system reliability and business constraints over architectural trends. Engineering is about solving problems, not just writing code.
                             </p>
                         </div>
 
                         {/* Principles Grid */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 md:gap-y-24">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
                             {[
                                 {
                                     title: 'Scope Definition',
@@ -40,11 +42,11 @@ export default function About() {
                                     desc: 'Documentation focusing on the "Why" behind choices for long-term maintenance.'
                                 }
                             ].map((item, idx) => (
-                                <div key={idx} className="space-y-4 md:space-y-6">
-                                    <h3 className="text-[clamp(1.125rem,2vw,1.5rem)] font-bold tracking-tight text-primary uppercase border-l-2 border-primary pl-5">
+                                <div key={idx} className="space-y-4">
+                                    <h3 className="text-display-md !text-[1.25rem] text-primary uppercase border-l border-primary pl-6">
                                         {item.title}
                                     </h3>
-                                    <p className="text-[clamp(0.875rem,1.2vw,1rem)] text-secondary leading-relaxed pl-5 max-w-sm md:max-w-md">
+                                    <p className="text-body-md text-secondary pl-6">
                                         {item.desc}
                                     </p>
                                 </div>

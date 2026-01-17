@@ -19,26 +19,26 @@ const strengths = [
 
 export default function Strengths() {
     return (
-        <section id="skills" className="py-24 px-4 md:px-8 border-b border-black/10 dark:border-white/10 bg-background dark:bg-black">
-            <div className="max-w-[1400px] mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-                    <div className="md:col-span-3">
-                        <h2 className="text-sm font-mono uppercase tracking-tight text-secondary md:sticky md:top-32 font-bold">
+        <section id="skills" className="section-padding border-b border-border bg-background">
+            <div className="layout-container">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 lg:gap-24">
+                    <div className="lg:col-span-4">
+                        <h2 className="text-mono-xs text-secondary lg:sticky lg:top-32 font-bold mb-4 lg:mb-0">
                             (02) Technical Capabilities
                         </h2>
                     </div>
 
-                    <div className="md:col-span-9">
-                        <div className="grid grid-cols-1 gap-0 divide-y divide-black/10 dark:divide-white/10 border-t border-b border-black/10 dark:border-white/10">
+                    <div className="lg:col-span-8">
+                        <div className="grid grid-cols-1 gap-0 divide-y divide-border border-t border-b border-border">
                             {strengths.map((item, idx) => (
                                 <div
                                     key={idx}
-                                    className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 items-start hover:bg-black/[0.02] dark:hover:bg-white/[0.02] transition-colors"
+                                    className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 py-8 md:py-10 items-start hover:bg-black/[0.01] dark:hover:bg-white/[0.01] transition-colors group"
                                 >
-                                    <h3 className="text-xl font-bold tracking-tight text-primary">
+                                    <h3 className="text-display-md !text-[1.5rem] tracking-tight text-primary group-hover:translate-x-2 transition-transform">
                                         {item.title}
                                     </h3>
-                                    <p className="text-sm text-secondary leading-relaxed max-w-md font-medium">
+                                    <p className="text-body-md text-secondary max-w-md">
                                         {item.context}
                                     </p>
                                 </div>
