@@ -133,7 +133,7 @@ export default function Projects() {
                             {/* System Close Button (Fixed relative to modal) */}
                             <button
                                 onClick={() => setSelectedProject(null)}
-                                className="absolute top-4 right-4 z-[60] w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-background/50 dark:bg-dark-background/50 backdrop-blur-xl border border-white/10 dark:border-white/5 hover:bg-white hover:text-black transition-all group"
+                                className="absolute top-4 right-4 z-[60] w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-black/80 dark:bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black text-white transition-all group"
                                 aria-label="Close Project"
                             >
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 md:w-5 md:h-5 group-hover:rotate-90 transition-transform duration-500">

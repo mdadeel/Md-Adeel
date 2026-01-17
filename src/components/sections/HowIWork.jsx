@@ -19,7 +19,7 @@ export default function HowIWork() {
     ];
 
     return (
-        <section id="how-i-work" className="py-24 px-4 md:px-8 border-b border-black/10 dark:border-white/10 bg-background dark:bg-black">
+        <section id="how-i-work" className="py-24 px-4 md:px-8 border-b border-border bg-background">
             <div className="max-w-[1400px] mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
                     <div className="md:col-span-3">

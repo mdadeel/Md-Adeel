@@ -38,7 +38,7 @@ export default function Hero() {
             </div>
 
             {/* Content */}
-            <div className="relative z-20 h-full w-full layout-container flex flex-col justify-between py-16 md:py-32">
+            <div className="relative z-20 h-full w-full layout-container flex flex-col justify-between py-16 pb-20 md:py-32 md:pb-32">
 
                 {/* Top: FIRST NAME */}
                 <div className="flex justify-start">
@@ -57,9 +57,8 @@ export default function Hero() {
                     </motion.div>
                 </div>
 
-                {/* Bottom: LAST NAME + CTA */}
-                {/* Bottom: LAST NAME + CTA */}
-                <div className="flex flex-row items-end justify-between">
+                {/* Bottom: CTA + LAST NAME */}
+                <div className="flex flex-col-reverse md:flex-row items-start md:items-end justify-between gap-4 md:gap-0">
                     <motion.div
                         initial={{ x: -20, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
@@ -77,9 +76,9 @@ export default function Hero() {
                         initial={{ x: 20, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 1, delay: 0.4 }}
-                        className="flex flex-col items-end text-right"
+                        className="flex flex-col items-start md:items-end text-left md:text-right"
                     >
-                        <h1 className="text-display-2xl text-primary -mb-2 md:-mb-4">
+                        <h1 className="text-display-2xl text-primary mb-0 md:-mb-4">
                             Adeel
                         </h1>
                     </motion.div>
