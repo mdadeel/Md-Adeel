@@ -13,16 +13,38 @@ export default function About() {
                     </div>
 
                     <h2 className="title-xl italic !text-2xl sm:!text-3xl">
-                         Transforming  <span className="text-accent not-italic"> complex systems </span> into fluid, cinematic interactions.
+                        I learn by <span className="text-accent not-italic">finishing things</span>, not by collecting tutorials.
                     </h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-[17px] text-text-dim leading-relaxed font-medium">
-                        <p>
-                            I am a Frontend Architect obsessed with the intersection of engineering rigor and visual storytelling. My mission is to build digital products that don't just function—they evoke a sense of machine-like precision and human-centric flow.
-                        </p>
-                        <p>
-                            With a core foundation in React and technical UI systems, I specialize in building scalable architectures for teams that demand pixel-perfect execution and high-performance animation.
-                        </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-[16px] text-text-dim leading-relaxed font-medium">
+                        <div className="space-y-4">
+                            <p>
+                                I'm a <strong className="text-white">MERN Stack Developer</strong> with a frontend-first mindset. I work across React, Node.js, Express, and MongoDB, focusing on how frontend decisions interact with backend constraints.
+                            </p>
+                            <p>
+                                Most of my growth has come from <strong className="text-white">building complete products</strong>, running into real problems, and fixing my own bad decisions.
+                            </p>
+                        </div>
+                        <div className="space-y-4">
+                            <p className="text-[14px] text-text-dim/80">I'm especially interested in:</p>
+                            <ul className="space-y-2 text-[14px]">
+                                <li className="flex items-start gap-2">
+                                    <span className="text-accent mt-1">»</span>
+                                    <span>Frontend architecture that doesn't collapse as features grow</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-accent mt-1">»</span>
+                                    <span>API design that simplifies UI instead of complicating it</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-accent mt-1">»</span>
+                                    <span>UX trade-offs caused by technical constraints</span>
+                                </li>
+                            </ul>
+                            <p className="text-[13px] text-accent/80 font-bold mt-4">
+                                Actively looking for mentorship, real production exposure, and teams that value learning speed over ego.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -37,17 +59,18 @@ export default function About() {
                         </div>
 
                         <div className="space-y-4">
-                            <h3 className="text-label">PROFESSIONAL STATUS</h3>
+                            <h3 className="text-label">TECHNICAL SNAPSHOT</h3>
                             <div className="space-y-3">
                                 {[
-                                    { label: "Experience", val: "4.5 Years" },
-                                    { label: "Projects", val: "48+" },
+                                    { label: "Primary Role", val: "MERN Stack Dev" },
+                                    { label: "Experience", val: "2+ Years (Project-driven)" },
+                                    { label: "Projects", val: "10+ Complete Builds" },
                                     { label: "Availability", val: "Open to Work" },
-                                    { label: "Current Role", val: "Frontend Architect" }
+                                    { label: "Core Stack", val: "React, Node, MongoDB" }
                                 ].map(stat => (
                                     <div key={stat.label} className="flex justify-between items-center border-b border-white/5 pb-2">
                                         <span className="text-xs text-text-dim font-bold uppercase tracking-wider">{stat.label}</span>
-                                        <span className="font-mono text-xs font-black text-accent">{stat.val}</span>
+                                        <span className="font-mono text-[10px] font-black text-accent">{stat.val}</span>
                                     </div>
                                 ))}
                             </div>

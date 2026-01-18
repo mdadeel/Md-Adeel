@@ -3,33 +3,33 @@ import { motion } from 'framer-motion';
 const experiences = [
   {
     id: "01",
-    title: "SENIOR FRONTEND ARCHITECT",
-    org: "DIGITAL PULSE STUDIO",
-    timeline: "2023 — PRESENT",
-    status: "STAGING_ACTIVE",
-    intel: "Orchestrating large-scale React ecosystems and mission-critical UI architectures.",
+    title: "DIGITAL MARKETING MANAGER (INTERN)",
+    org: "DIGITALMARTBD",
+    timeline: "2023",
+    status: "CONTRACT_COMPLETED",
+    intel: "Collaborated with design and marketing teams to deliver digital campaigns.",
     logs: [
-      "» lead engineering for 12+ enterprise micro-frontends",
-      "» optimized runtime performance by 40% via custom hooks",
-      "» established global design system consumed by 5 teams",
-      "» mentored 4 junior engineers on scalable patterns"
+      "» worked closely with designers and marketers",
+      "» built and adjusted UI components under deadlines",
+      "» learned how technical decisions affect non-technical teams",
+      "» contributed to campaign deployment workflows"
     ],
-    tags: ["LEADERSHIP", "SCALABILITY", "REACT_19"]
+    tags: ["TEAMWORK", "UI_ADJUSTMENT", "DEADLINES"]
   },
   {
     id: "02",
-    title: "UX ENGINEER / INTERACTION SPECIALIST",
-    org: "CREATIVE FLOW CO.",
-    timeline: "2021 — 2023",
-    status: "SYSTEM_ARCHIVED",
-    intel: "Designed and engineered award-winning motion systems and component libraries.",
+    title: "EVENT MANAGER",
+    org: "ZAHID'S CHEMISTRY CLINIC",
+    timeline: "2022 — 2023",
+    status: "ROLE_CONCLUDED",
+    intel: " Managed logistics and coordination for large-scale educational events.",
     logs: [
-      "» developed kinetic framework for interactive portfolios",
-      "» reduced initial bundle size by 25% using code splitting",
-      "» engineered pixel-perfect components for 30+ clients",
-      "» bridging aesthetic vision with technical reality"
+      "» coordinated event logistics and scheduling",
+      "» managed on-site operations and student coordination",
+      "» learned ownership, responsibility, and execution under pressure",
+      "» handled real-time problem solving"
     ],
-    tags: ["GSAP", "CORE_UI", "OPTIMIZATION"]
+    tags: ["MANAGEMENT", "LOGISTICS", "LEADERSHIP"]
   }
 ];
 
@@ -43,7 +43,7 @@ export default function Experience() {
               <div className="w-8 h-px bg-accent" />
               <span className="text-label !mb-0 tracking-[0.4em]">Historical Ledger</span>
             </div>
-            <h2 className="title-xl !mb-0 uppercase tracking-tighter italic">Career <span className="text-accent not-italic">Archive</span>.</h2>
+            <h2 className="title-xl !mb-0 uppercase tracking-tighter italic">Experience <span className="text-accent not-italic">Log</span>.</h2>
           </div>
           <p className="font-mono text-[9px] text-text-dim/30 tracking-[0.4em] font-black uppercase hidden md:block">Active_Index_v0.9</p>
         </div>
@@ -107,7 +107,7 @@ export default function Experience() {
             {[
               { label: "Status", val: "Verified" },
               { label: "Encryption", val: "AES-256" },
-              { label: "Protocol", val: "Cinematic_UI" }
+              { label: "Protocol", val: "MERN_Core" }
             ].map(meta => (
               <div key={meta.label} className="flex flex-col gap-1">
                 <span className="text-[8px] font-mono text-text-dim/30 uppercase tracking-widest">{meta.label}</span>

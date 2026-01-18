@@ -3,23 +3,23 @@ import { motion } from 'framer-motion';
 const steps = [
     {
         id: "01",
-        title: "Research",
-        desc: "Understanding technical requirements and user needs. Defining the core goals and system constraints."
+        title: "Understand",
+        desc: "Not the feature request—the underlying issue. Why does this exist? What problem are we actually solving?"
     },
     {
         id: "02",
-        title: "Design",
-        desc: "Creating the visual system and user experience flow. Mapping out interactive prototypes and components."
+        title: "Define",
+        desc: "Constraints early. Data shape, state complexity, failure cases. Knowing what NOT to build is half the battle."
     },
     {
         id: "03",
         title: "Build",
-        desc: "High-quality engineering execution with a focus on performance, clean code, and scalable architecture."
+        desc: "Clearly. Readable code beats clever code. Predictable state beats magic. Simple APIs beat complex abstractions."
     },
     {
         id: "04",
-        title: "Optimize",
-        desc: "Rigorous testing and performance tuning. Ensuring a smooth, fast, and accessible user experience."
+        title: "Refactor",
+        desc: "Without ego. Bad decisions get fixed, not defended. Continuous improvement based on real-world usage."
     }
 ];
 

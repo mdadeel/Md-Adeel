@@ -2,19 +2,19 @@ import { motion } from 'framer-motion';
 
 const skillCategories = [
     {
-        title: "Frontend Architecture",
-        skills: ["React 19", "Next.js 15", "TypeScript 5.x", "System Design"],
-        detail: "Scalable enterprise foundations and modern architecture."
+        title: "MERN Stack Development",
+        skills: ["MongoDB", "Express.js", "React", "Node.js"],
+        detail: "Full-stack architecture with a focus on API design and data modeling."
     },
     {
-        title: "Interactive Engineering",
-        skills: ["Framer Motion", "GSAP 3", "Three.js", "WebGL"],
-        detail: "Cinematic interface dynamics and motion systems."
+        title: "Frontend Engineering",
+        skills: ["State Management", "Tailwind CSS", "Component Patterns", "UX/UI Logic"],
+        detail: "Building readable, maintainable, and responsive interfaces."
     },
     {
-        title: "Systems & DevOps",
-        skills: ["Tailwind 4", "Node.js", "Docker", "Git/CI-CD"],
-        detail: "Production ready deployment and performance ops."
+        title: "Tooling & Workflow",
+        skills: ["Git & GitHub", "Firebase Auth", "REST APIs", "Refactoring"],
+        detail: "Execution, awareness, and continuous improvement."
     }
 ];
 
@@ -26,11 +26,14 @@ export default function Skills() {
                     <div className="w-6 h-6 rounded-full border border-accent flex items-center justify-center">
                         <div className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
                     </div>
-                    <span className="text-label">SKILLS & EXPERTISE</span>
+                    <span className="text-label">SKILLS & CAPABILITIES</span>
                 </div>
                 <h2 className="title-xl max-w-4xl tracking-tight uppercase">
-                    Technical <span className="text-accent">Competency</span>.
+                    MERN Stack & <span className="text-accent">Engineering</span>.
                 </h2>
+                <p className="text-text-dim/60 font-medium italic mt-4 max-w-lg">
+                    I don't claim mastery. I demonstrate execution, awareness, and growth.
+                </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
@@ -68,7 +71,7 @@ export default function Skills() {
                             <span className="text-[9px] font-mono text-text-dim opacity-50 uppercase tracking-widest">Efficiency</span>
                             <div className="flex gap-1.5" aria-label="Proficiency level: 80%">
                                 {[1, 2, 3, 4, 5].map(i => (
-                                    <div key={i} className={`w-4 h-1 rounded-full transition-colors duration-500 ${i <= 4 ? 'bg-accent/80 group-hover:bg-accent' : 'bg-white/5'}`} />
+                                    <div key={i} className={`w-4 h-1 rounded-full transition-colors duration-500 ${i <= 3 ? 'bg-accent/80 group-hover:bg-accent' : 'bg-white/5'}`} />
                                 ))}
                             </div>
                         </div>

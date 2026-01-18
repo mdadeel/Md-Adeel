@@ -108,48 +108,50 @@ export default function Contact() {
                                     animate={{ opacity: 1 }}
                                     className="space-y-4"
                                 >
-                                    <div className="space-y-4">
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                            <div className="space-y-1.5">
-                                                <label htmlFor="user_name" className="text-[9px] font-mono text-text-dim/40 tracking-widest ml-1">FULL_NAME</label>
+                                    <div className="space-y-8">
+                                        <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                                            <div className="space-y-1">
+                                                <label htmlFor="user_name" className="text-[11px] font-black text-accent tracking-widest uppercase ml-1">Full_Name</label>
                                                 <input
                                                     type="text"
-                                                    id="user_name"
                                                     name="user_name"
+                                                    id="user_name"
                                                     required
                                                     value={formData.name}
                                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                                    className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-4 text-white placeholder-white/20 focus:outline-none focus:border-accent focus:bg-accent/5 transition-all font-mono text-sm"
                                                     placeholder="Operator Name"
-                                                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-text-dim/20 focus:border-accent/40 focus:bg-white/[0.08] transition-all outline-none"
                                                 />
                                             </div>
-                                            <div className="space-y-1.5">
-                                                <label htmlFor="user_email" className="text-[9px] font-mono text-text-dim/40 tracking-widest ml-1">EMAIL_ADDRESS</label>
+
+                                            <div className="space-y-1">
+                                                <label htmlFor="user_email" className="text-[11px] font-black text-accent tracking-widest uppercase ml-1">Email_Address</label>
                                                 <input
                                                     type="email"
-                                                    id="user_email"
                                                     name="user_email"
+                                                    id="user_email"
                                                     required
                                                     value={formData.email}
                                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                                    className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-4 text-white placeholder-white/20 focus:outline-none focus:border-accent focus:bg-accent/5 transition-all font-mono text-sm"
                                                     placeholder="email@example.com"
-                                                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-text-dim/20 focus:border-accent/40 focus:bg-white/[0.08] transition-all outline-none"
                                                 />
                                             </div>
-                                        </div>
-                                        <div className="space-y-1.5">
-                                            <label htmlFor="message" className="text-[9px] font-mono text-text-dim/40 tracking-widest ml-1">PROJECT_BRIEF</label>
-                                            <textarea
-                                                id="message"
-                                                name="message"
-                                                required
-                                                rows="4"
-                                                value={formData.message}
-                                                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                                placeholder="Tell me about your project..."
-                                                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-text-dim/20 focus:border-accent/40 focus:bg-white/[0.08] transition-all outline-none resize-none"
-                                            ></textarea>
-                                        </div>
+
+                                            <div className="space-y-1">
+                                                <label htmlFor="message" className="text-[11px] font-black text-accent tracking-widest uppercase ml-1">Message</label>
+                                                <textarea
+                                                    name="message"
+                                                    id="message"
+                                                    required
+                                                    rows="4"
+                                                    value={formData.message}
+                                                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                                    className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-4 text-white placeholder-white/20 focus:outline-none focus:border-accent focus:bg-accent/5 transition-all font-mono text-sm resize-none"
+                                                    placeholder="Tell me about your project..."
+                                                />
+                                            </div>
+                                        </form>
                                     </div>
 
                                     <button
@@ -175,14 +177,13 @@ export default function Contact() {
                 </div>
 
                 {/* Footer Metadata */}
-                <div className="mt-12 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[9px] font-mono font-bold tracking-[0.3em] text-text-dim/30">
-                    <p className="uppercase">© 2026 SHAHNAWAS ADEEL. // BUILT_WITH_SYSTEM_v4</p>
-                    <div className="flex gap-10">
-                        <div className="flex items-center gap-3">
-                            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.5)]" />
-                            <span>STATUS: ACTIVE</span>
-                        </div>
-                        <span>LOC: CTG_BD</span>
+                <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <p className="font-mono text-[10px] text-text-dim/40 uppercase tracking-widest">
+                        © 2026 Md Adeel. // ALL RIGHTS RESERVED.
+                    </p>
+                    <div className="flex gap-6">
+                        <span className="font-mono text-[10px] text-text-dim/40 uppercase tracking-widest">STATUS: ACTIVE</span>
+                        <span className="font-mono text-[10px] text-text-dim/40 uppercase tracking-widest">LOC: CTG, BD</span>
                     </div>
                 </div>
             </div>

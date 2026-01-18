@@ -4,7 +4,7 @@ import { SOCIALS } from '../../data/constants';
 
 export default function Hero() {
     return (
-        <section id="hero" className="fb-inspired-hero pt-[70px]">
+        <section id="hero" className="fb-inspired-hero pt-[60px]">
             <div className="max-w-[1250px] mx-auto">
 
                 {/* 1. Cover Photo Area - Fixed Image Mapping (Swapped: cover.jpg is now background) */}
@@ -29,10 +29,10 @@ export default function Hero() {
                 </div>
 
                 {/* 2. Profile Details Area (FB Layout Inspiration) */}
-                <div className="relative px-6 sm:px-12 pb-8 flex flex-col md:flex-row md:items-end gap-6 overflow-visible">
+                <div className="relative px-6 sm:px-12 pb-4 flex flex-col md:flex-row md:flex-wrap lg:flex-nowrap md:items-end gap-6 overflow-visible">
 
                     {/* Overlapping Avatar - Swapped: hero.jpg is now portrait */}
-                    <div className="relative -mt-16 sm:-mt-20 md:-mt-24 w-[140px] sm:w-[176px] aspect-square rounded-full border-[6px] border-[#1C1E21] bg-surface overflow-hidden z-20 mx-auto md:mx-0 shadow-2xl">
+                    <div className="relative -mt-[84px] sm:-mt-[100px] md:-mt-[116px] w-[140px] sm:w-[176px] aspect-square rounded-full border-[6px] border-[#1C1E21] bg-surface overflow-hidden z-20 mx-auto md:mx-0 shadow-2xl shrink-0 -translate-y-5">
                         <OptimizedImage
                             src="/img/hero.jpg"
                             alt="Md Adeel"
@@ -41,17 +41,21 @@ export default function Hero() {
                     </div>
 
                     {/* Name & Bio Cluster */}
-                    <div className="flex-1 text-center md:text-left md:pb-6">
+                    <div className="flex-1 text-center md:text-left md:pb-6 min-w-[300px]">
                         <motion.div
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
+                            className="space-y-3"
                         >
                             <h1 className="text-2xl sm:text-3xl lg:text-3xl font-black text-white tracking-widest uppercase">
                                 Md Adeel
                             </h1>
-                            <p className="text-[17px] text-text-dim font-bold mt-2 tracking-wide font-mono">
-                                FRONTEND ARCHITECT // UI/UX SPECIALIST
+                            <p className="text-[15px] text-text-dim font-bold tracking-wide font-mono">
+                                MERN STACK DEVELOPER // FRONTEND-FOCUSED
+                            </p>
+                            <p className="text-[14px] text-text-dim/70 font-medium leading-relaxed hidden md:block">
+                                I build full-stack web applications with a strong frontend bias. Clean UI, predictable state, and APIs that don't fight the product.
                             </p>
                         </motion.div>
                     </div>
@@ -59,11 +63,11 @@ export default function Hero() {
                     {/* Actions Area */}
                     <div className="flex flex-wrap items-center justify-center md:justify-end gap-3 md:pb-6">
                         <a
-                            href="#contact"
+                            href="#work"
                             className="px-8 py-3 bg-accent text-white rounded-md font-black text-[13px] tracking-widest shadow-lg shadow-accent/20 hover:scale-[1.02] active:scale-95 transition-all text-center"
-                            aria-label="Jump to Contact section"
+                            aria-label="Jump to Work section"
                         >
-                            HIRE ME
+                            VIEW WORK
                         </a>
                         <a
                             href="/resume.pdf"
