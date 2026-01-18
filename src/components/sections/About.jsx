@@ -1,8 +1,17 @@
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function About() {
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start end", "end start"]
+    });
+
+    const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
+
     return (
-        <section id="about" className="section-spacing">
+        <section id="about" className="section-spacing" ref={containerRef}>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
 
                 {/* 1. Large Typographical Mission */}
@@ -49,7 +58,7 @@ export default function About() {
                 </div>
 
                 {/* 2. Technical Profile Card */}
-                <div className="lg:col-span-4 lg:sticky lg:top-32">
+                <motion.div style={{ y }} className="lg:col-span-4 lg:sticky lg:top-32">
                     <div className="premium-card p-10 bg-gradient-to-br from-surface to-background border-white/5 space-y-8 relative overflow-hidden group">
                         <div className="absolute -top-20 -right-20 w-40 h-40 bg-accent/20 rounded-full blur-[80px] group-hover:bg-accent/40 transition-all duration-1000" />
 
@@ -86,9 +95,9 @@ export default function About() {
                             </a>
                         </div>
                     </div>
-                </div>
+                </motion.div>
 
             </div>
-        </section>
+        </section >
     );
 }

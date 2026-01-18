@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const skillCategories = [
     {
@@ -19,9 +20,16 @@ const skillCategories = [
 ];
 
 export default function Skills() {
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start end", "end start"]
+    });
+    const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+
     return (
-        <section id="skills" className="section-spacing">
-            <div className="flex flex-col items-center text-center mb-6 space-y-2">
+        <section id="skills" className="section-spacing" ref={containerRef}>
+            <motion.div style={{ y }} className="flex flex-col items-center text-center mb-6 space-y-2">
                 <div className="flex items-center gap-4">
                     <div className="w-6 h-6 rounded-full border border-accent flex items-center justify-center">
                         <div className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
@@ -31,10 +39,10 @@ export default function Skills() {
                 <h2 className="title-xl max-w-4xl tracking-tight uppercase">
                     MERN Stack & <span className="text-accent">Engineering</span>.
                 </h2>
-                <p className="text-text-dim/60 font-medium italic mt-4 max-w-lg">
+                <p className="text-text-dim/60 font-medium italic mt-4 max-w-3xl mx-auto">
                     I don't claim mastery. I demonstrate execution, awareness, and growth.
                 </p>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
                 {skillCategories.map((cat, catIdx) => (

@@ -1,24 +1,29 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import OptimizedImage from '../ui/OptimizedImage';
 import { SOCIALS } from '../../data/constants';
 
 export default function Hero() {
+    const { scrollY } = useScroll();
+    const y = useTransform(scrollY, [0, 500], [0, 150]);
+
     return (
         <section id="hero" className="fb-inspired-hero pt-[60px]">
             <div className="max-w-[1250px] mx-auto">
 
                 {/* 1. Cover Photo Area - Fixed Image Mapping (Swapped: cover.jpg is now background) */}
                 <div className="relative aspect-[3/1] w-full overflow-hidden rounded-b-xl px-4 sm:px-0">
-                    <OptimizedImage
-                        src="/img/cover.jpg"
-                        alt="Cinematic Landscape"
-                        className="w-full h-full object-cover brightness-[0.5]"
-                        priority={true}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                    <motion.div style={{ y }} className="absolute inset-0 w-full h-[120%] -top-[10%]">
+                        <OptimizedImage
+                            src="/img/cover.jpg"
+                            alt="Cinematic Landscape"
+                            className="w-full h-full object-cover brightness-[0.5]"
+                            priority={true}
+                        />
+                    </motion.div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent pointer-events-none" />
 
                     {/* Perspective Label */}
-                    <div className="absolute bottom-6 right-8 flex items-center gap-4">
+                    <div className="absolute bottom-6 right-8 flex items-center gap-4 z-10">
                         <a
                             href="#work"
                             className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-md font-bold text-[12px] text-white border border-white/20 shadow-xl hover:bg-white/20 transition-all"

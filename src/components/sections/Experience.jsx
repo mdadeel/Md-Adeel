@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const experiences = [
   {
@@ -34,10 +35,17 @@ const experiences = [
 ];
 
 export default function Experience() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [0, -40]);
+
   return (
-    <section id="experience" className="section-spacing border-t border-white/5">
+    <section id="experience" className="section-spacing border-t border-white/5" ref={containerRef}>
       <div className="max-w-[1250px] mx-auto px-6 py-12">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+        <motion.div style={{ y }} className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div className="space-y-2">
             <div className="flex items-center gap-3">
               <div className="w-8 h-px bg-accent" />
@@ -46,7 +54,7 @@ export default function Experience() {
             <h2 className="title-xl !mb-0 uppercase tracking-tighter italic">Experience <span className="text-accent not-italic">Log</span>.</h2>
           </div>
           <p className="font-mono text-[9px] text-text-dim/30 tracking-[0.4em] font-black uppercase hidden md:block">Active_Index_v0.9</p>
-        </div>
+        </motion.div>
 
         <div className="space-y-1">
           {experiences.map((exp, idx) => (

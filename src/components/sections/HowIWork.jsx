@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const steps = [
     {
@@ -24,9 +25,16 @@ const steps = [
 ];
 
 export default function HowIWork() {
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start end", "end start"]
+    });
+    const y = useTransform(scrollYProgress, [0, 1], [0, -60]);
+
     return (
-        <section id="process" className="section-spacing">
-            <div className="flex flex-col items-start gap-6 mb-12 px-4">
+        <section id="process" className="section-spacing" ref={containerRef}>
+            <motion.div style={{ y }} className="flex flex-col items-start gap-6 mb-12 px-4">
                 <div className="flex items-center gap-4">
                     <div className="w-12 h-px bg-accent" />
                     <span className="text-label">How I Work</span>
@@ -34,7 +42,7 @@ export default function HowIWork() {
                 <h2 className="title-xl uppercase tracking-tighter max-w-4xl">
                     Methodical <span className="text-accent italic">Engineering</span> <br /> Process.
                 </h2>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4">
                 {steps.map((step, idx) => (

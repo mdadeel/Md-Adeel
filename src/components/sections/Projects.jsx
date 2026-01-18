@@ -1,11 +1,19 @@
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { projects } from '../../data/projects';
 import OptimizedImage from '../ui/OptimizedImage';
 
 export default function Projects() {
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start end", "end start"]
+    });
+    const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+
     return (
-        <section id="work" className="section-spacing">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+        <section id="work" className="section-spacing" ref={containerRef}>
+            <motion.div style={{ y }} className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
                 <div className="space-y-6">
                     <div className="flex items-center gap-4">
                         <div className="w-12 h-px bg-accent" />
@@ -19,7 +27,7 @@ export default function Projects() {
                         <div className="w-2/3 h-full bg-accent" />
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 gap-6 lg:gap-10 reveal-grid">
                 {projects.map((project, idx) => (

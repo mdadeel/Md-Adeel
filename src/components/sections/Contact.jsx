@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
@@ -6,6 +6,13 @@ export default function Contact() {
     const [formState, setFormState] = useState('idle'); // idle, sending, success, error
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
     const formRef = useRef();
+    const containerRef = useRef(null);
+
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start end", "end start"]
+    });
+    const y = useTransform(scrollYProgress, [0, 1], [0, 80]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -35,7 +42,7 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="section-spacing">
+        <section id="contact" className="section-spacing" ref={containerRef}>
             <div className="premium-card p-8 lg:p-12 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] relative overflow-hidden group">
                 {/* Background Glow */}
                 <div className="absolute top-0 right-0 w-[60vw] h-[60vw] bg-accent/5 rounded-full blur-[120px] -z-10 translate-x-1/4 -translate-y-1/4 opacity-40 group-hover:opacity-60 transition-opacity duration-1000" />
@@ -43,7 +50,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
                     {/* Left: Content */}
                     <div className="lg:col-span-5 space-y-6">
-                        <div className="space-y-6">
+                        <motion.div style={{ y }} className="space-y-6">
                             <div className="flex items-center gap-4">
                                 <div className="w-10 h-px bg-accent" />
                                 <span className="text-label tracking-widest">Get in Touch</span>
@@ -55,7 +62,7 @@ export default function Contact() {
                             <p className="text-lg lg:text-xl text-text-dim font-medium leading-relaxed">
                                 Currently available for architecting high-end digital experiences and technical partnerships.
                             </p>
-                        </div>
+                        </motion.div>
 
                         <div className="space-y-8">
                             <div className="flex gap-8">
