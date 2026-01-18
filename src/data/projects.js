@@ -1,65 +1,68 @@
 export const projects = [
     {
         id: 1,
-        name: 'Metro Optics',
-        category: 'Production E-Commerce',
-        image: '/img/metro-optics.png',
-        problem: 'Local eyewear retailers needed a high-conversion digital presence without the bloat of enterprise SaaS platforms.',
-        constraints: [
-            'Solo engineered from zero to production',
-            '30-day delivery hard deadline',
-            'Complex prescription data modeling requirements'
-        ],
-        decision: 'Implemented a custom MERN architecture to handle nested prescription JSON objects which standard e-commerce plugins couldn\'t accommodate without heavy overrides.',
-        notBuilt: [
-            'Server-side rendering (deferred) — high interactivity priority favored client-side state',
-            'Global search index — overkill for limited inventory catalog'
-        ],
-        outcome: 'Reduced inventory management friction by 70%. Zero support calls since deployment. In production since March 2024.',
-        tech: ['MongoDB', 'Express.js', 'React', 'Node.js', 'Firebase'],
-        liveUrl: 'https://metro-optics.vercel.app/',
-        githubUrl: 'https://github.com/mdadeel/metro-optics',
-    },
-    {
-        id: 2,
         name: 'eTuitionBD',
         category: 'Ed-Tech Platform',
         image: '/img/e-tutionhub.png',
-        problem: 'Fragmented tutor-discovery market in Bangladesh requiring real-time updates and SEO searchability.',
+        problem: 'eTuitionBD is a comprehensive online tuition management platform effectively connecting students with qualified tutors in Bangladesh.',
         constraints: [
-            'Zero-cost serverless infrastructure budget',
-            'Critical SEO requirements for tutor profiles',
-            'Low-latency real-time application workflow'
+            'Implementing role-based access control (RBAC) for diverse user types',
+            'Integrating secure Stripe payment gateways for tuition transactions',
+            'Managing real-time application status updates between tutors and students'
         ],
-        decision: 'Leveraged Next.js App Router with Server Components for profile SEO, paired with Firebase Real-time DB to avoid expensive socket server maintenance.',
+        decision: 'Utilized React 19 & Node.js/Express with MongoDB to create a scalable full-stack ecosystem, securing authentication via Firebase and JWT.',
         notBuilt: [
-            'Custom Auth server — prioritized Firebase Auth for security/speed compliance',
-            'Video SDK — deferred to external links to maintain MVP performance'
+            'Advanced matching algorithm for tutor-student pairing',
+            'Video calling integration for online sessions',
+            'Rating and review system (roadmap)'
         ],
-        outcome: 'Automated 100% of the application workflow. Achieved 95+ Lighthouse SEO score on all profiles. Serving 200+ daily active users.',
-        tech: ['Next.js', 'Firebase', 'Tailwind CSS', 'Framer Motion'],
+        outcome: 'Streamlined the tuition finding process with automated workflows, digitizing an otherwise fragmented market.',
+        tech: ['React 19', 'Node.js', 'MongoDB', 'Firebase', 'Stripe', 'DaisyUI'],
         liveUrl: 'https://e-tuitionhub.vercel.app/',
         githubUrl: 'https://github.com/mdadeel/etuitionhub-frontend',
     },
     {
-        id: 3,
+        id: 2,
         name: 'Import-Export Hub',
-        category: 'Business Infrastructure',
+        category: 'Global Trade Platform',
         image: '/img/iehub.jpeg',
-        problem: 'Regional B2B directory requiring fast catalog browsing without server overhead.',
+        problem: 'A sophisticated global trade platform connecting exporters and importers worldwide to list products and manage inventory.',
         constraints: [
-            'High-volume catalog listing (1000+ entries)',
-            'Instant client-side filtering requirements',
-            'Static hosting environment constraints'
+            'Implementing real-time inventory management to prevent overselling',
+            'Building a multi-parameter search & filtering engine (category, price, origin)',
+            'Managing complex state for product listings and user imports'
         ],
-        decision: 'Architected as a static-first directory using JSON data stores to eliminate database cold starts and ensure sub-second search speeds.',
+        decision: 'Built on React 19.2.0 and Node.js with a MongoDB backend to handle high-volume product data and complex user interactions.',
         notBuilt: [
-            'User login system — rejected to maximize catalog visibility and scannability',
-            'Dynamic product editing — moved to a GitHub-backed CMS workflow'
+            'Advanced analytics dashboard for trade insights',
+            'Multi-language support for global accessibility',
+            'Mobile app (React Native) for on-the-go trading'
         ],
-        outcome: 'Achieved near-zero operational costs while maintaining high-performance search for B2B users. Catalog scale: 1000+ entries, <50ms search response time.',
-        tech: ['React', 'Tailwind', 'Vercel', 'JSON/Static'],
+        outcome: 'Created a seamless ecosystem for global commerce, enabling users to list exports and find imports efficiently.',
+        tech: ['React 19', 'Node.js', 'Express', 'MongoDB', 'Firebase', 'Recharts'],
         liveUrl: 'https://iehub.vercel.app/',
         githubUrl: 'https://github.com/mdadeel/iehub-client',
+    },
+    {
+        id: 3,
+        name: 'ToyTopia',
+        category: 'E-Commerce Marketplace',
+        image: '/img/ToyTopia.png',
+        problem: 'A premium marketplace connecting families with local toy sellers, offering detailed catalogs and seller information.',
+        constraints: [
+            'Robust authentication system with Google Sign-in',
+            'Managing local storage for user favorites',
+            'Building a responsive UI for seamless mobile and desktop experience'
+        ],
+        decision: 'Leveraged Firebase for backend services and authentication to rapidly deploy a secure, reactive marketplace interface.',
+        notBuilt: [
+            'Live backend API integration (transitioning from JSON)',
+            'Order management and checkout functionality',
+            'Seller dashboard enhancements'
+        ],
+        outcome: 'Established a trusted platform for local toy discoveries with comprehensive product information and user ratings.',
+        tech: ['React', 'Firebase', 'Tailwind CSS', 'DaisyUI', 'Swiper.js'],
+        liveUrl: 'https://toy-topia-ashy.vercel.app/',
+        githubUrl: 'https://github.com/mdadeel/ToyTopia',
     },
 ];

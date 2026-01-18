@@ -1,194 +1,132 @@
-import { AnimatePresence, useScroll, useMotionValueEvent, motion as Motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-export default function Navbar({ isDark, toggleDark, showToast }) {
-    const handleCopyEmail = (e) => {
-        e.preventDefault();
-        navigator.clipboard.writeText('shahnawasadeel@gmail.com');
-        showToast('Email copied to clipboard');
-    };
+export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
-    const [hidden, setHidden] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const { scrollY } = useScroll();
 
-    useMotionValueEvent(scrollY, "change", (latest) => {
-        const previous = scrollY.getPrevious();
-        if (latest > previous && latest > 150) {
-            setHidden(true);
-        } else {
-            setHidden(false);
-        }
-
-        if (latest > 50) {
-            setScrolled(true);
-        } else {
-            setScrolled(false);
-        }
-    });
-
-    // Close menu on resize if above mobile breakpoint
     useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth >= 768) setIsOpen(false);
-        };
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        const handleScroll = () => setScrolled(window.scrollY > 50);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Prevent scroll when menu is open
+    // Lock body scroll when menu is open
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'unset';
+            document.body.style.overflowX = 'hidden'; // Keep horizontal scroll lock
         }
     }, [isOpen]);
 
     const navLinks = [
-        { name: 'About', href: '#about' },
-        { name: 'Work', href: '#work' },
-        { name: 'Experience', href: '#experience' },
-        { name: 'Contact', href: '#contact' },
+        { label: "WORK", href: "#work" },
+        { label: "SYSTEMS", href: "#skills" },
+        { label: "LOG", href: "#experience" },
+        { label: "CONTACT", href: "#contact" }
     ];
 
     return (
-        <Motion.header
-            variants={{
-                visible: { y: 0 },
-                hidden: { y: '-100%' },
-            }}
-            animate={hidden || (typeof document !== 'undefined' && document.documentElement.classList.contains('modal-open')) ? 'hidden' : 'visible'}
-            transition={{ duration: 0.35, ease: 'easeInOut' }}
-            className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${scrolled
-                ? 'bg-background/80 backdrop-blur-md border-b border-border'
-                : 'bg-transparent'
-                } ${typeof document !== 'undefined' && document.documentElement.classList.contains('modal-open') ? 'translate-y-[-100%] pointer-events-none' : ''}`}
-        >
-            <div className="layout-container h-[clamp(3.5rem,5vw,4.5rem)] flex items-center justify-between">
-                {/* BRANDING */}
-                <div className="flex items-center">
-                    <a href="#hero" className="z-[110]" onClick={() => setIsOpen(false)} aria-label="Navigate to home section">
-                        <span className={`text-display-md !text-[1.25rem] tracking-tighter ${scrolled ? 'text-primary' : 'text-primary'}`}>Adeel</span>
-                    </a>
-                </div>
+        <>
+            <nav className={`fixed top-0 left-0 w-full z-[500] h-[70px] flex items-center transition-all duration-500 ${scrolled ? 'glass-header' : 'bg-transparent'}`}>
+                <div className="max-w-[1250px] mx-auto w-full px-4 sm:px-8 flex items-center justify-between">
 
-                {/* DESKTOP NAV */}
-                <nav className="hidden md:flex items-center gap-8">
-                    {navLinks.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.href}
-                            className={`text-mono-xs transition-colors py-2 ${scrolled ? 'text-secondary hover:text-primary' : 'text-primary/70 hover:text-primary'}`}
-                            aria-label={`Navigate to ${link.name} section`}
-                        >
-                            {link.name}
-                        </a>
-                    ))}
-                </nav>
-
-                {/* CTA / THEME */}
-                <div className="hidden md:flex items-center gap-6">
-                    <button
-                        onClick={toggleDark}
-                        className={`text-mono-xs hover:opacity-50 transition-opacity py-2 ${scrolled ? 'text-primary' : 'text-primary'}`}
-                        aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
-                    >
-                        {isDark ? 'Light' : 'Dark'}
-                    </button>
-                    <a
-                        href="/resume.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`text-mono-xs border-l pl-6 py-2 ${scrolled ? 'text-primary border-border' : 'text-primary border-primary/10'}`}
-                        aria-label="Download resume PDF (opens in new tab)"
-                    >
-                        Resume
-                    </a>
-                </div>
-
-                {/* Mobile Toggle */}
-                <div className="flex md:hidden justify-end items-center gap-2">
-                    <button
-                        onClick={() => setIsOpen(!isOpen)}
-                        className="z-[110] p-3 min-w-[44px] min-h-[44px] flex flex-col gap-1.5 items-center justify-center focus:outline-none active:opacity-70 transition-opacity"
-                        aria-label="Toggle Menu"
-                    >
-                        <Motion.span
-                            animate={isOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }}
-                            className={`w-6 h-px block bg-primary`}
-                        />
-                        <Motion.span
-                            animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
-                            className={`w-6 h-px block bg-primary`}
-                        />
-                        <Motion.span
-                            animate={isOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
-                            className={`w-6 h-px block bg-primary`}
-                        />
-                    </button>
-                </div>
-            </div>
-
-            {/* Mobile Menu Overlay */}
-            <AnimatePresence>
-                {isOpen && (
-                    <Motion.div
-                        initial={{ opacity: 0, x: '100%' }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: '100%' }}
-                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                        className="fixed inset-0 bg-background z-[105] md:hidden flex flex-col pt-32 px-8"
-                    >
-                        <nav className="flex flex-col gap-8">
-                            {navLinks.map((link, idx) => (
-                                <Motion.a
-                                    key={link.name}
-                                    href={link.href}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.1 + idx * 0.05, duration: 0.4 }}
-                                    onClick={() => setIsOpen(false)}
-                                    className="text-4xl font-bold tracking-tighter uppercase text-primary active:text-secondary transition-colors py-2"
-                                    aria-label={`Navigate to ${link.name} section (closes menu)`}
-                                >
-                                    {link.name}
-                                </Motion.a>
-                            ))}
-                            <Motion.a
-                                href="/resume.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3, duration: 0.4 }}
-                                className="mt-8 inline-block text-sm font-bold uppercase tracking-widest bg-primary text-background px-8 py-4 self-start"
-                                aria-label="Download resume PDF (opens in new tab)"
-                            >
-                                Resume
-                            </Motion.a>
-                        </nav>
-
-                        <div className="mt-auto pb-12 space-y-8">
-                            <div className="space-y-4">
-                                <p className="text-xl font-medium text-primary leading-tight">
-                                    Available for full-stack engineering projects and systems design consultation.
-                                </p>
-                                <button
-                                    onClick={handleCopyEmail}
-                                    className="text-lg font-bold text-primary border-b border-border pb-1 hover:text-secondary transition-colors text-left"
-                                >
-                                    shahnawasadeel@gmail.com
-                                </button>
+                    {/* Brand */}
+                    <a href="#" className="flex items-center gap-4 group relative z-[510]">
+                        <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center text-white font-black text-xs shadow-lg shadow-accent/20 transition-transform group-hover:rotate-12">
+                            A
+                        </div>
+                        <div className="flex flex-col -space-y-1">
+                            <span className="text-[12px] font-black tracking-widest text-white">ADEEL.DEV</span>
+                            <div className="flex items-center gap-1.5 opacity-60">
+                                <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                                <span className="text-[8px] font-mono text-green-500 font-bold uppercase">Available</span>
                             </div>
-                            <p className="font-mono text-[10px] text-secondary uppercase tracking-widest font-bold">
-                                © {new Date().getFullYear()} Shahnawas Adeel
-                            </p>
+                        </div>
+                    </a>
+
+                    {/* Classical Navigation */}
+                    <div className="flex items-center gap-10">
+                        <div className="hidden md:flex items-center gap-8" role="list">
+                            {navLinks.map((link) => (
+                                <a
+                                    key={link.label}
+                                    href={link.href}
+                                    className="font-mono text-[10px] font-black tracking-[0.2em] text-text-dim hover:text-accent transition-all relative group/link"
+                                    aria-label={`Navigate to ${link.label === "LOG" ? "Experience" : link.label === "SYSTEMS" ? "Skills" : link.label} section`}
+                                >
+                                    {link.label === "LOG" ? "EXPERIENCE" : link.label === "SYSTEMS" ? "SKILLS" : link.label}
+                                </a>
+                            ))}
                         </div>
 
-                    </Motion.div>
-                )}
-            </AnimatePresence>
-        </Motion.header>
+                        <div className="w-px h-6 bg-white/10 hidden md:block" />
+
+                        <a
+                            href="#contact"
+                            className="hidden md:block px-6 py-2 bg-white text-black rounded-md font-black text-[10px] tracking-widest hover:bg-accent hover:text-white transition-all uppercase"
+                            aria-label="Get in touch with me"
+                        >
+                            Get in Touch
+                        </a>
+
+                        {/* Mobile Toggle */}
+                        <button
+                            onClick={() => setIsOpen(!isOpen)}
+                            className="md:hidden w-10 h-10 flex items-center justify-center text-white relative z-[510] active:scale-90 transition-transform"
+                            aria-label={isOpen ? "Close mobile menu" : "Open mobile menu"}
+                        >
+                            {isOpen ? (
+                                <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                </svg>
+                            ) : (
+                                <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
+                                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+                                </svg>
+                            )}
+                        </button>
+                    </div>
+
+                </div>
+            </nav>
+
+            {/* Mobile Menu Overlay */}
+            <div className={`fixed inset-0 bg-background/95 backdrop-blur-xl z-[500] md:hidden transition-all duration-500 ease-[cubic-bezier(0.32,0,0.67,0)] ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+                 
+                 {/* Close Button Inside Overlay */}
+                 <button 
+                    onClick={() => setIsOpen(false)}
+                    className="absolute top-6 right-6 p-2 text-white/50 hover:text-white transition-colors"
+                 >
+                    <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current">
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                 </button>
+
+                 <div className="h-full flex flex-col items-center justify-center gap-8">
+                    {navLinks.map((link, idx) => (
+                        <a
+                            key={link.label}
+                            href={link.href}
+                            onClick={() => setIsOpen(false)}
+                            className={`font-mono text-2xl font-black tracking-[0.2em] text-white hover:text-accent transition-all transform duration-500 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                            style={{ transitionDelay: `${idx * 100}ms` }}
+                        >
+                            {link.label === "LOG" ? "EXPERIENCE" : link.label === "SYSTEMS" ? "SKILLS" : link.label}
+                        </a>
+                    ))}
+                    <div className={`w-12 h-px bg-white/10 my-4 transition-all duration-500 ${isOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`} style={{ transitionDelay: '400ms' }} />
+                    <a
+                        href="#contact"
+                        onClick={() => setIsOpen(false)}
+                        className={`px-8 py-3 bg-accent text-white rounded-md font-black text-xs tracking-widest uppercase shadow-lg shadow-accent/20 transition-all duration-500 delay-500 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                    >
+                        Start Project
+                    </a>
+                </div>
+            </div>
+        </>
     );
 }

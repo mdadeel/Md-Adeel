@@ -1,120 +1,118 @@
-import { motion as Motion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import OptimizedImage from '../ui/OptimizedImage';
+import { SOCIALS } from '../../data/constants';
 
 export default function Hero() {
-    const tickerItems = [
-        "SYSTEMS ENGINEER",
-        "INFRASTRUCTURE ARCHITECT",
-        "AUTOMATION SPECIALIST",
-        "CLOUD INTEGRATOR",
-        "SECURITY ANALYST",
-        "FULL-STACK DEVELOPER"
-    ];
-
     return (
-        <section id="hero" className="relative h-screen min-h-[700px] w-full overflow-hidden border-b border-border">
+        <section id="hero" className="fb-inspired-hero pt-[70px]">
+            <div className="max-w-[1250px] mx-auto">
 
-            {/* Background */}
-            <div className="absolute inset-0 bg-surface dark:bg-dark-background">
-                <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, var(--color-primary) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
-            </div>
-
-            {/* Central Photo */}
-            <div className="absolute inset-0 flex justify-center items-center z-10 pointer-events-none">
-                <Motion.div
-                    initial={{ scale: 1.05, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="h-[75vh] aspect-[4/5] md:aspect-[5/6] overflow-hidden"
-                    style={{
-                        clipPath: 'polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%)'
-                    }}
-                >
-                    <img
+                {/* 1. Cover Photo Area - Fixed Image Mapping (Swapped: cover.jpg is now background) */}
+                <div className="relative aspect-[3/1] w-full overflow-hidden rounded-b-xl px-4 sm:px-0">
+                    <OptimizedImage
                         src="/img/cover.jpg"
-                        alt="Shahnawas Adeel"
-                        className="w-full h-full object-cover grayscale brightness-90 opacity-40 dark:opacity-30"
-                        onError={(e) => {
-                            e.target.style.display = 'none';
-                            e.target.parentElement.style.background = 'linear-gradient(135deg, var(--color-surface) 0%, var(--color-border) 100%)';
-                        }}
+                        alt="Cinematic Landscape"
+                        className="w-full h-full object-cover brightness-[0.5]"
+                        priority={true}
                     />
-                </Motion.div>
-            </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
 
-            {/* Content */}
-            <div className="relative z-20 h-full w-full layout-container flex flex-col justify-between py-16 pb-20 md:py-32 md:pb-32">
-
-                {/* Top: FIRST NAME */}
-                <div className="flex justify-start">
-                    <Motion.div
-                        initial={{ x: -20, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.2 }}
-                        className="max-w-2xl"
-                    >
-                        <h1 className="text-display-2xl text-primary mb-3 md:mb-6">
-                            Shahnawas
-                        </h1>
-                        <p className="text-mono-xs text-secondary max-w-sm opacity-60">
-                            SYSTEMS ENGINEER // INFRASTRUCTURE ARCHITECT // AUTOMATION SPECIALIST.
-                        </p>
-                    </Motion.div>
-                </div>
-
-                {/* Bottom: CTA + LAST NAME */}
-                <div className="flex flex-col-reverse md:flex-row items-start md:items-end justify-between gap-4 md:gap-0">
-                    <Motion.div
-                        initial={{ x: -20, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.6 }}
-                    >
+                    {/* Perspective Label */}
+                    <div className="absolute bottom-6 right-8 flex items-center gap-4">
                         <a
                             href="#work"
-                            className="text-mono-xs bg-primary text-background px-8 py-4 md:px-10 md:py-5 transition-transform hover:-translate-y-1 active:scale-95 touch-target flex items-center justify-center"
+                            className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-md font-bold text-[12px] text-white border border-white/20 shadow-xl hover:bg-white/20 transition-all"
                         >
-                            SELECTED WORKS ↘
+                            VIEW PROJECTS
                         </a>
-                    </Motion.div>
-
-                    <Motion.div
-                        initial={{ x: 20, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.4 }}
-                        className="flex flex-col items-start md:items-end text-left md:text-right"
-                    >
-                        <h1 className="text-display-2xl text-primary mb-0 md:-mb-4">
-                            Adeel
-                        </h1>
-                    </Motion.div>
+                    </div>
                 </div>
-            </div>
 
-            {/* Ticker Banner */}
-            <div className="absolute bottom-0 left-0 w-full bg-surface dark:bg-dark-surface border-t border-border h-12 z-30 flex items-center overflow-hidden">
-                <div className="flex whitespace-nowrap animate-marquee">
-                    {[...Array(4)].map((_, groupIdx) => (
-                        <div key={groupIdx} className="flex">
-                            {tickerItems.map((item, idx) => (
-                                <span key={idx} className="text-mono-2xs text-secondary mx-8 flex items-center">
-                                    {item} <span className="ml-8 opacity-20">//</span>
+                {/* 2. Profile Details Area (FB Layout Inspiration) */}
+                <div className="relative px-6 sm:px-12 pb-8 flex flex-col md:flex-row md:items-end gap-6 overflow-visible">
+
+                    {/* Overlapping Avatar - Swapped: hero.jpg is now portrait */}
+                    <div className="relative -mt-16 sm:-mt-20 md:-mt-24 w-[140px] sm:w-[176px] aspect-square rounded-full border-[6px] border-[#1C1E21] bg-surface overflow-hidden z-20 mx-auto md:mx-0 shadow-2xl">
+                        <OptimizedImage
+                            src="/img/hero.jpg"
+                            alt="Md Adeel"
+                            className="w-full h-full object-cover"
+                        />
+                    </div>
+
+                    {/* Name & Bio Cluster */}
+                    <div className="flex-1 text-center md:text-left md:pb-6">
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            <h1 className="text-2xl sm:text-3xl lg:text-3xl font-black text-white tracking-widest uppercase">
+                                Md Adeel
+                            </h1>
+                            <p className="text-[17px] text-text-dim font-bold mt-2 tracking-wide font-mono">
+                                FRONTEND ARCHITECT // UI/UX SPECIALIST
+                            </p>
+                        </motion.div>
+                    </div>
+
+                    {/* Actions Area */}
+                    <div className="flex flex-wrap items-center justify-center md:justify-end gap-3 md:pb-6">
+                        <a
+                            href="#contact"
+                            className="px-8 py-3 bg-accent text-white rounded-md font-black text-[13px] tracking-widest shadow-lg shadow-accent/20 hover:scale-[1.02] active:scale-95 transition-all text-center"
+                            aria-label="Jump to Contact section"
+                        >
+                            HIRE ME
+                        </a>
+                        <a
+                            href="/resume.pdf"
+                            download="Md_Adeel_Resume.pdf"
+                            className="px-8 py-3 bg-white/5 border border-white/10 text-white rounded-md font-black text-[13px] tracking-widest hover:bg-white/10 transition-all text-center"
+                            aria-label="Download my Curriculum Vitae"
+                        >
+                            DOWNLOAD CV
+                        </a>
+                    </div>
+                </div>
+
+                {/* Sub-Navigation - Social Links */}
+                <div className="px-6 sm:px-12 border-t border-white/5 h-[60px] flex items-center justify-center">
+                    <div className="flex gap-8">
+                        {SOCIALS.map((social) => (
+                            <a
+                                key={social.name}
+                                href={social.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group relative flex flex-col items-center justify-center w-12 h-12"
+                                aria-label={social.name}
+                            >
+                                {/* Light Beam Assembly */}
+                                <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-12 flex flex-col items-center justify-end pointer-events-none">
+                                    {/* The Source Dot */}
+                                    <div className="w-[2px] h-[2px] rounded-full bg-accent shadow-[0_0_10px_4px_var(--color-accent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    {/* The Beam */}
+                                    <div className="w-full h-full bg-gradient-to-b from-accent/40 via-accent/10 to-transparent [clip-path:polygon(50%_0%,_0%_100%,_100%_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                </div>
+
+                                {/* Icon Holder */}
+                                <div className="relative z-10 p-2 rounded-lg border border-transparent group-hover:border-accent/50 group-hover:bg-accent/5 transition-all duration-300 transform group-hover:scale-110">
+                                    <svg className="w-4 h-4 fill-text-dim group-hover:fill-accent transition-colors duration-300" viewBox="0 0 24 24">
+                                        <path d={social.icon} />
+                                    </svg>
+                                </div>
+
+                                {/* Tooltip */}
+                                <span className="absolute top-14 font-mono text-[9px] font-bold tracking-[0.2em] uppercase opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-[-10px] group-hover:translate-y-0 text-accent">
+                                    {social.name}
                                 </span>
-                            ))}
-                        </div>
-                    ))}
+                            </a>
+                        ))}
+                    </div>
                 </div>
-            </div>
 
-            <style jsx>{`
-                @keyframes marquee {
-                    0% { transform: translateX(0); }
-                    100% { transform: translateX(-50%); }
-                }
-                .animate-marquee {
-                    animation: marquee 40s linear infinite;
-                    display: flex;
-                    width: max-content;
-                }
-            `}</style>
+            </div>
         </section>
     );
 }
