@@ -2,8 +2,9 @@ import './index.css';
 import { Suspense, lazy, useEffect, useState } from 'react';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/sections/Hero';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Lenis from 'lenis';
+import { ErrorBoundary } from './components/ui/ErrorBoundary';
 
 const About = lazy(() => import('./components/sections/About'));
 const HowIWork = lazy(() => import('./components/sections/HowIWork'));
@@ -80,16 +81,39 @@ function App() {
 
   return (
     <main className="bg-background min-h-screen text-primary selection:bg-black selection:text-white">
+      {/* Skip Links for Accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-background px-4 py-2 text-mono-xs font-bold z-50 focus:outline-none focus:ring-2 focus:ring-primary/20"
+      >
+        Skip to main content
+      </a>
+
       <Navbar isDark={isDark} toggleDark={() => setIsDark(!isDark)} showToast={showToast} />
-      <Hero />
-      <Suspense fallback={<div className="h-screen bg-background" />}>
-        <About />
-        <HowIWork />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Contact showToast={showToast} />
-      </Suspense>
+
+      <div id="main-content">
+        <Hero />
+        <Suspense fallback={<div className="h-screen bg-background" />}>
+          <ErrorBoundary>
+            <About />
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <HowIWork />
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <Skills />
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <Projects />
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <Experience />
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <Contact showToast={showToast} />
+          </ErrorBoundary>
+        </Suspense>
+      </div>
 
       <AnimatePresence>
         {toast && (

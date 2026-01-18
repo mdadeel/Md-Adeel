@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 
@@ -14,7 +14,7 @@ export function FadeIn({ children, delay = 0, direction = 'up', className = '' }
     };
 
     return (
-        <motion.div
+        <Motion.div
             ref={ref}
             initial={{ opacity: 0, ...directions[direction] }}
             animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
@@ -22,7 +22,7 @@ export function FadeIn({ children, delay = 0, direction = 'up', className = '' }
             className={className}
         >
             {children}
-        </motion.div>
+        </Motion.div>
     );
 }
 
@@ -33,7 +33,7 @@ export function SlideIn({ children, delay = 0, direction = 'left', className = '
     const offset = direction === 'left' ? -100 : 100;
 
     return (
-        <motion.div
+        <Motion.div
             ref={ref}
             initial={{ opacity: 0, x: offset }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -41,7 +41,7 @@ export function SlideIn({ children, delay = 0, direction = 'left', className = '
             className={className}
         >
             {children}
-        </motion.div>
+        </Motion.div>
     );
 }
 
@@ -50,7 +50,7 @@ export function ScaleIn({ children, delay = 0, className = '' }) {
     const isInView = useInView(ref, { once: true, margin: '-50px' });
 
     return (
-        <motion.div
+        <Motion.div
             ref={ref}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -58,7 +58,7 @@ export function ScaleIn({ children, delay = 0, className = '' }) {
             className={className}
         >
             {children}
-        </motion.div>
+        </Motion.div>
     );
 }
 
@@ -67,7 +67,7 @@ export function StaggerContainer({ children, className = '', staggerDelay = 0.1 
     const isInView = useInView(ref, { once: true, margin: '-50px' });
 
     return (
-        <motion.div
+        <Motion.div
             ref={ref}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
@@ -82,13 +82,13 @@ export function StaggerContainer({ children, className = '', staggerDelay = 0.1 
             className={className}
         >
             {children}
-        </motion.div>
+        </Motion.div>
     );
 }
 
 export function StaggerItem({ children, className = '' }) {
     return (
-        <motion.div
+        <Motion.div
             variants={{
                 hidden: { opacity: 0, y: 30 },
                 visible: {
@@ -103,6 +103,6 @@ export function StaggerItem({ children, className = '' }) {
             className={className}
         >
             {children}
-        </motion.div>
+        </Motion.div>
     );
 }

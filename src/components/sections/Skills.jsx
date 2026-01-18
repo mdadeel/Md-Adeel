@@ -24,7 +24,7 @@ export default function Strengths() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 lg:gap-24">
                     <div className="lg:col-span-4">
                         <h2 className="text-mono-xs text-secondary lg:sticky lg:top-32 font-bold mb-4 lg:mb-0">
-                            (02) Technical Capabilities
+                            <span className="sr-only">Section</span> (02) Technical Capabilities
                         </h2>
                     </div>
 

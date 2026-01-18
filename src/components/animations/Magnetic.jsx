@@ -1,5 +1,5 @@
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import React, { useRef } from "react";
+import { useMotionValue, useSpring, motion as Motion } from "framer-motion";
+import React, { useRef, useCallback } from "react";
 
 export default function Magnetic({ children, strength = 0.5 }) {
     const ref = useRef(null);
@@ -10,29 +10,29 @@ export default function Magnetic({ children, strength = 0.5 }) {
     const mouseX = useSpring(x, { stiffness: 150, damping: 15, mass: 0.1 });
     const mouseY = useSpring(y, { stiffness: 150, damping: 15, mass: 0.1 });
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = useCallback((e) => {
         const { clientX, clientY } = e;
-        const { height, width, left, top } = ref.current.getBoundingClientRect();
+        const { height, width, left, top } = ref.current?.getBoundingClientRect() || { height: 0, width: 0, left: 0, top: 0 };
         const middleX = clientX - (left + width / 2);
         const middleY = clientY - (top + height / 2);
         x.set(middleX * strength);
         y.set(middleY * strength);
-    };
+    }, [strength, x, y]);
 
-    const handleMouseLeave = () => {
+    const handleMouseLeave = useCallback(() => {
         x.set(0);
         y.set(0);
-    };
+    }, [x, y]);
 
-    const { type, props, key } = children;
-
-    return React.cloneElement(
-        children,
-        {
-            onMouseMove: handleMouseMove,
-            onMouseLeave: handleMouseLeave,
-            ref,
-            style: { x: mouseX, y: mouseY }
-        }
+    return (
+        <Motion.div
+            ref={ref}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{ x: mouseX, y: mouseY }}
+            className="inline-block"
+        >
+            {children}
+        </Motion.div>
     );
 }

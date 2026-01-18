@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 export default function Hero() {
     const tickerItems = [
@@ -20,7 +20,7 @@ export default function Hero() {
 
             {/* Central Photo */}
             <div className="absolute inset-0 flex justify-center items-center z-10 pointer-events-none">
-                <motion.div
+                <Motion.div
                     initial={{ scale: 1.05, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
@@ -33,8 +33,12 @@ export default function Hero() {
                         src="/img/cover.jpg"
                         alt="Shahnawas Adeel"
                         className="w-full h-full object-cover grayscale brightness-90 opacity-40 dark:opacity-30"
+                        onError={(e) => {
+                            e.target.style.display = 'none';
+                            e.target.parentElement.style.background = 'linear-gradient(135deg, var(--color-surface) 0%, var(--color-border) 100%)';
+                        }}
                     />
-                </motion.div>
+                </Motion.div>
             </div>
 
             {/* Content */}
@@ -42,7 +46,7 @@ export default function Hero() {
 
                 {/* Top: FIRST NAME */}
                 <div className="flex justify-start">
-                    <motion.div
+                    <Motion.div
                         initial={{ x: -20, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 1, delay: 0.2 }}
@@ -54,12 +58,12 @@ export default function Hero() {
                         <p className="text-mono-xs text-secondary max-w-sm opacity-60">
                             SYSTEMS ENGINEER // INFRASTRUCTURE ARCHITECT // AUTOMATION SPECIALIST.
                         </p>
-                    </motion.div>
+                    </Motion.div>
                 </div>
 
                 {/* Bottom: CTA + LAST NAME */}
                 <div className="flex flex-col-reverse md:flex-row items-start md:items-end justify-between gap-4 md:gap-0">
-                    <motion.div
+                    <Motion.div
                         initial={{ x: -20, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 1, delay: 0.6 }}
@@ -70,9 +74,9 @@ export default function Hero() {
                         >
                             SELECTED WORKS ↘
                         </a>
-                    </motion.div>
+                    </Motion.div>
 
-                    <motion.div
+                    <Motion.div
                         initial={{ x: 20, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 1, delay: 0.4 }}
@@ -81,7 +85,7 @@ export default function Hero() {
                         <h1 className="text-display-2xl text-primary mb-0 md:-mb-4">
                             Adeel
                         </h1>
-                    </motion.div>
+                    </Motion.div>
                 </div>
             </div>
 

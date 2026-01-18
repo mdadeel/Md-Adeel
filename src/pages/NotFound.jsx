@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 export default function NotFound() {
     return (
@@ -6,7 +6,7 @@ export default function NotFound() {
             {/* Background Grid */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(rgba(54,226,123,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(54,226,123,0.2)_1px,transparent_1px)] [background-size:60px_60px]" />
 
-            <motion.div
+            <Motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -33,7 +33,7 @@ export default function NotFound() {
                 </div>
 
                 {/* Action */}
-                <motion.a
+                <Motion.a
                     href="/"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -41,7 +41,7 @@ export default function NotFound() {
                 >
                     <span className="material-symbols-outlined text-sm">home</span>
                     Return_Home
-                </motion.a>
+                </Motion.a>
 
                 {/* Technical Footer */}
                 <div className="pt-12 flex items-center justify-center gap-4 text-[9px] font-mono text-white/20 uppercase tracking-[0.3em]">
@@ -49,7 +49,7 @@ export default function NotFound() {
                     <span className="w-1.5 h-1.5 bg-red-500/50 rounded-full" />
                     <span>PATH_INVALID</span>
                 </div>
-            </motion.div>
+            </Motion.div>
 
             {/* Decorative Corners */}
             <div className="absolute top-8 left-8 w-8 h-8 border-t border-l border-white/10" />

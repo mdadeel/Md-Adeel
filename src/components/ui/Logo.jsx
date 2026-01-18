@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 const Logo = ({ className = "h-full w-full" }) => {
     return (
@@ -9,7 +9,7 @@ const Logo = ({ className = "h-full w-full" }) => {
             xmlns="http://www.w3.org/2000/svg"
         >
             {/* Letter S (Monochrome) */}
-            <motion.path
+            <Motion.path
                 d="M25 35 H45 V50 H25 V65 H45"
                 stroke="white"
                 strokeWidth="8"
@@ -25,7 +25,7 @@ const Logo = ({ className = "h-full w-full" }) => {
             />
 
             {/* Letter A (Monochrome) */}
-            <motion.path
+            <Motion.path
                 d="M55 65 V35 H75 V65 M55 50 H75"
                 stroke="white"
                 strokeWidth="8"

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+
 
 export default function About() {
     return (
@@ -7,7 +7,7 @@ export default function About() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 lg:gap-24">
                     <div className="lg:col-span-4">
                         <h2 className="text-mono-xs text-secondary lg:sticky lg:top-32 font-bold mb-4 lg:mb-0">
-                            (01) Philosophy
+                            <span className="sr-only">Section</span> (01) Philosophy
                         </h2>
                     </div>
 

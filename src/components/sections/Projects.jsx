@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion as Motion } from 'framer-motion';
 import { projects } from '../../data/projects';
 
 export default function Projects() {
@@ -11,7 +11,7 @@ export default function Projects() {
         setMousePos({ x: e.clientX, y: e.clientY });
     };
 
-    // Prevent body scroll when modal is open
+    // Prevent body scroll when modal is open + keyboard navigation
     useEffect(() => {
         if (selectedProject) {
             document.body.style.overflow = 'hidden';
@@ -23,6 +23,23 @@ export default function Projects() {
         return () => {
             document.body.style.overflow = 'unset';
             document.documentElement.classList.remove('modal-open');
+        };
+    }, [selectedProject]);
+
+    // Handle ESC key to close modal
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape' && selectedProject) {
+                setSelectedProject(null);
+            }
+        };
+
+        if (selectedProject) {
+            document.addEventListener('keydown', handleKeyDown);
+        }
+
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
         };
     }, [selectedProject]);
 
@@ -44,7 +61,16 @@ export default function Projects() {
                                     onMouseEnter={() => setHoveredProject(project)}
                                     onMouseLeave={() => setHoveredProject(null)}
                                     onClick={() => setSelectedProject(project)}
-                                    className="group relative py-12 md:py-20 transition-colors hover:bg-black/[0.01] dark:hover:bg-white/[0.01] cursor-pointer"
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter' || e.key === ' ') {
+                                            e.preventDefault();
+                                            setSelectedProject(project);
+                                        }
+                                    }}
+                                    role="button"
+                                    tabIndex="0"
+                                    className="group relative py-12 md:py-20 transition-colors hover:bg-black/[0.01] dark:hover:bg-white/[0.01] cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/20"
+                                    aria-label={`View details for ${project.name} project`}
                                 >
                                     <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-baseline">
                                         <div className="md:col-span-5 flex gap-8 items-baseline">
@@ -92,7 +118,7 @@ export default function Projects() {
             {/* Floating Image Preview */}
             <AnimatePresence>
                 {hoveredProject && !selectedProject && (
-                    <motion.div
+                    <Motion.div
                         initial={{ opacity: 0, scale: 0.98 }}
                         animate={{ opacity: 1, scale: 1, x: mousePos.x + 40, y: mousePos.y - 150 }}
                         exit={{ opacity: 0, scale: 0.98 }}
@@ -105,9 +131,13 @@ export default function Projects() {
                                 alt={hoveredProject.name}
                                 loading="lazy"
                                 className="w-full h-full object-cover grayscale brightness-75 contrast-125"
+                                onError={(e) => {
+                                    e.target.style.display = 'none';
+                                    e.target.parentElement.style.background = 'var(--color-surface)';
+                                }}
                             />
                         </div>
-                    </motion.div>
+                        </Motion.div>
                 )}
             </AnimatePresence>
 
@@ -115,7 +145,7 @@ export default function Projects() {
             <AnimatePresence>
                 {selectedProject && (
                     <div className="fixed inset-0 z-[150] flex items-center justify-center p-4 md:p-8">
-                        <motion.div
+                        <Motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
@@ -123,7 +153,7 @@ export default function Projects() {
                             className="fixed inset-0 bg-background/90 dark:bg-dark-background/95 backdrop-blur-xl"
                         />
 
-                        <motion.div
+                        <Motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.98 }}
@@ -131,10 +161,10 @@ export default function Projects() {
                             className="relative w-full max-w-[1200px] bg-background dark:bg-dark-background border border-border shadow-[0_0_80px_rgba(0,0,0,0.1)] flex flex-col max-h-[90vh] overflow-hidden"
                         >
                             {/* System Close Button (Fixed relative to modal) */}
-                            <button
+                             <button
                                 onClick={() => setSelectedProject(null)}
                                 className="absolute top-4 right-4 z-[60] w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-black/80 dark:bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black text-white transition-all group"
-                                aria-label="Close Project"
+                                aria-label="Close project details (ESC key)"
                             >
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 md:w-5 md:h-5 group-hover:rotate-90 transition-transform duration-500">
                                     <path d="M18 6L6 18M6 6l12 12" />
@@ -152,6 +182,11 @@ export default function Projects() {
                                         src={selectedProject.image}
                                         alt={selectedProject.name}
                                         className="w-full h-full object-contain"
+                                        onError={(e) => {
+                                            e.target.style.display = 'none';
+                                            e.target.parentElement.style.background = 'linear-gradient(135deg, var(--color-surface) 0%, var(--color-border) 100%)';
+                                            e.target.parentElement.innerHTML = '<div class="flex items-center justify-center h-full"><p class="text-mono-xs text-secondary">Preview Unavailable</p></div>';
+                                        }}
                                     />
                                     {/* Facebook-style Overlay for Name & Stack */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end px-6 pb-4 md:px-12 md:pb-8">
@@ -250,7 +285,7 @@ export default function Projects() {
                                     </svg>
                                 </a>
                             </div>
-                        </motion.div>
+                    </Motion.div>
                     </div>
                 )}
             </AnimatePresence>

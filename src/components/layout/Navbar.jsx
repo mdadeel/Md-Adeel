@@ -1,4 +1,4 @@
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
+import { AnimatePresence, useScroll, useMotionValueEvent, motion as Motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 export default function Navbar({ isDark, toggleDark, showToast }) {
@@ -53,7 +53,7 @@ export default function Navbar({ isDark, toggleDark, showToast }) {
     ];
 
     return (
-        <motion.header
+        <Motion.header
             variants={{
                 visible: { y: 0 },
                 hidden: { y: '-100%' },
@@ -68,7 +68,7 @@ export default function Navbar({ isDark, toggleDark, showToast }) {
             <div className="layout-container h-[clamp(3.5rem,5vw,4.5rem)] flex items-center justify-between">
                 {/* BRANDING */}
                 <div className="flex items-center">
-                    <a href="#hero" className="z-[110]" onClick={() => setIsOpen(false)}>
+                    <a href="#hero" className="z-[110]" onClick={() => setIsOpen(false)} aria-label="Navigate to home section">
                         <span className={`text-display-md !text-[1.25rem] tracking-tighter ${scrolled ? 'text-primary' : 'text-primary'}`}>Adeel</span>
                     </a>
                 </div>
@@ -80,6 +80,7 @@ export default function Navbar({ isDark, toggleDark, showToast }) {
                             key={link.name}
                             href={link.href}
                             className={`text-mono-xs transition-colors py-2 ${scrolled ? 'text-secondary hover:text-primary' : 'text-primary/70 hover:text-primary'}`}
+                            aria-label={`Navigate to ${link.name} section`}
                         >
                             {link.name}
                         </a>
@@ -91,6 +92,7 @@ export default function Navbar({ isDark, toggleDark, showToast }) {
                     <button
                         onClick={toggleDark}
                         className={`text-mono-xs hover:opacity-50 transition-opacity py-2 ${scrolled ? 'text-primary' : 'text-primary'}`}
+                        aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
                     >
                         {isDark ? 'Light' : 'Dark'}
                     </button>
@@ -99,6 +101,7 @@ export default function Navbar({ isDark, toggleDark, showToast }) {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`text-mono-xs border-l pl-6 py-2 ${scrolled ? 'text-primary border-border' : 'text-primary border-primary/10'}`}
+                        aria-label="Download resume PDF (opens in new tab)"
                     >
                         Resume
                     </a>
@@ -111,15 +114,15 @@ export default function Navbar({ isDark, toggleDark, showToast }) {
                         className="z-[110] p-3 min-w-[44px] min-h-[44px] flex flex-col gap-1.5 items-center justify-center focus:outline-none active:opacity-70 transition-opacity"
                         aria-label="Toggle Menu"
                     >
-                        <motion.span
+                        <Motion.span
                             animate={isOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }}
                             className={`w-6 h-px block bg-primary`}
                         />
-                        <motion.span
+                        <Motion.span
                             animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
                             className={`w-6 h-px block bg-primary`}
                         />
-                        <motion.span
+                        <Motion.span
                             animate={isOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
                             className={`w-6 h-px block bg-primary`}
                         />
@@ -130,7 +133,7 @@ export default function Navbar({ isDark, toggleDark, showToast }) {
             {/* Mobile Menu Overlay */}
             <AnimatePresence>
                 {isOpen && (
-                    <motion.div
+                    <Motion.div
                         initial={{ opacity: 0, x: '100%' }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: '100%' }}
@@ -139,7 +142,7 @@ export default function Navbar({ isDark, toggleDark, showToast }) {
                     >
                         <nav className="flex flex-col gap-8">
                             {navLinks.map((link, idx) => (
-                                <motion.a
+                                <Motion.a
                                     key={link.name}
                                     href={link.href}
                                     initial={{ opacity: 0, y: 10 }}
@@ -147,11 +150,12 @@ export default function Navbar({ isDark, toggleDark, showToast }) {
                                     transition={{ delay: 0.1 + idx * 0.05, duration: 0.4 }}
                                     onClick={() => setIsOpen(false)}
                                     className="text-4xl font-bold tracking-tighter uppercase text-primary active:text-secondary transition-colors py-2"
+                                    aria-label={`Navigate to ${link.name} section (closes menu)`}
                                 >
                                     {link.name}
-                                </motion.a>
+                                </Motion.a>
                             ))}
-                            <motion.a
+                            <Motion.a
                                 href="/resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -159,9 +163,10 @@ export default function Navbar({ isDark, toggleDark, showToast }) {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3, duration: 0.4 }}
                                 className="mt-8 inline-block text-sm font-bold uppercase tracking-widest bg-primary text-background px-8 py-4 self-start"
+                                aria-label="Download resume PDF (opens in new tab)"
                             >
                                 Resume
-                            </motion.a>
+                            </Motion.a>
                         </nav>
 
                         <div className="mt-auto pb-12 space-y-8">
@@ -181,9 +186,9 @@ export default function Navbar({ isDark, toggleDark, showToast }) {
                             </p>
                         </div>
 
-                    </motion.div>
+                    </Motion.div>
                 )}
             </AnimatePresence>
-        </motion.header>
+        </Motion.header>
     );
 }
