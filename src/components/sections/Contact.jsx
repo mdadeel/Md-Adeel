@@ -160,7 +160,7 @@ export default function Contact() {
                                         <div className="absolute inset-0 bg-accent transition-transform duration-500 translate-y-0 group-hover/btn:-translate-y-full" />
                                         <div className="absolute inset-0 bg-white transition-transform duration-500 translate-y-full group-hover/btn:translate-y-0" />
                                         <span className="relative z-10 font-black text-[10px] tracking-[0.4em] text-white group-hover/btn:text-background uppercase flex items-center justify-center gap-3">
-                                            {formState === 'sending' ? 'TRANSMITTING...' : 'INTIATE_CONNECTION'}
+                                            {formState === 'sending' ? 'TRANSMITTING...' : 'INITIATE_CONNECTION'}
                                             <div className="w-px h-0 bg-current transition-all duration-300 group-hover/btn:h-4" />
                                             {formState === 'error' ? 'RETRY_TRANSMISSION' : ''}
                                             <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="3">
