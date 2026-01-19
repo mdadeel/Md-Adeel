@@ -116,49 +116,47 @@ export default function Contact() {
                                     className="space-y-4"
                                 >
                                     <div className="space-y-8">
-                                        <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-                                            <div className="space-y-1">
-                                                <label htmlFor="user_name" className="text-[11px] font-black text-accent tracking-widest uppercase ml-1">Full_Name</label>
-                                                <input
-                                                    type="text"
-                                                    name="user_name"
-                                                    id="user_name"
-                                                    required
-                                                    value={formData.name}
-                                                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                                    className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-4 text-white placeholder-white/20 focus:outline-none focus:border-accent focus:bg-accent/5 transition-all font-mono text-sm"
-                                                    placeholder="Operator Name"
-                                                />
-                                            </div>
+                                        <div className="space-y-1">
+                                            <label htmlFor="user_name" className="text-[12px] font-black text-accent tracking-widest uppercase ml-1">Full_Name</label>
+                                            <input
+                                                type="text"
+                                                name="user_name"
+                                                id="user_name"
+                                                required
+                                                value={formData.name}
+                                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                                className="w-full bg-white/5 border border-white/20 rounded-none px-4 py-4 text-white placeholder-white/30 focus:outline-none focus:border-accent focus:bg-accent/5 transition-all font-mono text-sm"
+                                                placeholder="Operator Name"
+                                            />
+                                        </div>
 
-                                            <div className="space-y-1">
-                                                <label htmlFor="user_email" className="text-[11px] font-black text-accent tracking-widest uppercase ml-1">Email_Address</label>
-                                                <input
-                                                    type="email"
-                                                    name="user_email"
-                                                    id="user_email"
-                                                    required
-                                                    value={formData.email}
-                                                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                                    className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-4 text-white placeholder-white/20 focus:outline-none focus:border-accent focus:bg-accent/5 transition-all font-mono text-sm"
-                                                    placeholder="email@example.com"
-                                                />
-                                            </div>
+                                        <div className="space-y-1">
+                                            <label htmlFor="user_email" className="text-[12px] font-black text-accent tracking-widest uppercase ml-1">Email_Address</label>
+                                            <input
+                                                type="email"
+                                                name="user_email"
+                                                id="user_email"
+                                                required
+                                                value={formData.email}
+                                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                                className="w-full bg-white/5 border border-white/20 rounded-none px-4 py-4 text-white placeholder-white/30 focus:outline-none focus:border-accent focus:bg-accent/5 transition-all font-mono text-sm"
+                                                placeholder="email@example.com"
+                                            />
+                                        </div>
 
-                                            <div className="space-y-1">
-                                                <label htmlFor="message" className="text-[11px] font-black text-accent tracking-widest uppercase ml-1">Message</label>
-                                                <textarea
-                                                    name="message"
-                                                    id="message"
-                                                    required
-                                                    rows="4"
-                                                    value={formData.message}
-                                                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                                    className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-4 text-white placeholder-white/20 focus:outline-none focus:border-accent focus:bg-accent/5 transition-all font-mono text-sm resize-none"
-                                                    placeholder="Tell me about your project..."
-                                                />
-                                            </div>
-                                        </form>
+                                        <div className="space-y-1">
+                                            <label htmlFor="message" className="text-[12px] font-black text-accent tracking-widest uppercase ml-1">Message</label>
+                                            <textarea
+                                                name="message"
+                                                id="message"
+                                                required
+                                                rows="4"
+                                                value={formData.message}
+                                                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                                className="w-full bg-white/5 border border-white/20 rounded-none px-4 py-4 text-white placeholder-white/30 focus:outline-none focus:border-accent focus:bg-accent/5 transition-all font-mono text-sm resize-none"
+                                                placeholder="Tell me about your project..."
+                                            />
+                                        </div>
                                     </div>
 
                                     <button

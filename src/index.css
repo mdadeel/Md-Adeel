@@ -89,7 +89,7 @@
 }
 
 .text-label {
-  @apply font-mono text-[9px] uppercase tracking-[0.2em] text-accent font-bold mb-2 block;
+  @apply font-mono text-[11px] uppercase tracking-[0.2em] text-accent font-bold mb-2 block;
 }
 
 /* Animations */

@@ -53,7 +53,7 @@ export default function Hero() {
                             transition={{ duration: 0.5 }}
                             className="space-y-3"
                         >
-                            <h1 className="text-2xl sm:text-3xl lg:text-3xl font-black text-white tracking-widest uppercase">
+                            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-widest uppercase">
                                 Md Adeel
                             </h1>
                             <p className="text-[15px] text-text-dim font-bold tracking-wide font-mono">
@@ -113,7 +113,7 @@ export default function Hero() {
                                 </div>
 
                                 {/* Tooltip */}
-                                <span className="absolute top-14 font-mono text-[9px] font-bold tracking-[0.2em] uppercase opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-[-10px] group-hover:translate-y-0 text-accent">
+                                <span className="absolute top-14 font-mono text-[11px] font-bold tracking-[0.2em] uppercase opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-[-10px] group-hover:translate-y-0 text-accent">
                                     {social.name}
                                 </span>
                             </a>

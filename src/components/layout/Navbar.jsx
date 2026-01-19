@@ -53,7 +53,7 @@ export default function Navbar() {
                                 <a
                                     key={link.label}
                                     href={link.href}
-                                    className="font-mono text-[10px] font-black tracking-[0.2em] text-text-dim hover:text-accent transition-all relative group/link"
+                                    className="font-mono text-[11px] font-black tracking-[0.2em] text-text-dim hover:text-accent transition-all relative group/link"
                                     aria-label={`Navigate to ${link.label === "LOG" ? "Experience" : link.label === "SYSTEMS" ? "Skills" : link.label} section`}
                                 >
                                     {link.label === "LOG" ? "EXPERIENCE" : link.label === "SYSTEMS" ? "SKILLS" : link.label}
@@ -65,7 +65,7 @@ export default function Navbar() {
 
                         <a
                             href="#contact"
-                            className="hidden md:block px-6 py-2 bg-white text-black rounded-md font-black text-[10px] tracking-widest hover:bg-accent hover:text-white transition-all uppercase"
+                            className="hidden md:block px-6 py-2 bg-white text-black rounded-md font-black text-[11px] tracking-widest hover:bg-accent hover:text-white transition-all uppercase"
                             aria-label="Get in touch with me"
                         >
                             Get in Touch
@@ -94,18 +94,18 @@ export default function Navbar() {
 
             {/* Mobile Menu Overlay */}
             <div className={`fixed inset-0 bg-background/95 backdrop-blur-xl z-[500] md:hidden transition-all duration-500 ease-[cubic-bezier(0.32,0,0.67,0)] ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
-                 
-                 {/* Close Button Inside Overlay */}
-                 <button 
+
+                {/* Close Button Inside Overlay */}
+                <button
                     onClick={() => setIsOpen(false)}
                     className="absolute top-6 right-6 p-2 text-white/50 hover:text-white transition-colors"
-                 >
+                >
                     <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current">
-                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
                     </svg>
-                 </button>
+                </button>
 
-                 <div className="h-full flex flex-col items-center justify-center gap-8">
+                <div className="h-full flex flex-col items-center justify-center gap-8">
                     {navLinks.map((link, idx) => (
                         <a
                             key={link.label}

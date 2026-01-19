@@ -53,7 +53,7 @@ export default function Experience() {
             </div>
             <h2 className="title-xl !mb-0 uppercase tracking-tighter italic">Experience <span className="text-accent not-italic">Log</span>.</h2>
           </div>
-          <p className="font-mono text-[9px] text-text-dim/30 tracking-[0.4em] font-black uppercase hidden md:block">Active_Index_v0.9</p>
+          <p className="font-mono text-[11px] text-text-dim/30 tracking-[0.4em] font-black uppercase hidden md:block">Active_Index_v0.9</p>
         </motion.div>
 
         <div className="space-y-1">
@@ -86,7 +86,7 @@ export default function Experience() {
                 </p>
                 <div className="flex flex-wrap gap-x-4 gap-y-1">
                   {exp.tags.map(tag => (
-                    <span key={tag} className="text-[8px] font-mono font-black text-text-dim/20 tracking-widest uppercase">{tag}</span>
+                    <span key={tag} className="text-[10px] font-mono font-black text-text-dim/20 tracking-widest uppercase">{tag}</span>
                   ))}
                 </div>
               </div>
@@ -118,8 +118,8 @@ export default function Experience() {
               { label: "Protocol", val: "MERN_Core" }
             ].map(meta => (
               <div key={meta.label} className="flex flex-col gap-1">
-                <span className="text-[8px] font-mono text-text-dim/30 uppercase tracking-widest">{meta.label}</span>
-                <span className="text-[9px] font-mono font-black text-white/40 uppercase">{meta.val}</span>
+                <span className="text-[10px] font-mono text-text-dim/30 uppercase tracking-widest">{meta.label}</span>
+                <span className="text-[11px] font-mono font-black text-white/40 uppercase">{meta.val}</span>
               </div>
             ))}
           </div>
