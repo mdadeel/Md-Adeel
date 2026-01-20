@@ -33,16 +33,18 @@ export default function Navbar() {
                 <div className="max-w-[1250px] mx-auto w-full px-4 sm:px-8 flex items-center justify-between">
 
                     {/* Brand */}
-                    <a href="#" className="flex items-center gap-4 group relative z-[510]">
-                        <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center text-white font-black text-xs shadow-lg shadow-accent/20 transition-transform group-hover:rotate-12">
-                            A
-                        </div>
+                    <a href="#" className="flex items-center gap-3 group relative z-[510]">
+                        <img
+                            src="/logo.png"
+                            alt="Logo"
+                            className="w-8 h-8 rounded-lg shadow-lg transition-transform group-hover:scale-105"
+                        />
                         <div className="flex flex-col -space-y-1">
                             <span className="text-[12px] font-black tracking-widest text-white">ADEEL.DEV</span>
-                            <div className="flex items-center gap-1.5 opacity-60">
+                            {/* <div className="flex items-center gap-1.5 opacity-60">
                                 <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
                                 <span className="text-[8px] font-mono text-green-500 font-bold uppercase">Available</span>
-                            </div>
+                            </div> */}
                         </div>
                     </a>
 
