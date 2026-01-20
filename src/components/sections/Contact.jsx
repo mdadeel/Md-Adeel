@@ -94,7 +94,7 @@ export default function Contact() {
                                                 </span>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_#22c55e]" />
+                                                <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
                                                 <span className="text-[9px] font-mono text-green-500/40 uppercase tracking-tighter">Executable</span>
                                             </div>
                                         </button>
