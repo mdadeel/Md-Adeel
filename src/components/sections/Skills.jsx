@@ -168,7 +168,7 @@ export default function Skills() {
                 {/* Git Log Subtle Footer */}
                 <div className="mt-4 px-4 flex justify-between items-center opacity-20">
                     <p className="text-[9px] font-mono text-text-dim/60">
-              * (HEAD -> main, origin/main) commit: Add production-ready architecture
+                        * (HEAD → main, origin/main) commit: Add production-ready architecture
                     </p>
                     <p className="text-[9px] font-mono text-text-dim/60 italic">3s ago</p>
                 </div>
