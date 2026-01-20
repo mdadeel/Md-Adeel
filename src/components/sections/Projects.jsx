@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+
 import { projects } from '../../data/projects';
 import OptimizedImage from '../ui/OptimizedImage';
 
@@ -29,12 +29,8 @@ export default function Projects() {
                 {/* Repository List */}
                 <div className="space-y-4">
                     {projects.map((project, idx) => (
-                        <motion.div
+                        <div
                             key={project.id}
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.3, delay: idx * 0.05 }}
                             className="group p-5 bg-[#242526] rounded-xl border border-white/5 hover:border-white/10 transition-all"
                         >
                             <div className="flex flex-col lg:flex-row gap-6">
@@ -119,7 +115,7 @@ export default function Projects() {
                                     </div>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
 

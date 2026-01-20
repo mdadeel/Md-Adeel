@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+
 
 const experiences = [
   {
@@ -77,12 +77,8 @@ export default function Experience() {
         {/* Issue List Style */}
         <div className="space-y-px border border-white/5 rounded-lg overflow-hidden bg-white/[0.02]">
           {experiences.map((exp, idx) => (
-            <motion.div
+            <div
               key={exp.id}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: idx * 0.05 }}
               className="group flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 hover:bg-white/[0.04] transition-all border-b border-white/5 last:border-0 relative overflow-hidden"
             >
               {/* Status & ID */}
@@ -123,7 +119,7 @@ export default function Experience() {
 
               {/* Hover Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500/0 via-purple-500/[0.02] to-purple-500/0 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-500" />
-            </motion.div>
+            </div>
           ))}
         </div>
 

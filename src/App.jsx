@@ -16,7 +16,7 @@ const Contact = lazy(() => import('./components/sections/Contact'));
 // Optimized fallback component
 const SectionFallback = () => (
   <div className="h-[400px] flex items-center justify-center">
-    <div className="w-12 h-px bg-border animate-pulse" />
+    <div className="w-12 h-px bg-border" />
   </div>
 );
 
