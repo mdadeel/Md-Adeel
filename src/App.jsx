@@ -1,8 +1,7 @@
 import './index.css';
-import { Suspense, lazy, useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/sections/Hero';
-import { AnimatePresence, motion } from 'framer-motion';
 import Lenis from 'lenis';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
 import StructuredData from './components/seo/StructuredData';

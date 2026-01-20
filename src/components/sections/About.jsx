@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+
 import OptimizedImage from '../ui/OptimizedImage';
 
 export default function About() {
@@ -34,7 +34,7 @@ export default function About() {
                                 </div>
                                 <div className="flex items-center gap-3 text-[#b0b3b8]">
                                     <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current opacity-60"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" /></svg>
-                                    <a href="https://adeel.dev" className="text-[14px] text-[#4599ff] hover:underline font-bold">adeel.dev</a>
+                                    <a href="https://instagram.shahnawas.adeel" className="text-[14px] text-[#4599ff] hover:underline font-bold">adeel.dev</a>
                                 </div>
                             </div>
                         </div>
@@ -44,7 +44,7 @@ export default function About() {
                             <div className="flex justify-between items-center">
                                 <h3 className="text-xl font-black text-[#e4e6eb] tracking-tight">Interests</h3>
                             </div>
-                            <div className="grid grid-cols-3 gap-2">
+                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                                 {[
                                     { name: 'Coding', icon: 'M8 3a2 2 0 00-2 2v4a2 2 0 01-2 2H3v2h1a2 2 0 012 2v4a2 2 0 002 2h2v-2H8v-5a2 2 0 00-2-2 2 2 0 002-2V5h2V3H8zm8 0a2 2 0 012 2v4a2 2 0 002 2h1v2h-1a2 2 0 00-2 2v4a2 2 0 01-2 2h-2v-2h2v-5a2 2 0 012-2 2 2 0 01-2-2V5h-2V3h2z' },
                                     { name: 'Design', icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.5 15.5v-3.5h-4v-4h4V6.5l6 5.5-6 5.5z' },
