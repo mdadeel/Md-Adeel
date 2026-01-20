@@ -5,7 +5,7 @@
   /* Cinematic Palette */
   --color-accent: #1877F2;
   /* Signature FB/Pro Blue */
-  --color-background: #08090A;
+  --color-background: #18191a;
   /* Cinematic Deep Black */
   --color-surface: #121417;
   /* High-end slate surface */
@@ -71,10 +71,6 @@
   @apply bg-surface border border-border rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:border-accent/40 hover:bg-surface-hover;
 }
 
-.fb-inspired-hero {
-  @apply bg-[#1C1E21] border-b border-border;
-}
-
 .container-tight {
   @apply max-w-[1100px] mx-auto px-4;
 }
@@ -85,7 +81,7 @@
 }
 
 .title-xl {
-  @apply text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tighter leading-[1.1] mb-4;
+  @apply text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight leading-[1.1] mb-2 uppercase;
 }
 
 .text-label {

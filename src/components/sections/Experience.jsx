@@ -1,129 +1,145 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const experiences = [
   {
-    id: "01",
-    title: "DIGITAL MARKETING MANAGER (INTERN)",
-    org: "DIGITALMARTBD",
-    timeline: "2023",
-    status: "CONTRACT_COMPLETED",
-    intel: "Collaborated with design and marketing teams to deliver digital campaigns.",
-    logs: [
-      "» worked closely with designers and marketers",
-      "» built and adjusted UI components under deadlines",
-      "» learned how technical decisions affect non-technical teams",
-      "» contributed to campaign deployment workflows"
-    ],
-    tags: ["TEAMWORK", "UI_ADJUSTMENT", "DEADLINES"]
+    id: "EXP-01",
+    company: "Freelance",
+    role: "MERN Stack Developer",
+    period: "2023 - Present",
+    status: "In Progress",
+    priority: "High",
+    labels: ["Next.js", "Node.js", "MongoDB"],
+    desc: "Leading full-stack development for client applications. Focused on React performance, scalable APIs, and production-ready architecture."
   },
   {
-    id: "02",
-    title: "EVENT MANAGER",
-    org: "ZAHID'S CHEMISTRY CLINIC",
-    timeline: "2022 — 2023",
-    status: "ROLE_CONCLUDED",
-    intel: " Managed logistics and coordination for large-scale educational events.",
-    logs: [
-      "» coordinated event logistics and scheduling",
-      "» managed on-site operations and student coordination",
-      "» learned ownership, responsibility, and execution under pressure",
-      "» handled real-time problem solving"
-    ],
-    tags: ["MANAGEMENT", "LOGISTICS", "LEADERSHIP"]
+    id: "EXP-02",
+    company: "Local Agency",
+    role: "Frontend Engineer",
+    period: "2022 - 2023",
+    status: "Done",
+    priority: "Medium",
+    labels: ["React", "TypeScript", "Tailwind"],
+    desc: "Architected responsive UIs and component libraries. Integrated complex data visualizations and optimized bundle performance."
+  },
+  {
+    id: "EXP-03",
+    company: "Self-Learning",
+    role: "Web Developer",
+    period: "2021 - 2022",
+    status: "Done",
+    priority: "Low",
+    labels: ["HTML", "CSS", "JavaScript"],
+    desc: "Built foundational skills through personal projects, learning production-level Git workflows and deployment processes."
   }
 ];
 
-export default function Experience() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [0, -40]);
-
+const StatusIcon = ({ status }) => {
+  if (status === "Done") {
+    return (
+      <svg viewBox="0 0 16 16" className="w-3 h-3 fill-purple-500">
+        <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="2" fill="none" opacity="0.3" />
+        <path d="M5 8l2 2 4-4" stroke="currentColor" strokeWidth="2" fill="none" />
+      </svg>
+    );
+  }
   return (
-    <section id="experience" className="section-spacing border-t border-white/5" ref={containerRef}>
-      <div className="max-w-[1250px] mx-auto px-6 py-12">
-        <motion.div style={{ y }} className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
-          <div className="space-y-2">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-px bg-accent" />
-              <span className="text-label !mb-0 tracking-[0.4em]">Historical Ledger</span>
-            </div>
-            <h2 className="title-xl !mb-0 uppercase tracking-tighter italic">Experience <span className="text-accent not-italic">Log</span>.</h2>
-          </div>
-          <p className="font-mono text-[11px] text-text-dim/30 tracking-[0.4em] font-black uppercase hidden md:block">Active_Index_v0.9</p>
-        </motion.div>
+    <svg viewBox="0 0 16 16" className="w-3 h-3 fill-blue-500">
+      <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="2" fill="none" />
+      <path d="M8 4v8M4 8h8" stroke="currentColor" strokeWidth="1.5" fill="none" className="rotate-45 origin-center" />
+    </svg>
+  );
+};
 
-        <div className="space-y-1">
+export default function Experience() {
+  return (
+    <section id="experience" className="py-8 bg-[#18191a] border-t border-white/5">
+      <div className="max-w-[900px] mx-auto px-6">
+
+        {/* Linear Header */}
+        <div className="flex items-center justify-between mb-8 border-b border-white/5 pb-4">
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 px-2 py-1 bg-white/5 rounded border border-white/10">
+              <span className="text-[10px] font-bold text-text-dim/60 uppercase tracking-widest">Roadmap</span>
+            </div>
+            <h2 className="text-sm font-bold text-white tracking-tight uppercase">Professional History</h2>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="hidden sm:flex items-center gap-1 text-[10px] font-bold text-text-dim/40 uppercase tracking-widest">
+              <span>View</span>
+              <div className="flex bg-white/5 rounded p-0.5 border border-white/10">
+                <div className="px-2 py-0.5 bg-white/10 rounded text-white italic">List</div>
+                <div className="px-2 py-0.5">Board</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Issue List Style */}
+        <div className="space-y-px border border-white/5 rounded-lg overflow-hidden bg-white/[0.02]">
           {experiences.map((exp, idx) => (
             <motion.div
               key={exp.id}
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.05 }}
-              className="group relative grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start p-6 border border-white/5 hover:border-accent/20 hover:bg-white/[0.01] transition-all duration-300 rounded-md"
+              transition={{ duration: 0.3, delay: idx * 0.05 }}
+              className="group flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 hover:bg-white/[0.04] transition-all border-b border-white/5 last:border-0 relative overflow-hidden"
             >
-              {/* 1. Chronology */}
-              <div className="lg:col-span-2 shrink-0">
-                <span className="font-mono text-[11px] font-black text-accent tracking-tighter opacity-80">{exp.timeline}</span>
+              {/* Status & ID */}
+              <div className="flex items-center gap-3 shrink-0">
+                <StatusIcon status={exp.status} />
+                <span className="text-[10px] font-mono text-text-dim/40 font-bold tracking-tight">{exp.id}</span>
               </div>
 
-              {/* 2. Core Identity */}
-              <div className="lg:col-span-3 space-y-1">
-                <h3 className="text-xl font-black text-white tracking-tight uppercase group-hover:text-accent transition-colors">
-                  {exp.org}
-                </h3>
-                <p className="text-[10px] font-bold text-text-dim tracking-[0.2em] font-mono opacity-60 uppercase">{exp.title}</p>
-              </div>
-
-              {/* 3. Operational Intel */}
-              <div className="lg:col-span-6 xl:col-span-5 space-y-3">
-                <p className="text-sm text-text-dim/80 font-medium leading-relaxed italic">
-                  {exp.intel}
+              {/* Title & Role */}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-3 flex-wrap">
+                  <h3 className="text-xs font-black text-white uppercase tracking-tight group-hover:text-purple-400 transition-colors">
+                    {exp.company}
+                  </h3>
+                  <span className="text-[10px] text-text-dim/30 font-bold uppercase tracking-widest flex items-center gap-1">
+                    <span className="w-1 h-1 rounded-full bg-white/10" />
+                    {exp.role}
+                  </span>
+                </div>
+                <p className="text-[11px] text-text-dim/50 font-medium mt-1 line-clamp-1 group-hover:line-clamp-none transition-all duration-300">
+                  {exp.desc}
                 </p>
-                <div className="flex flex-wrap gap-x-4 gap-y-1">
-                  {exp.tags.map(tag => (
-                    <span key={tag} className="text-[10px] font-mono font-black text-text-dim/20 tracking-widest uppercase">{tag}</span>
+              </div>
+
+              {/* Labels & Meta */}
+              <div className="flex items-center gap-3 shrink-0">
+                <div className="flex gap-1.5">
+                  {exp.labels.map(label => (
+                    <span key={label} className="px-1.5 py-0.5 rounded bg-white/5 border border-white/5 text-[9px] font-bold text-text-dim/40 uppercase tracking-tight group-hover:border-purple-500/20 group-hover:text-purple-400/60 transition-colors">
+                      {label}
+                    </span>
                   ))}
                 </div>
+                <span className="hidden lg:block text-[9px] font-black text-text-dim/20 uppercase tracking-widest w-24 text-right">
+                  {exp.period}
+                </span>
               </div>
 
-              {/* 4. Log Snapshot (XL Only) */}
-              <div className="hidden xl:col-span-2 xl:flex flex-col gap-1.5 border-l border-white/5 pl-6 opacity-30 group-hover:opacity-100 transition-opacity">
-                {exp.logs.slice(0, 2).map((log, lIdx) => (
-                  <div key={lIdx} className="flex gap-2">
-                    <span className="text-accent text-[8px] mt-1 shrink-0">»</span>
-                    <span className="text-[10px] font-mono leading-tight">{log.replace(/» /g, '').substring(0, 45)}...</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Status Indicator */}
-              <div className="absolute top-6 right-6 lg:relative lg:top-0 lg:col-span-1 lg:justify-self-end">
-                <div className={`w-1.5 h-1.5 rounded-full ${exp.status === 'STAGING_ACTIVE' ? 'bg-green-500 animate-pulse' : 'bg-white/10'}`} />
-              </div>
+              {/* Hover Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/0 via-purple-500/[0.02] to-purple-500/0 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-500" />
             </motion.div>
           ))}
         </div>
 
-        {/* Footer Meta */}
-        <div className="mt-8 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex gap-8">
-            {[
-              { label: "Status", val: "Verified" },
-              { label: "Encryption", val: "AES-256" },
-              { label: "Protocol", val: "MERN_Core" }
-            ].map(meta => (
-              <div key={meta.label} className="flex flex-col gap-1">
-                <span className="text-[10px] font-mono text-text-dim/30 uppercase tracking-widest">{meta.label}</span>
-                <span className="text-[11px] font-mono font-black text-white/40 uppercase">{meta.val}</span>
-              </div>
-            ))}
+        {/* Footer Stats */}
+        <div className="mt-6 flex items-center justify-between px-2">
+          <div className="flex gap-4">
+            <div className="flex items-center gap-1.5">
+              <div className="w-1.5 h-1.5 rounded-full bg-purple-500" />
+              <span className="text-[10px] font-bold text-text-dim/40 uppercase tracking-widest">3 Issues</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <div className="w-1.5 h-1.5 rounded-full bg-green-500/40" />
+              <span className="text-[10px] font-bold text-text-dim/40 uppercase tracking-widest">1 Active</span>
+            </div>
           </div>
-          <p className="font-mono text-[8px] font-black text-text-dim/20 tracking-[0.4em] uppercase">End of Career Metadata Stream // 2026</p>
+          <div className="text-[9px] font-mono text-text-dim/20">Updated 2m ago</div>
         </div>
       </div>
     </section>

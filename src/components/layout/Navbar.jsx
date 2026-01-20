@@ -40,7 +40,7 @@ export default function Navbar() {
                         <div className="flex flex-col -space-y-1">
                             <span className="text-[12px] font-black tracking-widest text-white">ADEEL.DEV</span>
                             <div className="flex items-center gap-1.5 opacity-60">
-                                <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                                <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
                                 <span className="text-[8px] font-mono text-green-500 font-bold uppercase">Available</span>
                             </div>
                         </div>

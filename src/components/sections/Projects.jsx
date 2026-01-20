@@ -1,115 +1,134 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { projects } from '../../data/projects';
 import OptimizedImage from '../ui/OptimizedImage';
 
 export default function Projects() {
-    const containerRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end start"]
-    });
-    const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
-
     return (
-        <section id="work" className="section-spacing" ref={containerRef}>
-            <motion.div style={{ y }} className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
-                <div className="space-y-6">
+        <section id="work" className="py-8 bg-[#18191a]">
+            <div className="max-w-[1250px] mx-auto px-6">
+
+                {/* GitHub-style Header */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4 border-b border-white/5 pb-6">
                     <div className="flex items-center gap-4">
-                        <div className="w-12 h-px bg-accent" />
-                        <span className="text-label">FEATURED PROJECTS</span>
-                    </div>
-                    <h2 className="title-xl uppercase tracking-widest">Selected <br /> <span className="text-accent">Works</span>.</h2>
-                </div>
-                <div className="text-right hidden md:block">
-                    <p className="font-mono text-[10px] text-text-dim tracking-[0.3em] font-bold">RECORDS : 0{projects.length}</p>
-                    <div className="w-full h-1 bg-white/5 mt-2 rounded-full overflow-hidden">
-                        <div className="w-2/3 h-full bg-accent" />
-                    </div>
-                </div>
-            </motion.div>
-
-            <div className="grid grid-cols-1 gap-6 lg:gap-10 reveal-grid">
-                {projects.map((project, idx) => (
-                    <motion.div
-                        key={project.id}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center group"
-                    >
-                        {/* Project Image Container */}
-                        <div className={`lg:col-span-7 ${idx % 2 !== 0 ? 'lg:order-2' : ''}`}>
-                            <a
-                                href={project.liveUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="block relative aspect-[16/10] premium-card border-white/5 overflow-hidden transform group-hover:scale-[1.005] transition-all duration-700 shadow-md hover:shadow-xl"
-                                aria-label={`View Live Project: ${project.name}`}
-                            >
-                                <OptimizedImage
-                                    src={project.image}
-                                    alt={`Screenshot of ${project.name} - ${project.category}`}
-                                    className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 ease-out"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-700" />
-
-                                {/* Refined Corner Brackets */}
-                                <div className="absolute top-4 left-4 w-8 h-8 border-t border-l border-white/10 group-hover:border-accent transition-all duration-500" />
-                                <div className="absolute bottom-4 right-4 w-8 h-8 border-b border-r border-white/10 group-hover:border-accent transition-all duration-500" />
-                            </a>
+                        <svg viewBox="0 0 24 24" className="w-8 h-8 fill-white/60">
+                            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                        </svg>
+                        <div>
+                            <h2 className="text-xl font-black text-white tracking-tight">Repositories</h2>
+                            <p className="text-[12px] text-text-dim/40 font-medium">{projects.length} public repositories</p>
                         </div>
+                    </div>
+                    <div className="flex gap-2">
+                        <div className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg">
+                            <svg viewBox="0 0 24 24" className="w-4 h-4 fill-text-dim/40"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" /></svg>
+                            <span className="text-[11px] text-text-dim/40 font-medium">Find a repository...</span>
+                        </div>
+                    </div>
+                </div>
 
-                        {/* Project Content */}
-                        <div className={`lg:col-span-5 space-y-6 ${idx % 2 !== 0 ? 'lg:order-1 lg:text-right' : ''}`}>
-                            <div className={`flex flex-col ${idx % 2 !== 0 ? 'items-end' : 'items-start'} gap-3`}>
-                                <span className="text-label text-[10px] opacity-30 font-mono tracking-[0.3em]">PROJECT_0{idx + 1}</span>
-                                <h3 className="text-2xl lg:text-3xl font-black text-white uppercase tracking-tighter leading-tight group-hover:text-accent transition-colors duration-500">
-                                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">{project.name}</a>
-                                </h3>
-                                <p className="text-[11px] font-mono font-bold text-accent tracking-[0.2em] opacity-80 uppercase">{project.category}</p>
-                            </div>
+                {/* Repository List */}
+                <div className="space-y-4">
+                    {projects.map((project, idx) => (
+                        <motion.div
+                            key={project.id}
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.3, delay: idx * 0.05 }}
+                            className="group p-5 bg-[#242526] rounded-xl border border-white/5 hover:border-white/10 transition-all"
+                        >
+                            <div className="flex flex-col lg:flex-row gap-6">
+                                {/* Image Preview */}
+                                <div className="w-full lg:w-[280px] aspect-video rounded-lg overflow-hidden bg-[#1e1e1e] border border-white/5 shrink-0">
+                                    <OptimizedImage
+                                        src={project.image}
+                                        alt={project.name}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    />
+                                </div>
 
-                            <p className="text-base lg:text-lg text-text-dim leading-relaxed font-medium">
-                                {project.problem}
-                            </p>
+                                {/* Content */}
+                                <div className="flex-1 flex flex-col justify-between">
+                                    <div className="space-y-3">
+                                        {/* Title Row */}
+                                        <div className="flex items-start justify-between gap-4">
+                                            <div>
+                                                <h3 className="text-lg font-black text-[#4599ff] hover:underline cursor-pointer tracking-tight">
+                                                    {project.name}
+                                                </h3>
+                                                <span className="text-[11px] text-text-dim/40 font-medium">{project.category}</span>
+                                            </div>
+                                            <span className="px-2 py-0.5 rounded-full border border-white/10 text-[9px] font-black text-text-dim/40 uppercase tracking-widest shrink-0">
+                                                Public
+                                            </span>
+                                        </div>
 
-                            <div className={`flex flex-wrap gap-2 ${idx % 2 !== 0 ? 'justify-end' : ''}`}>
-                                {project.tech.map(t => (
-                                    <span key={t} className="px-3 py-1 bg-white/5 border border-white/5 text-[9px] font-mono font-bold tracking-widest text-text-dim/60 group-hover:border-white/10 transition-colors">
-                                        {t.toUpperCase()}
-                                    </span>
-                                ))}
-                            </div>
+                                        {/* Description */}
+                                        <p className="text-[13px] text-text-dim/60 leading-relaxed line-clamp-2">
+                                            {project.problem}
+                                        </p>
 
-                            <div className={`pt-4 flex items-center gap-6 ${idx % 2 !== 0 ? 'justify-end' : ''}`}>
-                                <a
-                                    href={project.liveUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="group/btn flex items-center gap-4 text-[10px] font-black tracking-[0.3em] text-white hover:text-accent transition-all uppercase"
-                                    aria-label={`View ${project.name} Live`}
-                                >
-                                    Launch Project
-                                    <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover/btn:bg-accent group-hover/btn:border-accent transition-all duration-300">
-                                        <svg viewBox="0 0 24 24" className="w-5 h-5 fill-none stroke-current" strokeWidth="2.5">
-                                            <path d="M7 17L17 7M17 7H7M17 7V17" />
-                                        </svg>
+                                        {/* Tech Stack */}
+                                        <div className="flex flex-wrap gap-2">
+                                            {project.tech.map(t => (
+                                                <span key={t} className="px-2 py-0.5 rounded-full bg-[#4599ff]/10 text-[10px] font-bold text-[#4599ff] border border-[#4599ff]/20">
+                                                    {t}
+                                                </span>
+                                            ))}
+                                        </div>
                                     </div>
-                                </a>
 
-                                <a
-                                    href={project.githubUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-[10px] font-black tracking-[0.3em] text-text-dim/40 hover:text-white transition-all uppercase border-b border-transparent hover:border-white/20 pb-1"
-                                >
-                                    Codebase
-                                </a>
+                                    {/* Action Buttons */}
+                                    <div className="flex items-center gap-3 mt-4 pt-4 border-t border-white/5">
+                                        <a
+                                            href={project.liveUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-2 px-4 py-2 bg-[#238636] hover:bg-[#2ea043] text-white rounded-lg text-[11px] font-black uppercase tracking-widest transition-colors"
+                                        >
+                                            <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
+                                                <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                                            </svg>
+                                            Live Demo
+                                        </a>
+                                        <a
+                                            href={project.githubUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-lg text-[11px] font-black uppercase tracking-widest transition-colors"
+                                        >
+                                            <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
+                                                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                                            </svg>
+                                            Source Code
+                                        </a>
+                                        <div className="flex items-center gap-4 ml-auto text-text-dim/30">
+                                            <div className="flex items-center gap-1.5 text-[11px] font-bold">
+                                                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
+                                                JavaScript
+                                            </div>
+                                            <div className="flex items-center gap-1 text-[11px] font-bold">
+                                                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><path d="M12 .25c-6.489 0-11.75 5.261-11.75 11.75s5.261 11.75 11.75 11.75 11.75-5.261 11.75-11.75-5.261-11.75-11.75-11.75zm-.25 10.48L5.5 8.51 11.75 4.7l6.25 3.81-6.25 3.98zm.5 1.77l5.75-3.67V14.7l-5.75 3.67v-5.87zm-1 0v5.87l-5.75-3.67V8.85l5.75 3.67z" /></svg>
+                                                12
+                                            </div>
+                                            <div className="flex items-center gap-1 text-[11px] font-bold">
+                                                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><path d="M5 5h14c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V7c0-1.1.9-2 2-2zm0 2v10h14V7H5zm4 2v2h6V9H9zm-4 4v2h6v-2H5z" /></svg>
+                                                3
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </motion.div>
-                ))}
+                        </motion.div>
+                    ))}
+                </div>
+
+                {/* Footer */}
+                <div className="mt-6 text-center">
+                    <p className="text-[10px] font-bold text-text-dim/20 uppercase tracking-[0.3em]">
+                        Pinned repositories from @mdadeel
+                    </p>
+                </div>
             </div>
         </section>
     );

@@ -1,15 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-const OptimizedImage = ({ 
-  src, 
-  alt, 
-  className = '', 
-  width, 
-  height, 
-  priority = false, 
+const OptimizedImage = ({
+  src,
+  alt,
+  className = '',
+  width,
+  height,
+  priority = false,
   fallback = '/img/placeholder.png',
   onError: onErrorProp,
-  ...props 
+  ...props
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -55,8 +55,8 @@ const OptimizedImage = ({
   return (
     <div className={`relative ${className}`}>
       {!isLoaded && (
-        <div 
-          className="absolute inset-0 bg-surface animate-pulse"
+        <div
+          className="absolute inset-0 bg-surface"
           style={{ aspectRatio: width && height ? `${width}/${height}` : 'auto' }}
         />
       )}

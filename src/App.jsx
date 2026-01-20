@@ -8,7 +8,6 @@ import { ErrorBoundary } from './components/ui/ErrorBoundary';
 import StructuredData from './components/seo/StructuredData';
 
 const About = lazy(() => import('./components/sections/About'));
-const HowIWork = lazy(() => import('./components/sections/HowIWork'));
 const Skills = lazy(() => import('./components/sections/Skills'));
 const Projects = lazy(() => import('./components/sections/Projects'));
 const Experience = lazy(() => import('./components/sections/Experience'));
@@ -46,14 +45,14 @@ function App() {
         <div id="main-content">
           <Hero />
 
+          <Suspense fallback={<SectionFallback />}>
+            <ErrorBoundary>
+              <About />
+            </ErrorBoundary>
+          </Suspense>
+
           {/* Premium Stack Layout */}
           <div className="max-w-[1250px] mx-auto px-4 sm:px-8 mt-12 space-y-24 lg:space-y-40">
-
-            <Suspense fallback={<SectionFallback />}>
-              <ErrorBoundary>
-                <About />
-              </ErrorBoundary>
-            </Suspense>
 
             <Suspense fallback={<SectionFallback />}>
               <ErrorBoundary>
@@ -70,12 +69,6 @@ function App() {
             <Suspense fallback={<SectionFallback />}>
               <ErrorBoundary>
                 <Experience />
-              </ErrorBoundary>
-            </Suspense>
-
-            <Suspense fallback={<SectionFallback />}>
-              <ErrorBoundary>
-                <HowIWork />
               </ErrorBoundary>
             </Suspense>
 

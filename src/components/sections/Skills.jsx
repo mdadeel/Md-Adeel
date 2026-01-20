@@ -1,90 +1,177 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 
-const skillCategories = [
+const SKILL_GROUPS = [
     {
-        title: "MERN Stack Development",
-        skills: ["MongoDB", "Express.js", "React", "Node.js"],
-        detail: "Full-stack architecture with a focus on API design and data modeling."
+        category: "Frontend",
+        skills: [
+            { name: "React.js", ext: "tsx", hours: "2.4k", status: "M", color: "#61DAFB" },
+            { name: "Vue.js", ext: "vue", hours: "800", status: "U", color: "#4FC08D" },
+            { name: "Tailwind", ext: "css", hours: "2.1k", status: "M", color: "#38B2AC" },
+            { name: "Framer Motion", ext: "js", hours: "500", status: "A", color: "#F024B6" },
+            { name: "Next.js", ext: "ts", hours: "1.2k", status: "M", color: "#ffffff" }
+        ]
     },
     {
-        title: "Frontend Engineering",
-        skills: ["State Management", "Tailwind CSS", "Component Patterns", "UX/UI Logic"],
-        detail: "Building readable, maintainable, and responsive interfaces."
+        category: "Backend",
+        skills: [
+            { name: "Node.js", ext: "js", hours: "1.8k", status: "M", color: "#339933" },
+            { name: "Express.js", ext: "js", hours: "1.2k", status: "U", color: "#ffffff" },
+            { name: "MongoDB", ext: "db", hours: "1.2k", status: "M", color: "#47A248" },
+            { name: "Firebase", ext: "db", hours: "900", status: "A", color: "#FFCA28" },
+            { name: "PostgreSQL", ext: "sql", hours: "600", status: "U", color: "#336791" }
+        ]
     },
     {
-        title: "Tooling & Workflow",
-        skills: ["Git & GitHub", "Firebase Auth", "REST APIs", "Refactoring"],
-        detail: "Execution, awareness, and continuous improvement."
+        category: "Foundations",
+        skills: [
+            { name: "JavaScript", ext: "js", hours: "4.5k+", status: "M", color: "#F7DF1E" },
+            { name: "TypeScript", ext: "ts", hours: "1.5k", status: "M", color: "#3178C6" },
+            { name: "HTML5", ext: "html", hours: "∞", status: "U", color: "#E34F26" },
+            { name: "Git", ext: "git", hours: "2.8k", status: "A", color: "#F05032" }
+        ]
     }
 ];
 
-export default function Skills() {
-    const containerRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end start"]
-    });
-    const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+const FolderIcon = ({ isOpen }) => (
+    <svg
+        viewBox="0 0 24 24"
+        className={`w-3.5 h-3.5 fill-text-dim/40 transition-transform ${isOpen ? 'rotate-0' : '-rotate-90'}`}
+    >
+        <path d="M7 10l5 5 5-5z" />
+    </svg>
+);
+
+const FileIcon = ({ ext, color }) => {
+    // Simple icon mapping
+    return (
+        <div className="w-3.5 h-3.5 flex items-center justify-center shrink-0">
+            <span className="text-[8px] font-black uppercase italic" style={{ color }}>
+                {ext}
+            </span>
+        </div>
+    );
+};
+
+const GroupSection = ({ group }) => {
+    const [isOpen, setIsOpen] = useState(true);
 
     return (
-        <section id="skills" className="section-spacing" ref={containerRef}>
-            <motion.div style={{ y }} className="flex flex-col items-center text-center mb-6 space-y-2">
-                <div className="flex items-center gap-4">
-                    <div className="w-6 h-6 rounded-full border border-accent flex items-center justify-center">
-                        <div className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
-                    </div>
-                    <span className="text-label">SKILLS & CAPABILITIES</span>
-                </div>
-                <h2 className="title-xl max-w-4xl tracking-tight uppercase">
-                    MERN Stack & <span className="text-accent">Engineering</span>.
-                </h2>
-                <p className="text-text-dim/60 font-medium italic mt-4 max-w-3xl mx-auto">
-                    I don't claim mastery. I demonstrate execution, awareness, and growth.
-                </p>
-            </motion.div>
+        <div className="mb-2">
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="w-full flex items-center gap-1.5 px-2 py-1 hover:bg-white/5 transition-colors group"
+            >
+                <FolderIcon isOpen={isOpen} />
+                <span className="text-[11px] font-black text-white/40 uppercase tracking-widest group-hover:text-white/60 transition-colors">
+                    {group.category}
+                </span>
+            </button>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-                {skillCategories.map((cat, catIdx) => (
+            <AnimatePresence>
+                {isOpen && (
                     <motion.div
-                        key={cat.title}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: catIdx * 0.1 }}
-                        className="premium-card p-6 lg:p-8 bg-gradient-to-br from-surface to-background/50 flex flex-col gap-6 group min-h-[380px]"
-                        aria-labelledby={`skill-cat-${catIdx}`}
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden"
                     >
-                        <div className="space-y-3">
-                            <div className="flex justify-between items-center border-b border-white/5 pb-4">
-                                <h3 id={`skill-cat-${catIdx}`} className="text-xs font-mono font-bold text-accent tracking-[0.2em] uppercase">{cat.title}</h3>
-                                <span className="font-mono text-[9px] text-text-dim/40">SET_0{catIdx + 1}</span>
-                            </div>
-                            <p className="text-[13px] text-text-dim leading-relaxed font-medium italic opacity-70">"{cat.detail}"</p>
-                        </div>
-
-                        <div className="flex-1 space-y-5">
-                            {cat.skills.map((skill, idx) => (
-                                <div key={skill} className="relative group/skill cursor-default flex items-center justify-between py-1">
-                                    <span className="text-lg lg:text-xl font-black text-white/90 group-hover/skill:text-accent transition-colors tracking-tighter">
-                                        {skill.toUpperCase()}
+                        {group.skills.map((skill) => (
+                            <div
+                                key={skill.name}
+                                className="flex items-center justify-between px-6 py-1 hover:bg-[#2a2d2e] transition-colors group/item cursor-default"
+                            >
+                                <div className="flex items-center gap-2 overflow-hidden">
+                                    <FileIcon ext={skill.ext} color={skill.color} />
+                                    <span className="text-xs text-text-dim/80 group-hover/item:text-[#cccccc] truncate transition-colors">
+                                        {skill.name.toLowerCase().replace(" ", "-")}.{skill.ext}
                                     </span>
-                                    <div className="w-1 h-1 rounded-full bg-white/10 group-hover/skill:bg-accent group-hover/skill:scale-150 transition-all duration-300" />
-                                    <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-0.5 h-4 bg-accent opacity-0 group-hover/skill:opacity-100 transition-opacity" />
                                 </div>
-                            ))}
+
+                                <div className="flex items-center gap-3 shrink-0">
+                                    <span className="text-[9px] font-mono text-text-dim/20 group-hover/item:text-text-dim/40">
+                                        {skill.hours}h
+                                    </span>
+                                    <span className={`text-[10px] font-black w-3 text-center ${skill.status === 'M' ? 'text-[#e2c08d]' :
+                                        skill.status === 'A' ? 'text-[#73c991]' : 'text-text-dim/20'
+                                        }`}>
+                                        {skill.status}
+                                    </span>
+                                </div>
+                            </div>
+                        ))}
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </div>
+    );
+};
+
+export default function Skills() {
+    return (
+        <section id="skills" className="py-8 bg-[#18191a] border-t border-black relative overflow-hidden">
+            {/* Background Subtle Gradient */}
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none" />
+
+            <div className="max-w-[700px] mx-auto px-6">
+
+                {/* VS Code Header Aesthetic */}
+                <div className="bg-[#252526] rounded-t-xl overflow-hidden border border-white/5 flex flex-col shadow-2xl">
+                    <div className="h-9 px-4 flex items-center justify-between bg-[#2d2d2d] border-b border-white/5">
+                        <div className="flex items-center gap-2">
+                            <span className="text-[10px] font-black text-text-dim/40 uppercase tracking-widest">Explorer</span>
+                            <span className="text-[10px] text-text-dim/20 font-bold">•</span>
+                            <span className="text-[10px] font-black text-white/80 uppercase tracking-tight italic">Technical_Stack</span>
+                        </div>
+                        <div className="flex gap-1.5 opacity-40 group-hover:opacity-100 transition-opacity">
+                            <div className="w-2.5 h-2.5 rounded-full bg-white/5" />
+                            <div className="w-2.5 h-2.5 rounded-full bg-white/5" />
+                            <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
+                        </div>
+                    </div>
+
+                    {/* Main List Area */}
+                    <div className="bg-[#1e1e1e] p-2 min-h-[400px]">
+                        {/* Outline / Breadcrumbs */}
+                        <div className="px-2 py-1 flex items-center gap-1.5 text-[9px] font-bold text-text-dim/30 uppercase tracking-widest mb-4 border-b border-white/5">
+                            <span>src</span>
+                            <span>/</span>
+                            <span>components</span>
+                            <span>/</span>
+                            <span className="text-accent/60">skills.jsx</span>
                         </div>
 
-                        <div className="pt-6 border-t border-white/5 flex items-center justify-between">
-                            <span className="text-[9px] font-mono text-text-dim opacity-50 uppercase tracking-widest">Efficiency</span>
-                            <div className="flex gap-1.5" aria-label="Proficiency level: 80%">
-                                {[1, 2, 3, 4, 5].map(i => (
-                                    <div key={i} className={`w-4 h-1 rounded-full transition-colors duration-500 ${i <= 3 ? 'bg-accent/80 group-hover:bg-accent' : 'bg-white/5'}`} />
-                                ))}
+                        {SKILL_GROUPS.map((group) => (
+                            <GroupSection key={group.category} group={group} />
+                        ))}
+                    </div>
+
+                    {/* VS Code Footer/Status Bar */}
+                    <div className="bg-[#007acc] h-6 flex items-center justify-between px-3">
+                        <div className="flex items-center gap-3">
+                            <div className="flex items-center gap-1">
+                                <svg viewBox="0 0 24 24" className="w-3 h-3 fill-white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" /></svg>
+                                <span className="text-[9px] font-black text-white uppercase italic">0 Errors</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                                <svg viewBox="0 0 24 24" className="w-3 h-3 fill-white/80"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" /></svg>
+                                <span className="text-[9px] font-black text-white/80 uppercase italic">0 Warnings</span>
                             </div>
                         </div>
-                    </motion.div>
-                ))}
+                        <div className="flex items-center gap-3 text-white/80 text-[9px] font-bold uppercase tracking-widest">
+                            <span>UTF-8</span>
+                            <span>JavaScript React</span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Git Log Subtle Footer */}
+                <div className="mt-4 px-4 flex justify-between items-center opacity-20">
+                    <p className="text-[9px] font-mono text-text-dim/60">
+              * (HEAD -> main, origin/main) commit: Add production-ready architecture
+                    </p>
+                    <p className="text-[9px] font-mono text-text-dim/60 italic">3s ago</p>
+                </div>
             </div>
         </section>
     );
