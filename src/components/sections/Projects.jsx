@@ -1,8 +1,12 @@
 
+import { useState } from 'react';
 import { projects } from '../../data/projects';
 import OptimizedImage from '../ui/OptimizedImage';
+import GitHubSearchModal from '../ui/GitHubSearchModal';
 
 export default function Projects() {
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+
     return (
         <section id="work" className="py-8 bg-[#18191a]">
             <div className="max-w-[1250px] mx-auto px-6">
@@ -19,10 +23,13 @@ export default function Projects() {
                         </div>
                     </div>
                     <div className="flex gap-2">
-                        <div className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg">
+                        <button
+                            onClick={() => setIsSearchOpen(true)}
+                            className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-white/20 transition-colors cursor-pointer"
+                        >
                             <svg viewBox="0 0 24 24" className="w-4 h-4 fill-text-dim/40"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" /></svg>
                             <span className="text-[11px] text-text-dim/40 font-medium">Find a repository...</span>
-                        </div>
+                        </button>
                     </div>
                 </div>
 
@@ -117,6 +124,12 @@ export default function Projects() {
                         Pinned repositories from @mdadeel
                     </p>
                 </div>
+
+                {/* GitHub Search Modal */}
+                <GitHubSearchModal
+                    isOpen={isSearchOpen}
+                    onClose={() => setIsSearchOpen(false)}
+                />
             </div>
         </section>
     );
