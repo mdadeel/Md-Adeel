@@ -52,7 +52,7 @@ function App() {
           </Suspense>
 
           {/* Premium Stack Layout */}
-          <div className="max-w-[1250px] mx-auto px-4 sm:px-8 mt-12 space-y-24 lg:space-y-40">
+          <div className="max-w-[1250px] mx-auto px-4 sm:px-8 mt-4 space-y-4 lg:space-y-6">
 
             <Suspense fallback={<SectionFallback />}>
               <ErrorBoundary>
