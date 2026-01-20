@@ -130,8 +130,8 @@ export default function Reactions({ postId = 'about-post' }) {
                     <svg
                         viewBox="0 0 24 24"
                         className={`w-7 h-7 transition-all duration-200 ${hasLiked
-                                ? 'fill-red-500 scale-100'
-                                : 'fill-none stroke-[#b0b3b8] stroke-2 hover:stroke-white hover:scale-110'
+                            ? 'fill-red-500 scale-100'
+                            : 'fill-none stroke-[#b0b3b8] stroke-2 hover:stroke-white hover:scale-110'
                             } ${isAnimating ? 'animate-bounce' : ''}`}
                     >
                         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
@@ -146,7 +146,7 @@ export default function Reactions({ postId = 'about-post' }) {
 
                 <span className={`text-[14px] font-semibold transition-colors ${hasLiked ? 'text-red-500' : 'text-[#b0b3b8]'
                     }`}>
-                    {likeCount > 0 ? likeCount.toLocaleString() : ''} {likeCount === 1 ? 'like' : likeCount > 1 ? 'likes' : 'Be the first to like'}
+                    {likeCount > 0 && `${likeCount.toLocaleString()} ${likeCount === 1 ? 'like' : 'likes'}`}
                 </span>
             </div>
 
