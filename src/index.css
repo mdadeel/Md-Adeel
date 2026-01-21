@@ -1,42 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
-  /* Cinematic Palette */
+  /* Clean Professional Palette */
   --color-accent: #1877F2;
-  /* Signature FB/Pro Blue */
-  --color-background: #18191a;
-  /* Cinematic Deep Black */
-  --color-surface: #121417;
-  /* High-end slate surface */
-  --color-surface-hover: #1A1D21;
-  --color-border: #23272B;
+  --color-background: #0d1117;
+  --color-surface: #161b22;
+  --color-surface-hover: #21262d;
+  --color-border: #30363d;
 
-  --color-text-main: #FFFFFF;
-  --color-text-dim: #94A3B8;
+  --color-text-main: #f0f6fc;
+  --color-text-dim: #8b949e;
 
-  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-display: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  /* Spacing Scale (Standardized) */
+  /* Spacing Scale */
   --spacing-xs: 8px;
   --spacing-sm: 16px;
   --spacing-md: 24px;
   --spacing-lg: 32px;
   --spacing-xl: 48px;
   --spacing-xxl: 64px;
-
-  /* Glassmorphism Tokens - Leaner */
-  --glass-bg: rgba(18, 20, 23, 0.9);
-  --glass-border: rgba(255, 255, 255, 0.06);
 }
 
 @layer base {
-
   html,
   body {
     @apply overflow-x-hidden;
-    /* Fix side scroll */
     width: 100%;
     scroll-behavior: smooth;
   }
@@ -46,7 +37,6 @@
     font-family: var(--font-display);
     position: relative;
     line-height: 1.6;
-    /* Improved typography hierarchy */
   }
 
   ::-webkit-scrollbar {
@@ -62,45 +52,50 @@
   }
 }
 
-/* Cinematic Utility Classes */
+/* Utility Classes */
 .glass-header {
-  @apply bg-[var(--glass-bg)] backdrop-blur-xl border-b border-[var(--glass-border)] transition-all duration-500;
+  @apply bg-background/95 backdrop-blur-lg border-b border-border transition-all duration-300;
 }
 
 .premium-card {
-  @apply bg-surface border border-border rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:border-accent/40 hover:bg-surface-hover;
+  @apply bg-surface border border-border rounded-lg overflow-hidden transition-all duration-300 hover:border-accent/40;
 }
 
-.container-tight {
-  @apply max-w-[1100px] mx-auto px-4;
+/* Prose styling for About section */
+.prose {
+  @apply text-text-dim;
 }
 
-.section-spacing {
-  @apply py-0;
-  /* Zero spacing */
+.prose strong {
+  @apply text-white font-semibold;
 }
 
-.title-xl {
-  @apply text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight leading-[1.1] mb-2 uppercase;
+.prose h1,
+.prose h2,
+.prose h3 {
+  @apply text-white;
 }
 
-.text-label {
-  @apply font-mono text-[11px] uppercase tracking-[0.2em] text-accent font-bold mb-2 block;
+.prose p {
+  @apply mb-4;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-accent;
 }
 
 /* Animations */
-@keyframes cinematic-reveal {
+@keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.reveal-grid>* {
-  animation: cinematic-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.fade-in {
+  animation: fade-in 0.5s ease-out forwards;
 }

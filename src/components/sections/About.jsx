@@ -1,118 +1,62 @@
 
-import OptimizedImage from '../ui/OptimizedImage';
-import Reactions from '../ui/Reactions';
-
 export default function About() {
     return (
-        <section id="about" className="py-4 sm:py-8 bg-[#18191a] border-y border-white/5">
-            <div className="max-w-[1000px] mx-auto px-4 sm:px-6">
+        <section id="about" className="py-8 bg-background">
+            <div className="max-w-[900px] mx-auto px-4 sm:px-8">
 
-                <div className="flex flex-col md:flex-row gap-6">
-
-                    {/* 1. Facebook "Intro" Sidebar */}
-                    <div className="w-full md:w-[360px] space-y-4 shrink-0">
-                        <div className="bg-[#242526] rounded-xl p-4 shadow-sm border border-white/5 space-y-4">
-                            <h3 className="text-xl font-black text-[#e4e6eb] tracking-tight">Intro</h3>
-
-                            <div className="space-y-4">
-                                <p className="text-[15px] text-[#e4e6eb] text-center font-medium leading-relaxed">
-                                    Engineering functional art with the MERN stack. Building scalable digital systems.
-                                </p>
-                            </div>
-
-                            <div className="space-y-3 pt-4 border-t border-white/5">
-                                <div className="flex items-center gap-3 text-[#b0b3b8]">
-                                    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current opacity-60"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z" /></svg>
-                                    <span className="text-[14px]">Works at <strong className="text-[#e4e6eb]">Self-Employed</strong></span>
-                                </div>
-                                <div className="flex items-center gap-3 text-[#b0b3b8]">
-                                    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current opacity-60"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v2.93zm6.91-4.07c-.42-.35-.91-.56-1.41-.71-.24-.07-.49-.15-.74-.22-1.12-.31-2.03-.57-2.76-1.93-.33-.62-.07-1.39.55-1.72.62-.33 1.39-.07 1.72.55.24.46.54.67 1.14.84.28.08.56.16.85.25.75.22 1.5.45 2.12.98.63.53.81 1.34.45 2 .32.32.61.67.87 1.04-.63.4-1.31.72-2.04.93-.24-.31-.5-.65-.79-1.01z" /></svg>
-                                    <span className="text-[14px]">From <strong className="text-[#e4e6eb]">Chittagong, Bangladesh</strong></span>
-                                </div>
-                                <div className="flex items-center gap-3 text-[#b0b3b8]">
-                                    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current opacity-60"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm3.3 14.71L11 12.41V7h2v4.59l3.71 3.71-1.42 1.41z" /></svg>
-                                    <span className="text-[14px]">Joined <strong className="text-[#e4e6eb]">January 2023</strong></span>
-                                </div>
-                                <div className="flex items-center gap-3 text-[#b0b3b8]">
-                                    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current opacity-60"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" /></svg>
-                                    <a href="https://www.instagram.com/shahnawas.adeel/" className="text-[14px] text-[#4599ff] hover:underline font-bold">shahnawas.adeel</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Interests with Real Icons */}
-                        <div className="bg-[#242526] rounded-xl p-3 shadow-sm border border-white/5 space-y-3">
-                            <div className="flex justify-between items-center">
-                                <h3 className="text-base font-black text-[#e4e6eb] tracking-tight">Interests</h3>
-                            </div>
-                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                                {[
-                                    { name: 'Coding', icon: 'M8 3a2 2 0 00-2 2v4a2 2 0 01-2 2H3v2h1a2 2 0 012 2v4a2 2 0 002 2h2v-2H8v-5a2 2 0 00-2-2 2 2 0 002-2V5h2V3H8zm8 0a2 2 0 012 2v4a2 2 0 002 2h1v2h-1a2 2 0 00-2 2v4a2 2 0 01-2 2h-2v-2h2v-5a2 2 0 012-2 2 2 0 01-2-2V5h-2V3h2z' },
-                                    { name: 'Design', icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.5 15.5v-3.5h-4v-4h4V6.5l6 5.5-6 5.5z' },
-                                    { name: 'Gaming', icon: 'M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z' },
-                                    { name: 'Music', icon: 'M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z' },
-                                    { name: 'Chess', icon: 'M19 22H5v-2h14v2M17.16 8.26A4.97 4.97 0 0012 3c-2.76 0-5 2.24-5 5 0 1.63.78 3.07 2 3.97V14h6v-2.03c1.22-.9 2-2.34 2-3.97 0-.24-.03-.48-.08-.74l2.24 2.24 1.41-1.41-2.41-2.41v-.42zM13 18h-2v-4h2v4z' },
-                                    { name: 'Research', icon: 'M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' }
-                                ].map(hobby => (
-                                    <div key={hobby.name} className="bg-white/5 rounded-lg flex flex-col items-center justify-center p-2 border border-white/5 hover:bg-white/10 transition-colors">
-                                        <svg viewBox="0 0 24 24" className="w-5 h-5 fill-[#4599ff] mb-0.5">
-                                            <path d={hobby.icon} />
-                                        </svg>
-                                        <span className="text-[9px] text-[#b0b3b8] font-bold uppercase">{hobby.name}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* 2. Facebook Profile Feed/Content Section */}
-                    <div className="flex-1 space-y-4">
-
-                        {/* Status Update Box Style */}
-
-
-                        {/* Main About Post */}
-                        <div className="bg-[#242526] rounded-xl p-4 shadow-sm border border-white/5 space-y-4">
-                            <div className="flex justify-between items-start">
-                                <div className="flex gap-3">
-                                    <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10 shrink-0">
-                                        <OptimizedImage
-                                            src="/img/hero.jpg"
-                                            alt="Md Adeel"
-                                            className="w-full h-full object-cover"
-                                        />
-                                    </div>
-                                    <div>
-                                        <h4 className="text-[15px] font-bold text-[#e4e6eb] hover:underline cursor-pointer">Md Adeel</h4>
-                                        <p className="text-[13px] text-[#b0b3b8] flex items-center gap-1">
-                                            Jan 19 · <svg viewBox="0 0 24 24" className="w-3 h-3 fill-current opacity-60"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v2.93zm6.91-4.07c-.42-.35-.91-.56-1.41-.71-.24-.07-.49-.15-.74-.22-1.12-.31-2.03-.57-2.76-1.93-.33-.62-.07-1.39.55-1.72.62-.33 1.39-.07 1.72.55.24.46.54.67 1.14.84.28.08.56.16.85.25.75.22 1.5.45 2.12.98.63.53.81 1.34.45 2 .32.32.61.67.87 1.04-.63.4-1.31.72-2.04.93-.24-.31-.5-.65-.79-1.01z" /></svg>
-                                        </p>
-                                    </div>
-                                </div>
-                                <button className="text-[#b0b3b8] hover:bg-white/5 w-8 h-8 rounded-full flex items-center justify-center">•••</button>
-                            </div>
-
-                            <article className="space-y-4 text-[15px] text-[#e4e6eb] leading-relaxed">
-                                <h2 className="text-2xl font-black text-white tracking-tight uppercase italic leading-tight">
-                                    The architecture of <span className="text-[#4599ff] not-italic">Finishing</span>.
-                                </h2>
-                                <p>
-                                    I learn by finishing things, not by collecting tutorials. In an industry where "perfect is the enemy of done," I prioritize shipping functional, maintainable code over theoretical abstractions that never see production.
-                                </p>
-
-                                <p>
-                                    As a <strong className="text-[#4599ff]">MERN Stack Developer</strong>, I find the most interesting problems at the intersection of frontend state management and backend data modeling. My goal is always to build interfaces that feel light while handling complex weights behind the scenes.
-                                </p>
-
-                                <blockquote className="bg-[#3a3b3c] p-4 rounded-xl italic text-[#e4e6eb] font-bold border-l-4 border-[#4599ff]">
-                                    "Most of my growth has come from building complete products, running into real problems, and fixing my own bad decisions."
-                                </blockquote>
-                            </article>
-
-                            <Reactions postId="about-post" />
-                        </div>
-                    </div>
+                {/* Section Header */}
+                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border">
+                    <svg viewBox="0 0 16 16" className="w-5 h-5 fill-text-dim">
+                        <path d="M0 1.75A.75.75 0 01.75 1h4.253c1.227 0 2.317.59 3 1.501A3.744 3.744 0 0111.006 1h4.245a.75.75 0 01.75.75v10.5a.75.75 0 01-.75.75h-4.507a2.25 2.25 0 00-1.591.659l-.622.621a.75.75 0 01-1.06 0l-.622-.621A2.25 2.25 0 005.258 13H.75a.75.75 0 01-.75-.75V1.75zm8.755 3a2.25 2.25 0 012.25-2.25H14.5v9h-3.757c-.71 0-1.4.201-1.992.572l.004-7.322zm-1.504 7.324l.004-5.073-.002-2.253A2.25 2.25 0 005.003 2.5H1.5v9h3.757a3.75 3.75 0 011.994.574z" />
+                    </svg>
+                    <h2 className="text-lg font-bold text-white">README.md</h2>
                 </div>
+
+                {/* Content */}
+                <article className="prose prose-invert max-w-none">
+                    <h1 className="text-2xl font-bold text-white mb-4">
+                        The Architecture of <span className="text-accent">Finishing</span>
+                    </h1>
+
+                    <p className="text-text-dim leading-relaxed mb-4">
+                        I learn by finishing things, not by collecting tutorials. In an industry where "perfect is the enemy of done," I prioritize shipping functional, maintainable code over theoretical abstractions that never see production.
+                    </p>
+
+                    <p className="text-text-dim leading-relaxed mb-6">
+                        As a <strong className="text-white">MERN Stack Developer</strong>, I find the most interesting problems at the intersection of frontend state management and backend data modeling. My goal is always to build interfaces that feel light while handling complex weights behind the scenes.
+                    </p>
+
+                    <blockquote className="border-l-4 border-accent bg-surface/50 p-4 rounded-r-lg my-6">
+                        <p className="text-white/90 italic m-0">
+                            "Most of my growth has come from building complete products, running into real problems, and fixing my own bad decisions."
+                        </p>
+                    </blockquote>
+
+                    {/* Quick Facts */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 pt-6 border-t border-border">
+                        <div className="flex items-start gap-3">
+                            <svg viewBox="0 0 16 16" className="w-4 h-4 fill-accent mt-1 flex-shrink-0"><path d="M1.5 14.25c0 .138.112.25.25.25H4v-1.25a.75.75 0 01.75-.75h2.5a.75.75 0 01.75.75v1.25h2.25a.25.25 0 00.25-.25V1.75a.25.25 0 00-.25-.25h-8.5a.25.25 0 00-.25.25v12.5zM1.75 16A1.75 1.75 0 010 14.25V1.75C0 .784.784 0 1.75 0h8.5C11.216 0 12 .784 12 1.75v12.5c0 .085-.006.168-.018.25h2.268a.25.25 0 00.25-.25V8.285a.25.25 0 00-.111-.208l-1.055-.703a.75.75 0 11.832-1.248l1.055.703c.487.325.779.871.779 1.456v5.965A1.75 1.75 0 0114.25 16h-3.5a.75.75 0 01-.197-.026c-.099.017-.2.026-.303.026h-3a.75.75 0 01-.75-.75V14h-1v1.25a.75.75 0 01-.75.75h-3zM3 3.75A.75.75 0 013.75 3h.5a.75.75 0 010 1.5h-.5A.75.75 0 013 3.75zM3.75 6a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5zM3 9.75A.75.75 0 013.75 9h.5a.75.75 0 010 1.5h-.5A.75.75 0 013 9.75zM7.75 9a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5zM7 6.75A.75.75 0 017.75 6h.5a.75.75 0 010 1.5h-.5A.75.75 0 017 6.75zM7.75 3a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5z" /></svg>
+                            <div>
+                                <p className="text-sm font-medium text-white">Self-Employed</p>
+                                <p className="text-xs text-text-dim">Freelance Developer</p>
+                            </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                            <svg viewBox="0 0 16 16" className="w-4 h-4 fill-accent mt-1 flex-shrink-0"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zM2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484-.08.08-.162.158-.242.234-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7.003 7.003 0 002.04 4.326z" /></svg>
+                            <div>
+                                <p className="text-sm font-medium text-white">Chittagong, Bangladesh</p>
+                                <p className="text-xs text-text-dim">Location</p>
+                            </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                            <svg viewBox="0 0 16 16" className="w-4 h-4 fill-accent mt-1 flex-shrink-0"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z" /></svg>
+                            <div>
+                                <p className="text-sm font-medium text-white">Open to Work</p>
+                                <p className="text-xs text-text-dim">Available for hire</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
     );

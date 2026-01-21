@@ -1,141 +1,106 @@
-
-
 const experiences = [
   {
-    id: "EXP-01",
     company: "Freelance",
     role: "MERN Stack Developer",
     period: "2023 - Present",
-    status: "In Progress",
-    priority: "High",
-    labels: ["Next.js", "Node.js", "MongoDB"],
-    desc: "Leading full-stack development for client applications. Focused on React performance, scalable APIs, and production-ready architecture."
+    type: "current",
+    description: "Leading full-stack development for client applications. Building scalable React frontends, Node.js APIs, and MongoDB databases.",
+    highlights: ["Next.js", "Node.js", "MongoDB", "TypeScript"]
   },
   {
-    id: "EXP-02",
     company: "Local Agency",
     role: "Frontend Engineer",
     period: "2022 - 2023",
-    status: "Done",
-    priority: "Medium",
-    labels: ["React", "TypeScript", "Tailwind"],
-    desc: "Architected responsive UIs and component libraries. Integrated complex data visualizations and optimized bundle performance."
+    type: "past",
+    description: "Architected responsive UIs and component libraries. Integrated complex data visualizations and optimized bundle performance.",
+    highlights: ["React", "TypeScript", "Tailwind CSS"]
   },
   {
-    id: "EXP-03",
     company: "Self-Learning",
     role: "Web Developer",
     period: "2021 - 2022",
-    status: "Done",
-    priority: "Low",
-    labels: ["HTML", "CSS", "JavaScript"],
-    desc: "Built foundational skills through personal projects, learning production-level Git workflows and deployment processes."
+    type: "past",
+    description: "Built foundational skills through personal projects. Learned production-level Git workflows and deployment processes.",
+    highlights: ["HTML", "CSS", "JavaScript", "Git"]
   }
 ];
 
-const StatusIcon = ({ status }) => {
-  if (status === "Done") {
-    return (
-      <svg viewBox="0 0 16 16" className="w-3 h-3 fill-purple-500">
-        <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="2" fill="none" opacity="0.3" />
-        <path d="M5 8l2 2 4-4" stroke="currentColor" strokeWidth="2" fill="none" />
-      </svg>
-    );
-  }
-  return (
-    <svg viewBox="0 0 16 16" className="w-3 h-3 fill-blue-500">
-      <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="2" fill="none" />
-      <path d="M8 4v8M4 8h8" stroke="currentColor" strokeWidth="1.5" fill="none" className="rotate-45 origin-center" />
-    </svg>
-  );
-};
-
 export default function Experience() {
   return (
-    <section id="experience" className="py-8 bg-[#18191a] border-t border-white/5">
-      <div className="max-w-[900px] mx-auto px-6">
+    <section id="experience" className="py-8 bg-background">
+      <div className="max-w-[900px] mx-auto px-4 sm:px-8">
 
-        {/* Linear Header */}
-        <div className="flex items-center justify-between mb-8 border-b border-white/5 pb-4">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 px-2 py-1 bg-white/5 rounded border border-white/10">
-              <span className="text-[10px] font-bold text-text-dim/60 uppercase tracking-widest">Roadmap</span>
-            </div>
-            <h2 className="text-sm font-bold text-white tracking-tight uppercase">Professional History</h2>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="hidden sm:flex items-center gap-1 text-[10px] font-bold text-text-dim/40 uppercase tracking-widest">
-              <span>View</span>
-              <div className="flex bg-white/5 rounded p-0.5 border border-white/10">
-                <div className="px-2 py-0.5 bg-white/10 rounded text-white italic">List</div>
-                <div className="px-2 py-0.5">Board</div>
-              </div>
-            </div>
-          </div>
+        {/* Section Header */}
+        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border">
+          <svg viewBox="0 0 16 16" className="w-5 h-5 fill-text-dim">
+            <path d="M1.643 3.143L.427 1.927A.25.25 0 000 2.104V5.75c0 .138.112.25.25.25h3.646a.25.25 0 00.177-.427L2.715 4.215a6.5 6.5 0 11-1.18 4.458.75.75 0 10-1.493.154 8.001 8.001 0 101.6-5.684zM7.75 4a.75.75 0 01.75.75v2.992l2.028.812a.75.75 0 01-.557 1.392l-2.5-1A.75.75 0 017 8.25v-3.5A.75.75 0 017.75 4z" />
+          </svg>
+          <h2 className="text-lg font-bold text-white">Contribution History</h2>
         </div>
 
-        {/* Issue List Style */}
-        <div className="space-y-px border border-white/5 rounded-lg overflow-hidden bg-white/[0.02]">
-          {experiences.map((exp, idx) => (
-            <div
-              key={exp.id}
-              className="group flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 hover:bg-white/[0.04] transition-all border-b border-white/5 last:border-0 relative overflow-hidden"
-            >
-              {/* Status & ID */}
-              <div className="flex items-center gap-3 shrink-0">
-                <StatusIcon status={exp.status} />
-                <span className="text-[10px] font-mono text-text-dim/40 font-bold tracking-tight">{exp.id}</span>
-              </div>
+        {/* Timeline */}
+        <div className="relative">
+          {/* Vertical Line */}
+          <div className="absolute left-[11px] top-2 bottom-2 w-0.5 bg-border" />
 
-              {/* Title & Role */}
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-3 flex-wrap">
-                  <h3 className="text-xs font-black text-white uppercase tracking-tight group-hover:text-purple-400 transition-colors">
-                    {exp.company}
-                  </h3>
-                  <span className="text-[10px] text-text-dim/30 font-bold uppercase tracking-widest flex items-center gap-1">
-                    <span className="w-1 h-1 rounded-full bg-white/10" />
-                    {exp.role}
-                  </span>
+          <div className="space-y-6">
+            {experiences.map((exp, idx) => (
+              <div key={idx} className="relative pl-10">
+                {/* Timeline Dot */}
+                <div className={`absolute left-0 top-1.5 w-6 h-6 rounded-full border-2 flex items-center justify-center ${exp.type === 'current'
+                    ? 'bg-[#238636] border-[#238636]'
+                    : 'bg-surface border-border'
+                  }`}>
+                  {exp.type === 'current' ? (
+                    <svg viewBox="0 0 16 16" className="w-3 h-3 fill-white">
+                      <path d="M8 4a4 4 0 100 8 4 4 0 000-8z" />
+                    </svg>
+                  ) : (
+                    <svg viewBox="0 0 16 16" className="w-3 h-3 fill-text-dim">
+                      <path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z" />
+                    </svg>
+                  )}
                 </div>
-                <p className="text-[11px] text-text-dim/50 font-medium mt-1 line-clamp-1 group-hover:line-clamp-none transition-all duration-300">
-                  {exp.desc}
-                </p>
-              </div>
 
-              {/* Labels & Meta */}
-              <div className="flex items-center gap-3 shrink-0">
-                <div className="flex gap-1.5">
-                  {exp.labels.map(label => (
-                    <span key={label} className="px-1.5 py-0.5 rounded bg-white/5 border border-white/5 text-[9px] font-bold text-text-dim/40 uppercase tracking-tight group-hover:border-purple-500/20 group-hover:text-purple-400/60 transition-colors">
-                      {label}
+                {/* Content Card */}
+                <div className="bg-surface border border-border rounded-lg p-4 hover:border-accent/30 transition-colors">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+                    <div>
+                      <h3 className="font-semibold text-white">{exp.role}</h3>
+                      <p className="text-sm text-text-dim">{exp.company}</p>
+                    </div>
+                    <span className="text-xs font-medium text-text-dim bg-surface-hover px-2 py-1 rounded self-start">
+                      {exp.period}
                     </span>
-                  ))}
-                </div>
-                <span className="hidden lg:block text-[9px] font-black text-text-dim/20 uppercase tracking-widest w-24 text-right">
-                  {exp.period}
-                </span>
-              </div>
+                  </div>
 
-              {/* Hover Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/0 via-purple-500/[0.02] to-purple-500/0 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-500" />
-            </div>
-          ))}
+                  <p className="text-sm text-text-dim/80 mb-3 leading-relaxed">
+                    {exp.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {exp.highlights.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-0.5 text-xs font-medium bg-accent/10 text-accent rounded-full border border-accent/20"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Footer Stats */}
-        <div className="mt-6 flex items-center justify-between px-2">
-          <div className="flex gap-4">
-            <div className="flex items-center gap-1.5">
-              <div className="w-1.5 h-1.5 rounded-full bg-purple-500" />
-              <span className="text-[10px] font-bold text-text-dim/40 uppercase tracking-widest">3 Issues</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <div className="w-1.5 h-1.5 rounded-full bg-green-500/40" />
-              <span className="text-[10px] font-bold text-text-dim/40 uppercase tracking-widest">1 Active</span>
-            </div>
-          </div>
-          <div className="text-[9px] font-mono text-text-dim/20">Updated 2m ago</div>
+        {/* Footer */}
+        <div className="mt-8 pt-6 border-t border-border flex items-center gap-2 text-sm text-text-dim">
+          <svg viewBox="0 0 16 16" className="w-4 h-4 fill-current opacity-60">
+            <path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+            <path d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z" />
+          </svg>
+          <span>{new Date().getFullYear() - 2021}+ years of continuous learning and building</span>
         </div>
       </div>
     </section>
