@@ -40,17 +40,17 @@ export default function Hero() {
                         </p>
 
                         {/* Action Buttons */}
-                        <div className="flex flex-wrap gap-3">
+                        <div className="flex flex-wrap gap-4">
                             <a
                                 href="#contact"
-                                className="px-5 py-2.5 bg-[#238636] hover:bg-[#2ea043] text-white rounded-md font-semibold text-sm transition-colors"
+                                className="px-6 py-3 bg-primary hover:bg-primary-hover text-white rounded-md font-semibold text-sm transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 transform hover:-translate-y-0.5"
                             >
                                 Get in Touch
                             </a>
                             <a
                                 href="/Shahnawas_Adeel_CV.pdf"
                                 download
-                                className="px-5 py-2.5 bg-surface hover:bg-surface-hover border border-border text-white rounded-md font-semibold text-sm transition-colors flex items-center gap-2"
+                                className="px-6 py-3 bg-surface hover:bg-surface-hover text-white rounded-md font-semibold text-sm transition-all flex items-center gap-2 hover:bg-surface-hover/80"
                             >
                                 <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" /></svg>
                                 Resume

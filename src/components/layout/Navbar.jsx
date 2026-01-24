@@ -28,11 +28,11 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className={`fixed top-0 left-0 w-full z-[500] h-16 flex items-center transition-all duration-300 ${scrolled ? 'bg-background/95 backdrop-blur-lg border-b border-border' : 'bg-transparent'}`}>
-                <div className="max-w-[900px] mx-auto w-full px-4 sm:px-8 flex items-center justify-between">
+            <nav className={`fixed top-0 left-0 w-full z-50 h-16 flex items-center transition-all duration-300 ${scrolled ? 'glass-header' : 'bg-transparent'}`}>
+                <div className="max-w-[900px] mx-auto w-full px-6 flex items-center justify-between">
 
                     {/* Brand */}
-                    <a href="#" className="flex items-center gap-2 group relative z-[510]">
+                    <a href="#" className="flex items-center gap-2 group relative z-50">
                         <img
                             src="/logo.png"
                             alt="Logo"
@@ -57,7 +57,7 @@ export default function Navbar() {
 
                         <a
                             href="#contact"
-                            className="hidden md:block px-4 py-2 bg-[#238636] hover:bg-[#2ea043] text-white rounded-md font-medium text-sm transition-colors"
+                            className="hidden md:block px-4 py-2 bg-primary hover:bg-primary-hover text-white rounded-md font-medium text-sm transition-colors shadow-lg shadow-primary/20"
                         >
                             Get in Touch
                         </a>
@@ -83,7 +83,7 @@ export default function Navbar() {
             </nav>
 
             {/* Mobile Menu Overlay */}
-            <div className={`fixed inset-0 bg-background/98 backdrop-blur-xl z-[500] md:hidden transition-all duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+            <div className={`fixed inset-0 bg-background/98 backdrop-blur-xl z-40 md:hidden transition-all duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
                 <button
                     onClick={() => setIsOpen(false)}
                     className="absolute top-5 right-5 p-2 text-text-dim hover:text-white transition-colors"
@@ -109,7 +109,7 @@ export default function Navbar() {
                     <a
                         href="#contact"
                         onClick={() => setIsOpen(false)}
-                        className={`px-6 py-3 bg-[#238636] text-white rounded-md font-medium text-sm transition-all duration-300 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                        className={`px-6 py-3 bg-primary text-white rounded-md font-medium text-sm transition-all duration-300 shadow-lg shadow-primary/20 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                         style={{ transitionDelay: '350ms' }}
                     >
                         Get in Touch

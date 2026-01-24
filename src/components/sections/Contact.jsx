@@ -49,7 +49,7 @@ export default function Contact() {
                                 {SOCIALS.map((social) => (
                                     <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer"
                                         className="w-10 h-10 flex items-center justify-center rounded-lg bg-surface hover:bg-surface-hover border border-border hover:border-accent/50 transition-all">
-                                        <svg viewBox="0 0 24 24" className="w-5 h-5 fill-text-dim hover:fill-white transition-colors">
+                                        <svg viewBox="0 0 24 24" className="w-5 h-5 fill-text-dim hover:fill-text-primary transition-colors">
                                             <path d={social.icon} />
                                         </svg>
                                     </a>

@@ -52,9 +52,9 @@ export default function Experience() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: idx * 0.15 }}
               >
-                <div className={`absolute left-0 top-1.5 w-6 h-6 rounded-full border-2 flex items-center justify-center ${exp.type === 'current'
-                  ? 'bg-[#238636] border-[#238636]'
-                  : 'bg-surface border-border'
+                <div className={`absolute left-0 top-1.5 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all z-10 ${exp.type === 'current'
+                  ? 'bg-primary border-primary scale-110 shadow-lg shadow-primary/30'
+                  : 'bg-surface border-border group-hover:border-accent/50'
                   }`}>
                   {exp.type === 'current' ? (
                     <svg viewBox="0 0 16 16" className="w-3 h-3 fill-white">
@@ -67,20 +67,25 @@ export default function Experience() {
                   )}
                 </div>
 
-                <div className="bg-surface border border-border rounded-lg p-4 hover:border-accent/30 transition-colors">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+                <div className="group bg-surface rounded-xl p-6 hover:bg-surface-hover transition-all duration-300 ml-4 relative">
+                  <div className="absolute left-[-21px] top-4 w-4 h-0.5 bg-border group-hover:bg-accent/50 transition-colors"></div>
+
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
                     <div>
-                      <h3 className="font-semibold text-white">{exp.role}</h3>
-                      <p className="text-sm text-text-dim">{exp.company}</p>
+                      <h3 className="text-lg font-bold text-white group-hover:text-accent transition-colors">{exp.role}</h3>
+                      <p className="text-sm text-text-dim font-medium">{exp.company}</p>
                     </div>
-                    <span className="text-xs font-medium text-text-dim bg-surface-hover px-2 py-1 rounded self-start">
+                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${exp.type === 'current'
+                      ? 'bg-primary/10 text-primary border-primary/20'
+                      : 'bg-background text-text-dim border-border'
+                      }`}>
                       {exp.period}
                     </span>
                   </div>
-                  <p className="text-sm text-text-dim/80 mb-3 leading-relaxed">{exp.description}</p>
+                  <div className="text-base text-text-dim/90 mb-4 leading-relaxed">{exp.description}</div>
                   <div className="flex flex-wrap gap-2">
                     {exp.highlights.map((tech) => (
-                      <span key={tech} className="px-2 py-0.5 text-xs font-medium bg-accent/10 text-accent rounded-full border border-accent/20">
+                      <span key={tech} className="px-2.5 py-0.5 text-xs font-medium bg-background text-text-dim rounded-md border border-border/50 group-hover:border-accent/20 transition-colors">
                         {tech}
                       </span>
                     ))}
