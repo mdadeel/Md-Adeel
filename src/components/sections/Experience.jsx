@@ -3,28 +3,23 @@ import { motion } from 'framer-motion';
 const experiences = [
   {
     company: "Freelance",
-    role: "MERN Stack Developer",
-    period: "2023 - Present",
+    role: "Frontend Developer",
+    period: "2025 - Present",
     type: "current",
-    description: "Leading full-stack development for client applications. Building scalable React frontends, Node.js APIs, and MongoDB databases.",
-    highlights: ["Next.js", "Node.js", "MongoDB", "TypeScript"]
+    description: (
+      <span>
+        Delivered custom web solutions for local businesses, managing the full lifecycle from client requirement gathering to deployment and handover.
+        <span className="block mt-2">
+          <strong className="text-white">• Metro Optics:</strong> Engineered a full-featured e-commerce platform for a local eyewear retailer using React.js and Tailwind CSS, resulting in their first online sales channel.
+        </span>
+        <span className="block mt-1">
+          <strong className="text-white">• Ayash Tech:</strong> Developed a high-performance corporate portfolio site for a tech consultancy, improving their brand visibility and lead generation via optimized contact forms.
+        </span>
+      </span>
+    ),
+    highlights: ["React.js", "Tailwind CSS", "E-commerce", "Performance"]
   },
-  {
-    company: "Local Agency",
-    role: "Frontend Engineer",
-    period: "2022 - 2023",
-    type: "past",
-    description: "Architected responsive UIs and component libraries. Integrated complex data visualizations and optimized bundle performance.",
-    highlights: ["React", "TypeScript", "Tailwind CSS"]
-  },
-  {
-    company: "Self-Learning",
-    role: "Web Developer",
-    period: "2021 - 2022",
-    type: "past",
-    description: "Built foundational skills through personal projects. Learned production-level Git workflows and deployment processes.",
-    highlights: ["HTML", "CSS", "JavaScript", "Git"]
-  }
+
 ];
 
 export default function Experience() {
@@ -58,8 +53,8 @@ export default function Experience() {
                 transition={{ duration: 0.5, delay: idx * 0.15 }}
               >
                 <div className={`absolute left-0 top-1.5 w-6 h-6 rounded-full border-2 flex items-center justify-center ${exp.type === 'current'
-                    ? 'bg-[#238636] border-[#238636]'
-                    : 'bg-surface border-border'
+                  ? 'bg-[#238636] border-[#238636]'
+                  : 'bg-surface border-border'
                   }`}>
                   {exp.type === 'current' ? (
                     <svg viewBox="0 0 16 16" className="w-3 h-3 fill-white">
@@ -107,7 +102,7 @@ export default function Experience() {
             <path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
             <path d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z" />
           </svg>
-          <span>{new Date().getFullYear() - 2021}+ years of continuous learning and building</span>
+          <span>{new Date().getFullYear() - 2025}+ years of continuous learning and building</span>
         </motion.div>
       </div>
     </section>

@@ -4,7 +4,7 @@ import { projects } from '../../data/projects';
 
 export default function Hero() {
     const stats = useGitHubStats("mdadeel");
-    const yearsExperience = new Date().getFullYear() - 2021;
+    const yearsExperience = new Date().getFullYear() - 2025;
 
     return (
         <section id="hero" className="pt-20 pb-8">
