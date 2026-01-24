@@ -48,7 +48,7 @@ export default function Hero() {
                                 Get in Touch
                             </a>
                             <a
-                                href="/resume.pdf"
+                                href="/Shahnawas_Adeel_CV.pdf"
                                 download
                                 className="px-5 py-2.5 bg-surface hover:bg-surface-hover border border-border text-white rounded-md font-semibold text-sm transition-colors flex items-center gap-2"
                             >

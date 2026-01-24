@@ -1,5 +1,5 @@
-
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { projects } from '../../data/projects';
 import OptimizedImage from '../ui/OptimizedImage';
 import GitHubSearchModal from '../ui/GitHubSearchModal';
@@ -8,128 +8,85 @@ export default function Projects() {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
     return (
-        <section id="work" className="py-8 bg-[#18191a]">
-            <div className="max-w-[1250px] mx-auto px-6">
-
-                {/* GitHub-style Header */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4 border-b border-white/5 pb-6">
-                    <div className="flex items-center gap-4">
-                        <svg viewBox="0 0 24 24" className="w-8 h-8 fill-white/60">
-                            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+        <section id="work" className="py-8 bg-background">
+            <div className="max-w-[900px] mx-auto px-4 sm:px-8">
+                <motion.div
+                    className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4 border-b border-border pb-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <div className="flex items-center gap-3">
+                        <svg viewBox="0 0 16 16" className="w-5 h-5 fill-text-dim">
+                            <path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9z" />
                         </svg>
                         <div>
-                            <h2 className="text-xl font-black text-white tracking-tight">Repositories</h2>
-                            <p className="text-[12px] text-text-dim/40 font-medium">{projects.length} public repositories</p>
+                            <h2 className="text-lg font-bold text-white">Repositories</h2>
+                            <p className="text-xs text-text-dim">{projects.length} public repositories</p>
                         </div>
                     </div>
-                    <div className="flex gap-2">
-                        <button
-                            onClick={() => setIsSearchOpen(true)}
-                            className="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-white/20 transition-colors cursor-pointer"
-                        >
-                            <svg viewBox="0 0 24 24" className="w-4 h-4 fill-text-dim/40"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" /></svg>
-                            <span className="text-[11px] text-text-dim/40 font-medium">Find a repository...</span>
-                        </button>
-                    </div>
-                </div>
+                    <button onClick={() => setIsSearchOpen(true)}
+                        className="flex items-center gap-2 px-3 py-1.5 bg-surface border border-border rounded-md hover:bg-surface-hover transition-colors text-sm text-text-dim">
+                        <svg viewBox="0 0 16 16" className="w-4 h-4 fill-current"><path d="M11.5 7a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm-.82 4.74a6 6 0 111.06-1.06l3.04 3.04a.75.75 0 11-1.06 1.06l-3.04-3.04z" /></svg>
+                        Find a repository...
+                    </button>
+                </motion.div>
 
-                {/* Repository List */}
                 <div className="space-y-4">
                     {projects.map((project, idx) => (
-                        <div
+                        <motion.div
                             key={project.id}
-                            className="group p-5 bg-[#242526] rounded-xl border border-white/5 hover:border-white/10 transition-all"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.5, delay: idx * 0.1 }}
+                            className="group p-5 bg-surface rounded-lg border border-border hover:border-accent/30 transition-all"
                         >
                             <div className="flex flex-col lg:flex-row gap-6">
-                                {/* Image Preview */}
-                                <div className="w-full lg:w-[280px] aspect-video rounded-lg overflow-hidden bg-[#1e1e1e] border border-white/5 shrink-0">
-                                    <OptimizedImage
-                                        src={project.image}
-                                        alt={project.name}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                    />
+                                <div className="w-full lg:w-[240px] aspect-video rounded-md overflow-hidden bg-background border border-border shrink-0">
+                                    <OptimizedImage src={project.image} alt={project.name}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                                 </div>
-
-                                {/* Content */}
                                 <div className="flex-1 flex flex-col justify-between">
                                     <div className="space-y-3">
-                                        {/* Title Row */}
                                         <div className="flex items-start justify-between gap-4">
                                             <div>
-                                                <h3 className="text-lg font-black text-[#4599ff] hover:underline cursor-pointer tracking-tight">
-                                                    {project.name}
-                                                </h3>
-                                                <span className="text-[11px] text-text-dim/40 font-medium">{project.category}</span>
+                                                <h3 className="font-semibold text-accent hover:underline cursor-pointer">{project.name}</h3>
+                                                <span className="text-xs text-text-dim">{project.category}</span>
                                             </div>
-                                            <span className="px-2 py-0.5 rounded-full border border-white/10 text-[9px] font-black text-text-dim/40 uppercase tracking-widest shrink-0">
-                                                Public
-                                            </span>
+                                            <span className="px-2 py-0.5 rounded-full border border-border text-xs text-text-dim">Public</span>
                                         </div>
-
-                                        {/* Description */}
-                                        <p className="text-[13px] text-text-dim/60 leading-relaxed line-clamp-2">
-                                            {project.problem}
-                                        </p>
-
-                                        {/* Tech Stack */}
+                                        <p className="text-sm text-text-dim/80 leading-relaxed line-clamp-2">{project.problem}</p>
                                         <div className="flex flex-wrap gap-2">
                                             {project.tech.map(t => (
-                                                <span key={t} className="px-2 py-0.5 rounded-full bg-[#4599ff]/10 text-[10px] font-bold text-[#4599ff] border border-[#4599ff]/20">
-                                                    {t}
-                                                </span>
+                                                <span key={t} className="px-2 py-0.5 rounded-full bg-accent/10 text-xs font-medium text-accent border border-accent/20">{t}</span>
                                             ))}
                                         </div>
                                     </div>
-
-                                    {/* Action Buttons */}
-                                    <div className="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-white/5">
-                                        <a
-                                            href={project.liveUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center gap-2 px-3 py-2 bg-[#238636] hover:bg-[#2ea043] text-white rounded-lg text-[10px] font-black uppercase tracking-wider transition-colors"
-                                        >
-                                            <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-current">
-                                                <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
-                                            </svg>
+                                    <div className="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-border">
+                                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer"
+                                            className="flex items-center gap-2 px-3 py-2 bg-[#238636] hover:bg-[#2ea043] text-white rounded-md text-xs font-medium transition-colors">
+                                            <svg viewBox="0 0 16 16" className="w-3.5 h-3.5 fill-current"><path d="M10.604 1h4.146a.25.25 0 01.25.25v4.146a.25.25 0 01-.427.177L13.03 4.03 9.28 7.78a.75.75 0 01-1.06-1.06l3.75-3.75-1.543-1.543A.25.25 0 0110.604 1z" /></svg>
                                             Demo
                                         </a>
-                                        <a
-                                            href={project.githubUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center gap-2 px-3 py-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-lg text-[10px] font-black uppercase tracking-wider transition-colors"
-                                        >
-                                            <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-current">
-                                                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-                                            </svg>
+                                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer"
+                                            className="flex items-center gap-2 px-3 py-2 bg-surface-hover border border-border text-white rounded-md text-xs font-medium transition-colors hover:bg-background">
+                                            <svg viewBox="0 0 16 16" className="w-3.5 h-3.5 fill-current"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" /></svg>
                                             Code
                                         </a>
-                                        <div className="hidden sm:flex items-center gap-3 ml-auto text-text-dim/30">
-                                            <div className="flex items-center gap-1.5 text-[10px] font-bold">
-                                                <div className="w-2 h-2 rounded-full bg-yellow-500" />
-                                                JS
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
 
-                {/* Footer */}
-                <div className="mt-6 text-center">
-                    <p className="text-[10px] font-bold text-text-dim/20 uppercase tracking-[0.3em]">
-                        Pinned repositories from @mdadeel
-                    </p>
-                </div>
+                <motion.div className="mt-6 text-center" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
+                    <p className="text-xs text-text-dim">Pinned repositories from @mdadeel</p>
+                </motion.div>
 
-                {/* GitHub Search Modal */}
-                <GitHubSearchModal
-                    isOpen={isSearchOpen}
-                    onClose={() => setIsSearchOpen(false)}
-                />
+                <GitHubSearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
             </div>
         </section>
     );
